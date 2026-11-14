@@ -1,0 +1,1661 @@
+/* =========================================
+   TEMA SPORTY GERAK (dari Gerak Pertama)
+   Hitam #111111, oranye #F26B21, font Barlow tebal miring
+   ========================================= */
+
+/* judul gaya sporty: tebal, miring, huruf besar */
+
+h1,
+h2,
+h3,
+.logo {
+  font-style: normal;
+}
+
+/* tombol gaya sporty */
+
+.tombol,
+.tombol-masuk-daftar {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+/* navbar hitam (desktop & HP) */
+
+body:not(.kontras) .navbar {
+  border-bottom: 1px solid #262626;
+}
+
+.menu a {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  text-transform: none;
+  font-size: 1.05rem;
+}
+
+body:not(.kontras) .menu a {
+  color: #A9A9A9;
+  border-bottom: 3px solid transparent;
+}
+
+body:not(.kontras) .menu a:hover,
+body:not(.kontras) .menu a[aria-current="page"] {
+  color: #FFFFFF;
+  border-bottom: 3px solid #22C55E;
+}
+
+body:not(.kontras) .navbar .tombol-ikon {
+  box-shadow: none;
+}
+
+@media (max-width: 680px) {
+  body:not(.kontras) .menu {
+    background: #111111;
+    border-bottom: 1px solid #262626;
+  }
+
+  /* navbar HP jadi 2 baris biar semua tombol (termasuk ☰) muat di layar */
+
+  .navbar {
+    flex-wrap: wrap;
+    row-gap: 8px;
+    padding: 10px 16px;
+  }
+
+  .nav-tombol {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-tombol .tombol-ikon {
+    width: 40px;
+    min-width: 40px;
+  }
+}
+
+/* =========================================
+   INTRO (dari Gerak Pertama) — muncul tiap web dibuka, nggak bisa di-skip
+   ========================================= */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: #0B1220;
+  color: #FFFFFF;
+  text-align: center;
+  /* setelah 3 detik, layar intro naik ke atas */
+  animation: intro-naik 0.8s 3s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+#intro h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+#intro h1 span {
+  display: inline-block;
+}
+
+.intro-logo {
+  font-size: 4.5rem;
+}
+
+#intro p {
+  margin: 0;
+  padding: 6px 14px;
+  border: 1px solid #333333;
+  border-radius: 999px;
+  color: #A9A9A9;
+  font-size: 0.85rem;
+}
+
+/* tiap ikon/kata muncul dari blur jadi jelas */
+
+#intro h1 span,
+#intro p {
+  opacity: 0;
+  animation: intro-muncul 0.6s ease-out forwards;
+}
+
+@keyframes intro-muncul {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-naik {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+
+/* =========================================
+   HALAMAN MASUK/DAFTAR (desain Gerak Pertama): kartu kaca + panel geser
+   ========================================= */
+
+dialog.dialog-auth {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 16px;
+  border: none;
+  overflow-y: auto;
+  color: #F2F2F2;
+  background: radial-gradient(circle at 15% 10%, rgba(34, 197, 94, 0.25), transparent 40%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 2px, transparent 2px 70px),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 110px),
+    #0B0B0D;
+}
+
+dialog.dialog-auth[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutup-auth {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 1.1rem;
+}
+
+.auth {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 480px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.auth-form,
+.auth-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 48px;
+  transition: all 0.6s ease;
+}
+
+.auth-daftar {
+  right: 0;
+}
+
+.auth-masuk {
+  left: 0;
+}
+
+/* form yang nggak aktif disembunyiin */
+
+.auth-masuk,
+.mode-masuk .auth-daftar {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mode-masuk .auth-masuk {
+  opacity: 1;
+  visibility: visible;
+}
+
+.auth h2 {
+  margin: 0 0 20px;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+/* panel sapaan, pinggirnya miring */
+
+.auth-panel {
+  left: 0;
+  z-index: 2;
+  background: radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.35), transparent 60%), #17171A;
+  clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
+}
+
+.mode-masuk .auth-panel {
+  left: 50%;
+  padding-left: 96px;
+  clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.auth-panel h2 {
+  font-size: 2.8rem;
+}
+
+.auth-panel p {
+  max-width: 280px;
+  color: #C9C9C9;
+}
+
+.auth-aksen {
+  color: #22C55E;
+}
+
+.panel-masuk,
+.mode-masuk .panel-daftar {
+  display: none;
+}
+
+.mode-masuk .panel-masuk {
+  display: block;
+}
+
+/* efek blur pas ganti mode */
+
+.auth.ganti {
+  animation: auth-blur 0.6s ease;
+}
+
+@keyframes auth-blur {
+  50% {
+    filter: blur(6px);
+    opacity: 0.7;
+  }
+}
+
+/* input garis bawah + ikon */
+
+.garis {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: 400;
+}
+
+.garis:focus-within {
+  border-color: #22C55E;
+}
+
+.garis > span:first-child {
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+
+.pw {
+  flex: 1;
+  position: relative;
+  display: block;
+}
+
+.auth .garis input {
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 1rem;
+  box-shadow: none;
+}
+
+.auth .garis input:focus {
+  outline: none;
+}
+
+.pw input {
+  padding-right: 60px;
+}
+
+/* tombol Lihat/Tutup di dalam kolom password */
+
+.pw button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #22C55E;
+  font-weight: 700;
+}
+
+.garis input::placeholder {
+  color: #9A9A9A;
+}
+
+/* pilih dari saran browser (autofill) = tampilan sama kayak ngetik sendiri */
+
+.auth input:-webkit-autofill {
+  -webkit-text-fill-color: #F2F2F2;
+  caret-color: #F2F2F2;
+  transition: background-color 9999s;
+}
+
+.auth-utama,
+.auth-garis {
+  font-style: normal;
+  text-transform: none;
+  padding: 11px 20px;
+  border-radius: 999px;
+}
+
+.auth-utama {
+  width: 100%;
+  background: #22C55E;
+  color: #0B1220;
+  border: 2px solid #22C55E;
+}
+
+.auth-garis {
+  align-self: flex-start;
+  margin-top: 18px;
+  background: none;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+}
+
+.auth-sub {
+  margin-top: 14px;
+  color: #9A9A9A;
+  text-align: center;
+}
+
+.auth-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #22C55E;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* mode kontras tinggi */
+
+body.kontras dialog.dialog-auth,
+body.kontras .auth,
+body.kontras .auth-panel {
+  background: #000000;
+  border-color: #FFFFFF;
+}
+
+body.kontras .garis {
+  border-bottom: 2px solid #FFFFFF;
+}
+
+body.kontras .auth-utama {
+  background: #FFE600;
+  border-color: #FFE600;
+  color: #000000;
+}
+
+body.kontras .auth-aksen,
+body.kontras .auth-link,
+body.kontras .pw button {
+  color: #FFE600;
+}
+
+body.kontras .auth-sub,
+body.kontras .auth-panel p {
+  color: #FFFFFF;
+}
+
+/* =========================================
+   LOADING SETELAH MASUK (dari Gerak Pertama): logo terbang ke navbar
+   ========================================= */
+
+#loading {
+  position: fixed;
+  inset: 0;
+  z-index: 100500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: #0B1220;
+  color: #FFFFFF;
+  transition: background 0.8s;
+}
+
+#loading[hidden] {
+  display: none;
+}
+
+.loading-logo {
+  font-size: 3.5rem;
+  line-height: 1;
+  transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+/* huruf G-E-R-A-K muncul satu per satu */
+
+.loading-logo i,
+.loading-logo span {
+  display: inline-block;
+  opacity: 0;
+  animation: intro-muncul 0.5s ease-out forwards;
+}
+
+.loading-bar {
+  background: #2A2A2E;
+  overflow: hidden;
+}
+
+/* bar energi bergaris, keisi dari 0 sampai penuh */
+
+.loading-bar div {
+  height: 100%;
+  background: repeating-linear-gradient(90deg, #22C55E 0 16px, transparent 16px 19px);
+  animation: isi-bar 1.5s ease-out forwards;
+}
+
+#loading p {
+  margin: 0;
+}
+
+@keyframes isi-bar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* loading selesai: latar memudar, bar & teks hilang, isi halaman naik */
+
+#loading.selesai {
+  background: transparent;
+  pointer-events: none;
+}
+
+#loading.selesai .loading-bar,
+#loading.selesai p {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#loading.selesai ~ main {
+  animation: naik-masuk 0.8s ease-out;
+}
+
+@keyframes naik-masuk {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+body.kontras .loading-bar div {
+  background: #FFE600;
+}
+
+/* yang matiin animasi di pengaturan sistem: intro langsung lewat */
+
+@media (prefers-reduced-motion: reduce) {
+  #intro {
+    display: none;
+  }
+}
+
+/* HP: panel di atas, form di bawah, tanpa geser */
+
+@media (max-width: 700px) {
+  dialog.dialog-auth[open] {
+    align-items: flex-start;
+    padding-top: 72px;
+  }
+
+  .auth {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .auth-form,
+  .auth-panel,
+  .mode-masuk .auth-panel {
+    position: static;
+    width: 100%;
+    padding: 28px 22px;
+    clip-path: none;
+  }
+
+  .auth-panel {
+    order: -1;
+  }
+
+  .auth-masuk,
+  .mode-masuk .auth-daftar {
+    display: none;
+  }
+
+  .mode-masuk .auth-masuk {
+    display: flex;
+  }
+
+  .auth-panel h2 {
+    font-size: 2rem;
+  }
+
+  #intro h1 {
+    font-size: 2rem;
+  }
+
+  .intro-logo {
+    font-size: 3.5rem;
+  }
+}
+
+/* =========================================
+   DESIGN DALAM ala Gerak Pertama
+   Header 2 baris (logo di tengah), kartu putih border tipis, tanpa bayangan
+   ========================================= */
+
+/* header: baris 1 = akun | logo | tombol tampilan, baris 2 = menu */
+
+@media (min-width: 681px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0 16px;
+    height: auto;
+    min-height: 0;
+    padding: 12px 20px 0;
+  }
+
+  /* tombol tampilan lebih kecil biar header nggak tebal */
+
+  .navbar .tombol-ikon {
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 38px;
+    border-radius: 6px;
+  }
+
+  .navbar .logo {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 2rem;
+  }
+
+  .nav-auth-container {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    margin: 0;
+  }
+
+  .nav-tombol {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .menu {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    gap: 0;
+    margin: 12px -20px 0;
+    padding: 0 20px;
+    border-top: 1px solid #262626;
+    overflow-x: auto;
+  }
+
+  .menu a {
+    padding: 12px 14px 10px;
+    white-space: nowrap;
+    font-size: 1.1rem;
+  }
+
+  body:not(.kontras) .menu a,
+  body:not(.kontras) .menu a:hover,
+  body:not(.kontras) .menu a[aria-current="page"] {
+    border-bottom-width: 4px;
+  }
+}
+
+.ikon-nav {
+  font-style: normal;
+  margin-right: 6px;
+}
+
+/* isi halaman di tengah, lebar maksimal kayak Gerak Pertama */
+
+.bagian {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* tombol: sudut 8px, nggak loncat pas di-hover */
+
+.tombol:hover,
+.tombol:active {
+  transform: none;
+}
+
+/* kolom isian: abu muda, border tipis, fokus oranye */
+
+body:not(.kontras) main input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body:not(.kontras) main select,
+body:not(.kontras) main textarea,
+body:not(.kontras) dialog:not(.dialog-auth) input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body:not(.kontras) dialog:not(.dialog-auth) select,
+body:not(.kontras) dialog:not(.dialog-auth) textarea {
+  background: #F3F4F6;
+  border: 2px solid #ECECEE;
+  box-shadow: none;
+}
+
+body.gelap main input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body.gelap main select,
+body.gelap main textarea,
+body.gelap dialog:not(.dialog-auth) input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body.gelap dialog:not(.dialog-auth) select,
+body.gelap dialog:not(.dialog-auth) textarea {
+  background: #1E2A40;
+  border-color: #2A3852;
+  color: #F2F2F2;
+}
+
+/* mode gelap: latar hitam pekat kayak Gerak Pertama */
+
+body.gelap {
+  background: #070B14;
+}
+
+/* notifikasi: hitam, garis oranye di kiri */
+
+body:not(.kontras) .toast {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* notifikasi kosong jangan kelihatan */
+
+.toast {
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.toast.tampil {
+  opacity: 1;
+}
+
+/* =========================================
+   LOGO "Gerak." — huruf tebal bulat, rapat, G ada potongan miring oranye
+   ========================================= */
+
+.logo,
+.intro-logo,
+.loading-logo,
+.loading-logo i,
+.loading-logo span {
+  font-style: normal;
+}
+
+/* G: bagian kanan bawahnya oranye, dipotong miring biar kesannya bergerak */
+
+.logo-g {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* =========================================
+   NAVBAR MODEL BARU — kapsul melayang (floating)
+   Kotak gelap transparan + blur, sudut membulat, ada jarak dari pinggir layar.
+   Logo di kiri, menu di tengah, tombol Masuk/Daftar putih bulat di kanan.
+   ========================================= */
+
+/* --- Kotak navbar --- */
+
+body .navbar {
+  position: sticky;
+  z-index: 50;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+body:not(.kontras) .navbar {
+  background: rgba(24, 24, 27, 0.72);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* --- Logo kiri --- */
+
+body .navbar .logo {
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* --- Menu tengah: teks biasa, kecil, putih --- */
+
+body .navbar .menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: visible;
+}
+
+body .navbar .menu a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+  border: none;
+}
+
+body:not(.kontras) .navbar .menu a {
+  color: rgba(255, 255, 255, 0.78);
+  border: none;
+}
+
+body:not(.kontras) .navbar .menu a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+}
+
+body:not(.kontras) .navbar .menu a[aria-current="page"] {
+  color: #ffffff;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+}
+
+/* titik oranye kecil di bawah menu yang aktif */
+
+body .navbar .menu a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background: #22C55E;
+}
+
+/* ikon emoji disembunyikan di navbar lebar biar bersih kayak contoh */
+
+body .navbar .menu .ikon-nav {
+  display: none;
+}
+
+/* --- Area kanan: akun + tombol tampilan --- */
+
+body .navbar .nav-auth-container {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* tombol Masuk / Daftar: kapsul putih + titik oranye di kanan */
+
+body .navbar .tombol-masuk-daftar {
+  position: relative;
+  padding: 9px 20px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: none;
+  letter-spacing: 0;
+  background: #FFFFFF;
+  color: #0B1220;
+  border: none;
+  border-radius: 999px;
+}
+
+body .navbar .tombol-masuk-daftar::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  width: 11px;
+  height: 11px;
+  margin-top: -5.5px;
+  border-radius: 50%;
+  background: #22C55E;
+  border: 1px solid #E3E7EE;
+}
+
+body .navbar .tombol-masuk-daftar:hover {
+  background: #f1f1f1;
+  transform: none;
+}
+
+/* chip profil kalau sudah login: ikut gaya kapsul */
+
+body:not(.kontras) .navbar .user-profile-nav {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+body:not(.kontras) .navbar .nav-user-nama {
+  color: #ffffff;
+}
+
+body:not(.kontras) .navbar .nav-poin-rank-chip {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #111111;
+}
+
+body:not(.kontras) .navbar .tombol-keluar-nav {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ff8a8a;
+}
+
+body:not(.kontras) .navbar .tombol-keluar-nav:hover {
+  background: #ff5c5c;
+  color: #ffffff;
+}
+
+/* tombol tampilan (A−, A, A+, baca, kontras, gelap): bulat kecil transparan */
+
+body .navbar .nav-tombol {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: auto;
+}
+
+body .navbar .grup-skala-teks {
+  gap: 2px;
+  padding: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body .navbar .tombol-ikon {
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  min-height: 34px;
+  font-size: 0.8125rem;
+  border-radius: 999px;
+}
+
+body:not(.kontras) .navbar .tombol-ikon {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+
+body:not(.kontras) .navbar .tombol-ikon:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+body:not(.kontras) .navbar .tombol-ikon[aria-pressed="true"] {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #111111;
+}
+
+body .navbar .tombol-menu {
+  display: none;
+}
+
+/* --- Mode kontras tinggi: tetap kapsul, tapi hitam pekat + garis putih --- */
+
+body.kontras .navbar {
+  background: #000000;
+  border: 3px solid #ffffff;
+}
+
+/* =========================================
+   Layar sedang & HP: menu masuk ke tombol ☰
+   ========================================= */
+
+@media (max-width: 1365px) {
+  body .navbar .tombol-menu {
+    display: inline-flex;
+  }
+
+  body .navbar .menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  body:not(.kontras) .navbar .menu {
+    background: #1c1c1f;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  body.kontras .navbar .menu {
+    background: #000000;
+    border: 3px solid #ffffff;
+  }
+
+  body .navbar .menu.buka {
+    display: flex;
+  }
+
+  body .navbar .menu a {
+    justify-content: flex-start;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  body:not(.kontras) .navbar .menu a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* di menu dropdown, titik oranye pindah ke kiri */
+
+  body .navbar .menu a[aria-current="page"]::after {
+    left: 4px;
+    top: 50%;
+    bottom: auto;
+    margin-left: 0;
+    margin-top: -2.5px;
+  }
+
+  body .navbar .menu .ikon-nav {
+    display: inline;
+  }
+
+  /* akun didorong ke kanan, dekat tombol-tombol */
+
+  body .navbar .nav-auth-container {
+    margin-left: auto;
+  }
+}
+
+/* HP: navbar jadi 2 baris di dalam kapsul */
+
+@media (max-width: 680px) {
+  body .navbar {
+    flex-wrap: wrap;
+    row-gap: 8px;
+    width: calc(100% - 16px);
+    margin-top: 8px;
+    top: 8px;
+  }
+
+  body .navbar .logo {
+    font-size: 1.45rem;
+    padding-left: 4px;
+  }
+
+  body .navbar .nav-tombol {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  body .navbar .tombol-masuk-daftar {
+    padding: 7px 16px;
+    font-size: 0.8125rem;
+  }
+}
+
+/* =========================================
+   GAYA KAPSUL untuk seluruh isi (nyambung sama navbar kapsul)
+   Huruf tegak, tombol bulat, kartu lembut, aksen oranye
+   ========================================= */
+
+/* judul: tegak, rapat, nggak huruf besar semua */
+
+h1,
+h2,
+h3 {
+  text-transform: none;
+}
+
+/* "sehat bareng." jadi tulisan oranye, bukan kotak stabilo */
+
+/* tombol kapsul */
+
+.tombol {
+  font-style: normal;
+}
+
+/* kolom isian: sudut bulat, border tipis */
+
+body:not(.kontras) main input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body:not(.kontras) main select,
+body:not(.kontras) main textarea,
+body:not(.kontras) dialog:not(.dialog-auth) input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body:not(.kontras) dialog:not(.dialog-auth) select,
+body:not(.kontras) dialog:not(.dialog-auth) textarea {
+  border-width: 1px;
+  border-radius: 12px;
+}
+
+/* intro: tulisan sambutan tegak */
+
+#intro h1 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* notifikasi kapsul */
+
+body:not(.kontras) .toast {
+  border-left: none;
+}
+
+/* nama di sapaan member: tulisan oranye, nggak miring kotak */
+
+/* =========================================
+   GAYA BERSIH & LEMBUT (desain terbaru)
+   Latar putih, banyak ruang, kartu bayangan halus, oranye cuma buat aksen
+   ========================================= */
+
+/* --- Judul --- */
+
+/* --- Logo: "gerak." huruf kecil semua, titik oranye --- */
+
+.logo,
+.intro-logo,
+.loading-logo,
+.loading-logo i,
+.loading-logo span {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-weight: 800;
+  text-transform: lowercase;
+  letter-spacing: -0.05em;
+}
+
+.logo-g {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* --- Tombol: kapsul gelap (utama) & putih bergaris (kedua) --- */
+
+.tombol {
+  border-width: 1px;
+}
+
+body:not(.kontras) .tombol-utama {
+  background: #18181B;
+  color: #FFFFFF;
+  border-color: #18181B;
+}
+
+body:not(.kontras) .tombol-utama:hover {
+  background: #000000;
+  border-color: #000000;
+}
+
+body:not(.kontras) .tombol-garis {
+  background: #FFFFFF;
+  color: #18181B;
+  border-color: #E4E4E7;
+}
+
+body:not(.kontras) .tombol-garis:hover {
+  background: #F4F4F5;
+}
+
+/* kata penting di judul: oranye */
+
+body:not(.kontras) .stabilo,
+body:not(.kontras) .member-nama-highlight {
+  background: none;
+  color: #22C55E;
+  -webkit-text-fill-color: #22C55E;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  transform: none;
+}
+
+/* --- Kolom isian: abu muda tanpa garis, fokus jadi putih + cincin oranye --- */
+
+body:not(.kontras) main input:focus,
+body:not(.kontras) main select:focus,
+body:not(.kontras) main textarea:focus,
+body:not(.kontras) dialog:not(.dialog-auth) input:focus,
+body:not(.kontras) dialog:not(.dialog-auth) select:focus,
+body:not(.kontras) dialog:not(.dialog-auth) textarea:focus {
+  background: #FFFFFF;
+  border-color: #22C55E;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+}
+
+/* --- Notifikasi: kapsul gelap lembut --- */
+
+body:not(.kontras) .toast {
+  background: #18181B;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.18);
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+/* =========================================
+   NAVBAR: bar putih penuh, nempel di atas
+   ========================================= */
+
+body .navbar {
+  top: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 24px;
+  border-radius: 0;
+}
+
+body:not(.kontras):not(.gelap) .navbar .menu a[aria-current="page"] {
+  font-weight: 700;
+}
+
+/* tombol Masuk / Daftar: kapsul gelap */
+
+body .navbar .tombol-masuk-daftar {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+}
+
+body:not(.kontras):not(.gelap) .navbar .tombol-masuk-daftar::after {
+  border-color: #FFFFFF;
+}
+
+/* tombol tampilan */
+
+/* chip akun kalau sudah login */
+
+body:not(.kontras):not(.gelap) .navbar .nav-poin-rank-chip {
+  border-color: #E4E4E7;
+}
+
+body:not(.kontras):not(.gelap) .navbar .tombol-keluar-nav {
+  border-color: #FECACA;
+}
+
+/* menu dropdown (layar kecil): kartu putih */
+
+/* laptop (1101px ke atas): menu tetap kelihatan, nggak masuk ☰ */
+
+@media (min-width: 1101px) {
+  body .navbar {
+    gap: 12px;
+  }
+
+  body .navbar .tombol-menu {
+    display: none;
+  }
+
+  body:not(.kontras) .navbar .menu,
+  body:not(.kontras):not(.gelap) .navbar .menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    gap: 2px;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  body .navbar .menu a {
+    padding: 8px 10px;
+    font-size: 0.875rem;
+  }
+
+  body:not(.kontras):not(.gelap) .navbar .menu a[aria-current="page"],
+  body.gelap:not(.kontras) .navbar .menu a[aria-current="page"] {
+    background: transparent;
+  }
+
+  body .navbar .menu a[aria-current="page"]::after {
+    left: 50%;
+    top: auto;
+    bottom: 1px;
+    margin-left: -2.5px;
+    margin-top: 0;
+  }
+
+  body .navbar .menu .ikon-nav {
+    display: none;
+  }
+
+  body .navbar .nav-auth-container {
+    margin-left: 0;
+  }
+
+  body .navbar .tombol-ikon {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    min-height: 32px;
+  }
+}
+
+@media (max-width: 680px) {
+  body:not(.kontras):not(.gelap) .navbar .nav-tombol {
+    border-top-color: #ECECEE;
+  }
+}
+
+/* =========================================
+   INTRO: layar putih, logo muncul pelan
+   ========================================= */
+
+body:not(.kontras) #intro {
+  background: #FFFFFF;
+  color: #18181B;
+}
+
+body:not(.kontras) #intro h1 {
+  color: #18181B;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+}
+
+body:not(.kontras) #intro p {
+  border-color: #ECECEE;
+  color: #71717A;
+  background: #FAFAFA;
+}
+
+body.gelap:not(.kontras) #intro p {
+  border-color: #27272A;
+}
+
+/* =========================================
+   LOADING: putih, bar tipis oranye
+   ========================================= */
+
+body:not(.kontras) #loading {
+  background: #FFFFFF;
+  color: #18181B;
+}
+
+body:not(.kontras) #loading.selesai {
+  background: transparent;
+}
+
+body:not(.kontras) .loading-bar {
+  background: #F4F4F5;
+}
+
+.loading-bar div {
+  border-radius: 999px;
+}
+
+body:not(.kontras) .loading-bar div {
+  background: #22C55E;
+}
+
+#loading p {
+  color: #5B6475;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   MASUK / DAFTAR: kartu putih melayang di atas latar abu lembut
+   ========================================= */
+
+body:not(.kontras):not(.gelap) .tutup-auth {
+  border-color: #E4E4E7;
+}
+
+body:not(.kontras):not(.gelap) .auth {
+  backdrop-filter: none;
+}
+
+/* panel sapaan: oranye muda lembut */
+
+/* kolom isian: garis bawah abu */
+
+body:not(.kontras):not(.gelap) .garis {
+  border-bottom-color: #E4E4E7;
+}
+
+body:not(.kontras):not(.gelap) .garis:focus-within {
+  border-color: #22C55E;
+}
+
+body:not(.kontras) .pw button,
+body:not(.kontras) .auth-link {
+  color: #15803D;
+}
+
+.auth-utama,
+.auth-garis {
+  font-size: 1rem;
+}
+
+/* titik logo: bulatan oranye (titik bawaan font-nya kotak) */
+
+.logo-dot,
+.intro-logo b,
+.loading-logo span {
+  display: inline-block;
+  width: 0.2em;
+  height: 0.2em;
+  margin-left: 0.06em;
+  border-radius: 50%;
+  color: transparent;
+  overflow: hidden;
+  vertical-align: baseline;
+  line-height: 0;
+  font-size: inherit;
+}
+
+/* kartu streak: oranye muda lembut, tulisan gelap */
+
+body:not(.kontras):not(.gelap) .chip-status-streak-mini {
+  background: #FFFFFF;
+  color: #15803D;
+}
+
+body:not(.kontras):not(.gelap) .angka-besar-streak {
+  color: #18181B;
+}
+
+body:not(.kontras):not(.gelap) .teks-streak-aesthetic {
+  color: #52525B;
+}
+
+body:not(.kontras):not(.gelap) .angka-besar-streak {
+  text-shadow: none;
+}
+
+/* hasil gizi: oranye muda lembut */
+
+body:not(.kontras):not(.gelap) .hasil-gizi > div,
+body:not(.kontras):not(.gelap) .hasil-gizi [class*="makro"] {
+  border-color: #BBF7D0;
+}
+
+/* =========================================
+   TATA LETAK BARU (fitur sama, posisi dirapihin)
+   ========================================= */
+
+/* --- Jarak atas tiap halaman biar nggak mepet navbar --- */
+
+.bagian,
+.seksi-beranda-utama {
+  padding-top: 56px;
+}
+
+#wadahBerandaMember {
+  padding-top: 40px;
+}
+
+/* --- Judul halaman di tengah, kayak judul poster --- */
+
+.judul-bagian,
+.header-seksi-tambahan {
+  text-align: center;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.judul-bagian p,
+.header-seksi-tambahan p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.judul-bagian h2 {
+  font-size: 2.6rem;
+}
+
+/* --- BERANDA MEMBER: sapaan + ilustrasi di atas, status di bawah --- */
+
+@media (min-width: 981px) {
+  #wadahBerandaMember .hero-member {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    row-gap: 16px;
+    align-items: start;
+  }
+
+  #wadahBerandaMember .hero-teks-member,
+  #wadahBerandaMember .hero-kartu-member {
+    display: contents;
+  }
+
+  #wadahBerandaMember .baris-pill-salam {
+    grid-column: 1 / 8;
+    grid-row: 1;
+  }
+
+  #wadahBerandaMember #judulHeroMember {
+    grid-column: 1 / 8;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  #wadahBerandaMember .kotak-motivasi-member {
+    grid-column: 1 / 8;
+    grid-row: 3;
+    margin: 0;
+  }
+
+  #wadahBerandaMember .hero-aksi-member {
+    grid-column: 1 / 8;
+    grid-row: 4;
+    margin: 0;
+  }
+
+  /* kartu ilustrasi orang lari di kanan sapaan */
+
+  #wadahBerandaMember .kartu-dekorasi-gerak {
+    grid-column: 8 / 13;
+    grid-row: 1 / 5;
+    align-self: stretch;
+    margin: 0;
+  }
+
+  /* ilustrasi di atas, teks di bawah, posisinya di tengah kartu */
+
+  #wadahBerandaMember .kartu-dekorasi-gerak {
+    flex-direction: column-reverse;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+  }
+
+  #wadahBerandaMember .wadah-svg-gerak {
+    width: 260px;
+    max-width: 80%;
+  }
+
+  #wadahBerandaMember .baris-tag-dekorasi,
+  #wadahBerandaMember .pilar-mini-row {
+    justify-content: center;
+  }
+
+  #wadahBerandaMember .kotak-motivasi-member {
+    width: 100%;
+    max-width: none;
+  }
+
+  /* streak + level ditumpuk di kiri, AYO MULAI lebar di kanan */
+
+  #wadahBerandaMember .grid-status-atas-member {
+    grid-column: 1 / 6;
+    grid-row: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0 0;
+  }
+
+  #wadahBerandaMember .kartu-ayo-mulai {
+    grid-column: 6 / 13;
+    grid-row: 5;
+    margin: 24px 0 0;
+  }
+}
+
+/* --- GIZI: kartu target kalori ikut turun pas form di-scroll --- */
+
+@media (min-width: 981px) {
+  #hasilGizi {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+  }
+}
+
+/* --- KAWAN: tombol di kartu kawan lebih rapi --- */
+
+.kawan-tombol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kawan-tombol .tombol-utama {
+  flex: 1 1 100%;
+  white-space: nowrap;
+}
+
+.kawan-tombol .tombol-lapor,
+.kawan-tombol .tombol-blokir {
+  flex: 1 1 0;
+}
+
+/* --- POIN & RANK: jarak antara kartu poin dan koleksi rank --- */
+
+.wrap-galeri-rank {
+  margin-top: 48px;
+}
+
+/* --- JURNAL: label "AI WELLNESS REPORT" jangan melar --- */
+
+.badge-mini {
+  display: inline-block;
+  width: auto;
+  max-width: max-content;
+}
+
+/* --- Kotak privasi di footer: cokelat, nyatu sama footer --- */
+
+body:not(.kontras) .panel-privasi {
+  background: #2D3441;
+  border: 2px solid #86EFAC;
+  color: #F4F6F9;
+}
+
+/* --- judul halaman: ukuran sama di semua halaman --- */
+
+/* --- label kecil berwarna (contoh: "AI WELLNESS REPORT"): jadi pita --- */
+
+/* --- EDUKASI: kartu kategori disusun atas-bawah biar teksnya lega --- */
+
+.kartu-kategori-ringkasan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+}
+
+.kartu-kategori-ringkasan .info-kat {
+  width: 100%;
+}
+
+.kartu-kategori-ringkasan .panah-kat {
+  margin-top: auto;
+}
+
+/* --- BERANDA MEMBER di HP: isi disusun atas-bawah (sebelumnya melebar ke samping) --- */
+
+.beranda-member-wrap {
+  flex-direction: column;
+}
+
+/* judul Gizi ikut ukuran judul halaman lain */
+
+@media (max-width: 680px) {
+  section.bagian .judul-bagian h2,
+  section.bagian#gizi .judul-bagian h2 {
+    font-size: 2rem;
+  }
+
+  .bagian,
+  .seksi-beranda-utama {
+    padding-top: 32px;
+  }
+}
+
+@media (max-width: 980px) {
+  #wadahBerandaMember .hero-member {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #wadahBerandaMember .hero-teks-member,
+  #wadahBerandaMember .hero-kartu-member {
+    width: 100%;
+    min-width: 0;
+  }
+}

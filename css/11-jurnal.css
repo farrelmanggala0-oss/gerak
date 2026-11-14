@@ -1,0 +1,954 @@
+/* ==========================================================================
+   HALAMAN JURNAL UPGRADE: PERSONAL AI JOURNAL & PUBLIC COMMUNITY
+   ========================================================================== */
+
+/* 1. Segmented Control Dual Mode Tabs (Pribadi vs Publik) */
+
+.jurnal-tab-kontrol {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  background: #FFFFFF;
+  padding: 0.5rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  width: fit-content;
+  max-width: 100%;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.tab-mode-jurnal-btn {
+  padding: 0.75rem 1.625rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--warna-deep-purple, #0B1220);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-mode-jurnal-btn:hover {
+  background: rgba(34, 197, 94, 0.15);
+  box-shadow: none;
+}
+
+.tab-mode-jurnal-btn.aktif {
+  background: var(--warna-aqua, #22C55E);
+  border-color: #E3E7EE;
+  box-shadow: none;
+}
+
+.tab-mode-jurnal-btn:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+/* 2. Body & Energy Check (Opsional) */
+
+.box-body-check {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.body-check-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-toggle-check {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--warna-deep-purple, #0B1220);
+  cursor: pointer;
+  transition: background 0.15s;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.btn-toggle-check:hover {
+  background: var(--warna-aqua, #22C55E);
+}
+
+.body-check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.125rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1.5px dashed rgba(17, 17, 17, 0.15);
+}
+
+.item-check-grup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label-sub-check {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+.pilihan-chip-grup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip-opsi {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: var(--warna-deep-purple, #0B1220);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.chip-opsi:hover {
+  background: rgba(255, 138, 76, 0.2);
+  transform: translateY(-1px);
+}
+
+.chip-opsi.aktif {
+  background: var(--warna-aqua, #22C55E);
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.simpan-jurnal-baris {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.badge-privat-info {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #166534;
+  background: #dcfce7;
+  border: 1.5px solid #166534;
+  border-radius: 8px;
+  padding: 0.35rem 0.75rem;
+}
+
+/* 3. Filter & Riwayat Jurnal Pribadi */
+
+.riwayat-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.tombol-teks-bahaya {
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #dc2626;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.tombol-teks-bahaya:hover {
+  text-decoration: underline;
+}
+
+.filter-jurnal-pribadi {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+}
+
+.input-cari-jurnal {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  background: #FFFFFF;
+  color: var(--warna-deep-purple, #0B1220);
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.input-cari-jurnal:focus {
+  outline: none;
+  border-color: var(--warna-violet, #15803D);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.35);
+}
+
+.filter-mood-pills {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.pill-mood {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.pill-mood:hover {
+  background: rgba(34, 197, 94, 0.15);
+}
+
+.pill-mood.aktif {
+  background: var(--warna-violet, #15803D);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+/* Item Jurnal Pribadi */
+
+.item-jurnal {
+  padding: 1.25rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.item-jurnal:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+.item-jurnal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-jurnal-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.mood-badge-bulat {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #E3E7EE;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+
+.teks-tanggal-jurnal {
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.teks-waktu-jurnal {
+  font-size: 0.8125rem;
+  color: #55555c;
+}
+
+.item-jurnal-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.btn-aksi-mini {
+  background: #F4F6F9;
+  border: 1px solid #E3E7EE;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-aksi-mini:hover {
+  background: #D9DDE4;
+}
+
+.btn-hapus-jurnal:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.baris-chips-jurnal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip-mini-raga {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #EEF1F5;
+  border: 1px solid #E3E7EE;
+  border-radius: 6px;
+  padding: 0.15rem 0.5rem;
+}
+
+.prompt-refleksi-kecil {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #5B6475;
+  background: #EEF1F5;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.baris-footer-entri {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+}
+
+.btn-pemicu-analisis-ai {
+  background: var(--gradasi-violet-sky);
+  color: #ffffff;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  box-shadow: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-pemicu-analisis-ai:hover {
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.btn-pemicu-analisis-ai:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+/* Kotak Hasil Analisis GERAK AI */
+
+.kartu-analisis-ai {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(255, 138, 76, 0.08) 100%);
+  border: 2px solid var(--warna-violet, #15803D);
+  border-radius: 18px;
+  padding: 1.125rem;
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header-analisis-ai {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px dashed rgba(34, 197, 94, 0.35);
+  padding-bottom: 0.5rem;
+}
+
+.ai-brand-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--warna-violet, #15803D);
+  font-weight: 800;
+}
+
+.btn-hapus-analisis {
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #5B6475;
+  cursor: pointer;
+}
+
+.btn-hapus-analisis:hover {
+  color: #dc2626;
+  text-decoration: underline;
+}
+
+.isi-analisis-ai-teks h5 {
+  color: var(--warna-deep-purple, #0B1220);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.poin-analisis-judul {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-top: 0.4rem;
+}
+
+.poin-analisis-item {
+  font-size: 0.8125rem;
+  color: #2A3344;
+  margin-left: 0.5rem;
+  line-height: 1.4;
+}
+
+/* 4. Weekly Wellness Insights Card */
+
+.kartu-weekly-insights {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  margin-top: 2rem;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.header-weekly-insights {
+  margin-bottom: 1.25rem;
+}
+
+.judul-weekly-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.judul-weekly-wrap h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.deskripsi-weekly {
+  font-size: 0.875rem;
+  color: #55555c;
+  margin-top: 0.4rem;
+}
+
+.state-weekly-kosong {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #FFFFFF;
+  border: 1px dashed #CDD4DE;
+  border-radius: 18px;
+  padding: 1.25rem;
+}
+
+.ikon-weekly-info {
+  font-size: 2rem;
+}
+
+.grid-stat-weekly {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.stat-card-weekly {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-angka-weekly {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+.stat-label-weekly {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #5B6475;
+}
+
+.box-rekomendasi-weekly {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12) 0%, rgba(255, 138, 76, 0.12) 100%);
+  border: 2px solid var(--warna-aqua, #22C55E);
+  border-radius: 18px;
+  padding: 1.125rem;
+}
+
+.box-rekomendasi-weekly h5 {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+}
+
+.box-rekomendasi-weekly p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 5. Jurnal Publik / Komunitas GERAK */
+
+.komunitas-header-box {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.header-komunitas-atas {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.judul-komunitas-utama {
+  font-size: 1.625rem;
+  margin: 0.25rem 0 0.4rem;
+}
+
+.sub-komunitas {
+  font-size: 0.9375rem;
+  color: #55555c;
+  max-width: 650px;
+}
+
+.btn-buat-postingan {
+  white-space: nowrap;
+}
+
+.banner-disclaimer-komunitas {
+  background: #f0fdf4;
+  border: 2px solid var(--warna-aqua, #22C55E);
+  border-radius: 18px;
+  padding: 0.875rem 1.125rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.disclaimer-ikon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.disclaimer-teks {
+  font-size: 0.8125rem;
+  color: #14532d;
+  line-height: 1.45;
+}
+
+.filter-kategori-publik-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.label-filter-kategori {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+.filter-kategori-publik {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Feed Komunitas & Kartu Postingan */
+
+.feed-komunitas {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.kartu-postingan-komunitas {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-postingan-komunitas:hover {
+  transform: translateY(-4px);
+  box-shadow: none;
+}
+
+.header-post-komunitas {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.author-post-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar-post-lingkaran {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #E3E7EE;
+  background: #F4F6F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.nama-dan-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nama-author-post {
+  font-size: 0.9375rem;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+.badge-penulis-kamu {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  background: var(--warna-aqua, #22C55E);
+  border: 1px solid #E3E7EE;
+  border-radius: 6px;
+  padding: 0.1rem 0.4rem;
+}
+
+.waktu-post-komunitas {
+  font-size: 0.75rem;
+  color: #5B6475;
+}
+
+.badge-kategori-grup {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.chip-tipe-konten {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+}
+
+.chip-kategori-post {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--warna-sky, #4ADE80);
+  color: var(--warna-deep-purple, #0B1220);
+  border: 1px solid #E3E7EE;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+}
+
+.judul-post-komunitas {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.isi-post-komunitas {
+  font-size: 0.9375rem;
+  color: #2A3344;
+  line-height: 1.6;
+  margin: 0;
+  word-break: break-word;
+}
+
+.wadah-gambar-post {
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  overflow: hidden;
+  max-height: 320px;
+}
+
+.gambar-postingan-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.footer-post-komunitas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(17, 17, 17, 0.15);
+}
+
+.aksi-kiri-post,
+.aksi-kanan-owner {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn-aksi-post {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--warna-deep-purple, #0B1220);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.15s ease;
+}
+
+.btn-aksi-post:hover {
+  background: #EEF1F5;
+  transform: translateY(-1px);
+}
+
+.btn-aksi-post.aktif {
+  background: var(--warna-aqua, #22C55E);
+  box-shadow: none;
+}
+
+.btn-aksi-post:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+.btn-edit-post:hover {
+  background: #fef08a;
+}
+
+.btn-hapus-post:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* 6. Form & Dialog Komunitas Postingan */
+
+.modal-komunitas-post {
+  max-width: 680px !important;
+  width: 95% !important;
+}
+
+.modal-header-komunitas {
+  margin-bottom: 0.75rem;
+}
+
+.form-komunitas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.label-dan-ai-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.grup-ai-bantuan-post {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.btn-ai-mini-assist {
+  background: var(--gradasi-violet-sky);
+  color: #ffffff;
+  border: 1px solid #E3E7EE;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.btn-ai-mini-assist:hover {
+  transform: translateY(-1px);
+}
+
+.kotak-pratinjau-post {
+  background: #FFFFFF;
+  border: 1px dashed #CDD4DE;
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.label-pratinjau {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #5B6475;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.kartu-post-preview {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.preview-avatar {
+  font-size: 1.25rem;
+}
+
+.tag-kategori-prev {
+  margin-left: auto;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  background: var(--warna-sky, #4ADE80);
+  border: 1px solid #E3E7EE;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+
+.kartu-post-preview h4 {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+.kartu-post-preview p {
+  font-size: 0.8125rem;
+  color: #5B6475;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.label-centang-aman {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.baris-tombol-aksi-modal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* 7. Penyesuaian Mode Gelap (Dark Mode) */
+
+body.gelap .jurnal-tab-kontrol,
+body.gelap .komunitas-header-box,
+body.gelap .kartu-postingan-komunitas,
+body.gelap .kartu-weekly-insights,
+body.gelap .item-jurnal,
+body.gelap .box-body-check,
+body.gelap .kotak-pratinjau-post,
+body.gelap .kartu-post-preview {
+  background: #1f2028;
+  color: #F7F7F8;
+  border-color: #F7F7F8;
+}
+
+body.gelap .tab-mode-jurnal-btn {
+  color: #F7F7F8;
+}
+
+body.gelap .tab-mode-jurnal-btn.aktif {
+  color: var(--warna-deep-purple, #111111);
+}
+
+body.gelap .banner-disclaimer-komunitas {
+  background: #172554;
+  color: #bfdbfe;
+  border-color: var(--warna-sky, #4ADE80);
+}
+
+body.gelap .disclaimer-teks {
+  color: #bfdbfe;
+}
+
+body.gelap .btn-aksi-post,
+body.gelap .chip-opsi,
+body.gelap .pill-mood,
+body.gelap .stat-card-weekly {
+  background: #2a2b36;
+  color: #F7F7F8;
+  border-color: #F7F7F8;
+}
+
+body.gelap .btn-aksi-post.aktif,
+body.gelap .chip-opsi.aktif {
+  background: var(--warna-aqua, #22C55E);
+  color: var(--warna-deep-purple, #111111);
+}
+
+/* 8. Penyesuaian Mode Kontras Tinggi */
+
+body.kontras .jurnal-tab-kontrol,
+body.kontras .komunitas-header-box,
+body.kontras .kartu-postingan-komunitas,
+body.kontras .kartu-weekly-insights,
+body.kontras .item-jurnal {
+  border-width: 3.5px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}

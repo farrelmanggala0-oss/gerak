@@ -1,0 +1,1784 @@
+/* =====================================================================
+   GERAK DESIGN SYSTEM — komponen dasar
+   (warna di blok ini sudah dipetakan ke palet Navy Pulse di bawah)
+   ===================================================================== */
+
+/* ---------- 1. DASAR ---------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body:not(.gelap):not(.kontras) {
+  background: #F4F6F9;
+  color: #0B1220;
+}
+
+::selection {
+  background: #BBF7D0;
+  color: #0B1220;
+}
+
+/* fokus keyboard tetap jelas (aksesibilitas) */
+
+:focus-visible {
+  outline: 3px solid #22C55E;
+  outline-offset: 2px;
+}
+
+/* ---------- 2. TIPOGRAFI ---------- */
+
+h1,
+h2 {
+  font-family: "Sora", "Plus Jakarta Sans", Arial, sans-serif;
+  font-weight: 800;
+  line-height: 1.05;
+  text-shadow: none;
+}
+
+h3 {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-shadow: none;
+}
+
+body:not(.gelap):not(.kontras) h1,
+body:not(.gelap):not(.kontras) h2,
+body:not(.gelap):not(.kontras) h3 {
+  color: #0B1220;
+}
+
+/* kata penting di judul: oranye energi */
+
+body:not(.kontras) .stabilo,
+body:not(.kontras):not(.gelap) .member-nama-highlight,
+body.gelap:not(.kontras) .member-nama-highlight {
+  background: none;
+  color: #22C55E;
+  -webkit-text-fill-color: #22C55E;
+  text-shadow: none;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  transform: none;
+}
+
+/* label kecil di atas judul: titik oranye + huruf kapital renggang */
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body:not(.kontras):not(.gelap) .label {
+  background: none;
+  border: none;
+  color: #15803D;
+}
+
+.label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+}
+
+/* ---------- 3. LOGO: "gerak" + titik oranye bulat ---------- */
+
+.logo,
+.intro-logo,
+.loading-logo,
+.loading-logo i {
+  font-family: "Sora", Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  text-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .logo,
+body.gelap:not(.kontras) .logo,
+body:not(.kontras):not(.gelap) .intro-logo,
+body.gelap:not(.kontras) .intro-logo,
+body:not(.kontras):not(.gelap) .loading-logo i,
+body.gelap:not(.kontras) .loading-logo i {
+  text-shadow: none;
+}
+
+.logo-dot,
+.intro-logo b,
+.loading-logo span {
+  background: #22C55E;
+}
+
+/* ---------- 4. TOMBOL ---------- */
+
+.tombol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  box-shadow: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+/* tombol utama: oranye energi, tulisan tinta (kontras 6.4:1, lolos WCAG AA) */
+
+body:not(.kontras):not(.gelap) .tombol-utama,
+body.gelap:not(.kontras) .tombol-utama {
+  background: #22C55E;
+  color: #0B1220;
+  border-color: #22C55E;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+}
+
+body:not(.kontras):not(.gelap) .tombol-utama:hover,
+body.gelap:not(.kontras) .tombol-utama:hover {
+  background: #4ADE80;
+  border-color: #4ADE80;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -8px rgba(34, 197, 94, 0.55);
+}
+
+/* tombol kedua: putih bergaris tipis */
+
+body:not(.kontras):not(.gelap) .tombol-garis {
+  background: #FFFFFF;
+  color: #0B1220;
+  border-color: #DCE1E9;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .tombol-garis:hover {
+  background: #FFFFFF;
+  border-color: #0B1220;
+  transform: translateY(-1px);
+}
+
+body.gelap:not(.kontras) .tombol-garis {
+  background: #121A2B;
+  color: #EEF2F8;
+  border-color: #24314A;
+}
+
+body:not(.kontras):not(.gelap) .tombol:active,
+body.gelap:not(.kontras) .tombol:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+/* tombol kecil (chip aksi) */
+
+.tombol-kecil {
+  border-radius: 999px;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-weight: 600;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+/* ---------- 5. KOLOM ISIAN ---------- */
+
+body:not(.kontras):not(.gelap) main input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body:not(.kontras):not(.gelap) main select,
+body:not(.kontras):not(.gelap) main textarea,
+body:not(.kontras):not(.gelap) dialog:not(.dialog-auth) input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body:not(.kontras):not(.gelap) dialog:not(.dialog-auth) select,
+body:not(.kontras):not(.gelap) dialog:not(.dialog-auth) textarea {
+  background: #FFFFFF;
+  border: 1px solid #DCE1E9;
+  border-radius: 14px;
+  color: #0B1220;
+  box-shadow: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+body:not(.kontras):not(.gelap) main input:hover,
+body:not(.kontras):not(.gelap) main select:hover,
+body:not(.kontras):not(.gelap) main textarea:hover {
+  border-color: #C3CAD6;
+}
+
+body:not(.kontras):not(.gelap) main input:focus,
+body.gelap:not(.kontras) main input:focus,
+body:not(.kontras):not(.gelap) main select:focus,
+body.gelap:not(.kontras) main select:focus,
+body:not(.kontras):not(.gelap) main textarea:focus,
+body.gelap:not(.kontras) main textarea:focus,
+body:not(.kontras):not(.gelap) dialog:not(.dialog-auth) input:focus,
+body.gelap:not(.kontras) dialog:not(.dialog-auth) input:focus,
+body:not(.kontras):not(.gelap) dialog:not(.dialog-auth) select:focus,
+body.gelap:not(.kontras) dialog:not(.dialog-auth) select:focus,
+body:not(.kontras):not(.gelap) dialog:not(.dialog-auth) textarea:focus,
+body.gelap:not(.kontras) dialog:not(.dialog-auth) textarea:focus {
+  border-color: #22C55E;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.16);
+  outline: none;
+}
+
+body.gelap:not(.kontras) main input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body.gelap:not(.kontras) main select,
+body.gelap:not(.kontras) main textarea,
+body.gelap:not(.kontras) dialog:not(.dialog-auth) input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+body.gelap:not(.kontras) dialog:not(.dialog-auth) select,
+body.gelap:not(.kontras) dialog:not(.dialog-auth) textarea {
+  background: #121A2B;
+  border: 1px solid #24314A;
+  color: #EEF2F8;
+}
+
+/* ---------- 6. KARTU: efek angkat halus pas disorot ---------- */
+
+.kartu-info-estetik,
+.kartu-akses-member,
+.kartu-kawan,
+.kartu-kategori-ringkasan,
+.kartu-postingan-komunitas,
+.kartu-poin-grid {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+body:not(.kontras):not(.gelap) .kartu-info-estetik:hover,
+body.gelap:not(.kontras) .kartu-info-estetik:hover,
+body:not(.kontras):not(.gelap) .kartu-akses-member:hover,
+body.gelap:not(.kontras) .kartu-akses-member:hover,
+body:not(.kontras):not(.gelap) .kartu-kawan:hover,
+body.gelap:not(.kontras) .kartu-kawan:hover,
+body:not(.kontras):not(.gelap) .kartu-kategori-ringkasan:hover,
+body.gelap:not(.kontras) .kartu-kategori-ringkasan:hover,
+body:not(.kontras):not(.gelap) .kartu-postingan-komunitas:hover,
+body.gelap:not(.kontras) .kartu-postingan-komunitas:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgba(11, 18, 32, 0.04), 0 18px 40px -16px rgba(11, 18, 32, 0.22);
+}
+
+body:not(.kontras):not(.gelap) .kartu-info-estetik:hover,
+body:not(.kontras):not(.gelap) .kartu-akses-member:hover,
+body:not(.kontras):not(.gelap) .kartu-kawan:hover,
+body:not(.kontras):not(.gelap) .kartu-kategori-ringkasan:hover {
+  border-color: #CDD4DE;
+}
+
+/* pita label kecil di dalam kartu */
+
+body:not(.kontras):not(.gelap) .badge-mini {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 999px;
+  background: #ECFDF3;
+  color: #15803D;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* garis pemisah antar bagian: tipis & polos */
+
+body:not(.kontras):not(.gelap) .seksi-konten-tambahan {
+  border-top: 1px solid #E3E7EE;
+  margin-top: 64px;
+  padding-top: 64px;
+}
+
+body.gelap:not(.kontras) .seksi-konten-tambahan {
+  border-top: 1px solid #1E2A40;
+}
+
+/* ---------- 7. NAVBAR ---------- */
+
+body .navbar {
+  height: 68px;
+  min-height: 68px;
+}
+
+body .navbar .logo {
+  font-size: 1.65rem;
+}
+
+body .navbar .menu a {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+/* menu aktif: kapsul tinta */
+
+body:not(.kontras):not(.gelap) .navbar .menu a[aria-current="page"]::after,
+body.gelap:not(.kontras) .navbar .menu a[aria-current="page"]::after {
+  display: none;
+}
+
+/* tombol Masuk/Daftar: CTA oranye */
+
+body:not(.kontras):not(.gelap) .navbar .tombol-masuk-daftar,
+body.gelap:not(.kontras) .navbar .tombol-masuk-daftar {
+  background: #22C55E;
+  color: #0B1220;
+  border: 1px solid #22C55E;
+  border-radius: 999px;
+  box-shadow: none;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-weight: 700;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+body:not(.kontras):not(.gelap) .navbar .tombol-masuk-daftar:hover,
+body.gelap:not(.kontras) .navbar .tombol-masuk-daftar:hover {
+  background: #4ADE80;
+  transform: translateY(-1px);
+}
+
+body .navbar .tombol-masuk-daftar::after {
+  display: none;
+}
+
+/* chip akun */
+
+body:not(.kontras):not(.gelap) .navbar .user-profile-nav {
+  box-shadow: none;
+}
+
+/* tombol tampilan (A-, A, A+, baca, kontras, gelap) */
+
+@media (max-width: 1100px) {
+  body:not(.kontras):not(.gelap) .navbar .menu {
+    border-radius: 20px;
+  }
+}
+
+/* ---------- 8. HERO TAMU ---------- */
+
+.hero-guest {
+  position: relative;
+  isolation: isolate;
+}
+
+/* cahaya oranye lembut di belakang kartu */
+
+body:not(.kontras):not(.gelap) .hero-guest::before,
+body.gelap:not(.kontras) .hero-guest::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -6%;
+  top: 4%;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.22) 0%, rgba(34, 197, 94, 0) 65%);
+  pointer-events: none;
+}
+
+#judulHeroGuest {
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+}
+
+.hero-guest .hero-deskripsi {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  max-width: 34rem;
+}
+
+.hero-guest .hero-aksi {
+  gap: 12px;
+}
+
+.hero-guest .hero-aksi .tombol {
+  min-height: 54px;
+  padding: 0 28px;
+  font-size: 1rem;
+}
+
+/* kartu sambutan */
+
+body:not(.kontras):not(.gelap) .kartu-guest-welcome {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 28px;
+  box-shadow: 0 2px 4px rgba(11, 18, 32, 0.03), 0 32px 64px -32px rgba(11, 18, 32, 0.3);
+}
+
+body:not(.kontras):not(.gelap) .tag-welcome-pill {
+  background: #ECFDF3;
+  color: #15803D;
+  border: none;
+  box-shadow: none;
+}
+
+.judul-welcome-guest {
+  font-family: "Sora", Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+body:not(.kontras):not(.gelap) .item-keunggulan {
+  background: #F4F6F9;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+body:not(.kontras):not(.gelap) .item-keunggulan:hover {
+  background: #FFFFFF;
+  border-color: #E3E7EE;
+}
+
+body:not(.kontras):not(.gelap) .ikon-keunggulan {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 12px;
+}
+
+/* ---------- 9. JUDUL HALAMAN & BAGIAN ---------- */
+
+section.bagian .judul-bagian h2,
+section.bagian#gizi .judul-bagian h2 {
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  margin: 14px 0 12px;
+}
+
+.judul-bagian p,
+.header-seksi-tambahan p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 40rem;
+}
+
+body:not(.kontras):not(.gelap) .judul-bagian p,
+body:not(.kontras):not(.gelap) .header-seksi-tambahan p {
+  color: #5B6475;
+}
+
+.header-seksi-tambahan h2,
+.header-seksi-tambahan h3 {
+  font-family: "Sora", Arial, sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 12px 0 8px;
+}
+
+/* ---------- 10. BERANDA MEMBER: kartu streak jadi "kartu unggulan" gelap ---------- */
+
+#wadahBerandaMember #judulHeroMember {
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic,
+body.gelap:not(.kontras) .kartu-streak-aesthetic {
+  background: #0B1220 !important;
+  color: #EEF2F8;
+  border: 1px solid #0B1220;
+  border-radius: 24px;
+  box-shadow: 0 24px 48px -24px rgba(11, 18, 32, 0.45);
+  background-image: radial-gradient(circle at 100% 0%, rgba(34, 197, 94, 0.35), rgba(34, 197, 94, 0) 55%) !important;
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic .angka-besar-streak,
+body.gelap:not(.kontras) .kartu-streak-aesthetic .angka-besar-streak {
+  color: #FFFFFF;
+  text-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic .teks-streak-aesthetic,
+body.gelap:not(.kontras) .kartu-streak-aesthetic .teks-streak-aesthetic {
+  color: #C3CAD6;
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic .badge-label-streak,
+body.gelap:not(.kontras) .kartu-streak-aesthetic .badge-label-streak {
+  background: #22C55E;
+  color: #0B1220;
+  border: none;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic .chip-status-streak-mini,
+body.gelap:not(.kontras) .kartu-streak-aesthetic .chip-status-streak-mini {
+  background: rgba(255, 255, 255, 0.08);
+  color: #86EFAC;
+  border: none;
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic .lingkaran-api-streak,
+body.gelap:not(.kontras) .kartu-streak-aesthetic .lingkaran-api-streak {
+  background: rgba(34, 197, 94, 0.16);
+  border: none;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic .hari,
+body.gelap:not(.kontras) .kartu-streak-aesthetic .hari {
+  background: #18233A;
+  color: #EEF2F8;
+  border: 1px solid #26344E;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic .hari.nyala,
+body.gelap:not(.kontras) .kartu-streak-aesthetic .hari.nyala {
+  background: #22C55E;
+  color: #0B1220;
+  border-color: #22C55E;
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic .wadah-info-jatah,
+body.gelap:not(.kontras) .kartu-streak-aesthetic .wadah-info-jatah {
+  background: #18233A;
+  border: 1px solid #26344E;
+  color: #EEF2F8;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .kartu-streak-aesthetic .info-jatah,
+body.gelap:not(.kontras) .kartu-streak-aesthetic .info-jatah {
+  color: #EEF2F8;
+}
+
+/* ---------- 11. GIZI: kartu hasil = kartu unggulan gelap ---------- */
+
+body:not(.kontras):not(.gelap) .hasil-gizi,
+body.gelap:not(.kontras) .hasil-gizi {
+  background: #0B1220;
+  background-image: radial-gradient(circle at 100% 0%, rgba(34, 197, 94, 0.35), rgba(34, 197, 94, 0) 55%);
+  color: #EEF2F8;
+  border: 1px solid #0B1220;
+  border-radius: 24px;
+  box-shadow: 0 24px 48px -24px rgba(11, 18, 32, 0.45);
+}
+
+body:not(.kontras):not(.gelap) .hasil-gizi .kartu-label,
+body.gelap:not(.kontras) .hasil-gizi .kartu-label {
+  color: #86EFAC;
+}
+
+body:not(.kontras):not(.gelap) .hasil-gizi .angka-kalori,
+body.gelap:not(.kontras) .hasil-gizi .angka-kalori {
+  color: #FFFFFF;
+  font-family: "Sora", Arial, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+body:not(.kontras):not(.gelap) .hasil-gizi .kartu-kecil,
+body.gelap:not(.kontras) .hasil-gizi .kartu-kecil,
+body:not(.kontras):not(.gelap) .hasil-gizi .disclaimer-medis,
+body.gelap:not(.kontras) .hasil-gizi .disclaimer-medis {
+  color: #C3CAD6;
+  border-color: #26344E;
+}
+
+body:not(.kontras):not(.gelap) .hasil-gizi .makro-item,
+body.gelap:not(.kontras) .hasil-gizi .makro-item {
+  background: #18233A;
+  border: 1px solid #26344E;
+  color: #EEF2F8;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .hasil-gizi .makro-angka,
+body.gelap:not(.kontras) .hasil-gizi .makro-angka {
+  color: #FFFFFF;
+}
+
+/* ---------- 12. NOTIFIKASI ---------- */
+
+body:not(.kontras):not(.gelap) .toast,
+body.gelap:not(.kontras) .toast {
+  background: #0B1220;
+  color: #FFFFFF;
+  border: 1px solid #0B1220;
+  border-radius: 999px;
+  box-shadow: 0 20px 40px -12px rgba(11, 18, 32, 0.45);
+  font-weight: 600;
+}
+
+/* ---------- 13. DIALOG (pop-up) ---------- */
+
+dialog.modal-dialog::backdrop,
+dialog::backdrop {
+  background: rgba(11, 18, 32, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+body:not(.kontras):not(.gelap) dialog.modal-dialog {
+  background: #FFFFFF;
+  color: #0B1220;
+  border: 1px solid #E3E7EE;
+  border-radius: 28px;
+  box-shadow: 0 40px 80px -24px rgba(11, 18, 32, 0.45);
+}
+
+body:not(.kontras):not(.gelap) .tutup-modal {
+  background: #EEF1F5;
+  border: none;
+  color: #0B1220;
+  border-radius: 50%;
+  transition: background 0.18s ease;
+}
+
+body:not(.kontras):not(.gelap) .tutup-modal:hover {
+  background: #E3E7EE;
+}
+
+/* ---------- 14. FOOTER ---------- */
+
+body:not(.kontras):not(.gelap) .footer,
+body.gelap:not(.kontras) .footer {
+  background: #0B1220;
+  color: #C3CAD6;
+  border-top: none;
+  padding: 72px 24px 48px;
+}
+
+body:not(.kontras):not(.gelap) .footer .logo,
+body.gelap:not(.kontras) .footer .logo {
+  color: #FFFFFF;
+  font-size: 2.4rem;
+}
+
+body:not(.kontras):not(.gelap) .footer p,
+body.gelap:not(.kontras) .footer p {
+  color: #C3CAD6;
+}
+
+body:not(.kontras):not(.gelap) .footer .kartu-kecil,
+body.gelap:not(.kontras) .footer .kartu-kecil {
+  color: #8A93A5;
+}
+
+body:not(.kontras):not(.gelap) .panel-privasi,
+body.gelap:not(.kontras) .panel-privasi {
+  background: #121A2B;
+  border: 1px solid #24314A;
+  border-radius: 20px;
+  color: #C3CAD6;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .panel-privasi .info-privasi,
+body.gelap:not(.kontras) .panel-privasi .info-privasi {
+  color: #C3CAD6;
+}
+
+body:not(.kontras):not(.gelap) .panel-privasi .tombol-kecil,
+body.gelap:not(.kontras) .panel-privasi .tombol-kecil {
+  background: #1E2A40;
+  color: #EEF2F8;
+  border: 1px solid #2E3D5A;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .panel-privasi .tombol-kecil:hover,
+body.gelap:not(.kontras) .panel-privasi .tombol-kecil:hover {
+  background: #2A3852;
+}
+
+body:not(.kontras):not(.gelap) .panel-privasi .tombol-bahaya,
+body.gelap:not(.kontras) .panel-privasi .tombol-bahaya {
+  color: #FCA5A5;
+}
+
+/* ---------- 15. INTRO: layar tinta gelap + cahaya oranye ---------- */
+
+body:not(.kontras):not(.gelap) #intro,
+body.gelap:not(.kontras) #intro {
+  background: #0B1220;
+  background-image: radial-gradient(circle at 50% 55%, rgba(34, 197, 94, 0.28), rgba(34, 197, 94, 0) 45%);
+  color: #FFFFFF;
+}
+
+body:not(.kontras):not(.gelap) #intro h1,
+body.gelap:not(.kontras) #intro h1 {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #C3CAD6;
+}
+
+#intro .intro-logo {
+  display: block;
+  margin-top: 6px;
+  font-size: clamp(4.5rem, 12vw, 8rem);
+  color: #FFFFFF;
+}
+
+body:not(.kontras):not(.gelap) #intro p,
+body.gelap:not(.kontras) #intro p {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #C3CAD6;
+  font-weight: 500;
+}
+
+/* ---------- 16. LOADING: kertas,
+logo tinta,
+bar oranye tipis ---------- */
+
+body:not(.kontras):not(.gelap) #loading,
+body.gelap:not(.kontras) #loading {
+  background: #F4F6F9;
+  color: #0B1220;
+}
+
+body.gelap:not(.kontras) #loading {
+  background: #070B14;
+  color: #EEF2F8;
+}
+
+body:not(.kontras):not(.gelap) #loading.selesai,
+body.gelap:not(.kontras) #loading.selesai {
+  background: transparent;
+}
+
+.loading-bar {
+  width: 200px;
+  height: 4px;
+  border-radius: 999px;
+}
+
+body:not(.kontras):not(.gelap) .loading-bar,
+body.gelap:not(.kontras) .loading-bar {
+  background: #E3E7EE;
+  border: none;
+}
+
+body.gelap:not(.kontras) .loading-bar {
+  background: #1E2A40;
+}
+
+body:not(.kontras):not(.gelap) .loading-bar div,
+body.gelap:not(.kontras) .loading-bar div {
+  background: #22C55E;
+  border-radius: 999px;
+}
+
+body:not(.kontras):not(.gelap) #loading p,
+body.gelap:not(.kontras) #loading p {
+  color: #8A93A5;
+  font-weight: 500;
+}
+
+/* ---------- 17. MASUK / DAFTAR ---------- */
+
+body:not(.kontras):not(.gelap) dialog.dialog-auth {
+  color: #0B1220;
+  background: radial-gradient(circle at 15% 10%, rgba(34, 197, 94, 0.14), rgba(34, 197, 94, 0) 40%), #F4F6F9;
+}
+
+body:not(.kontras):not(.gelap) .tutup-auth {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  color: #0B1220;
+}
+
+body:not(.kontras):not(.gelap) .auth {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 28px;
+  box-shadow: 0 48px 96px -32px rgba(11, 18, 32, 0.35);
+}
+
+.auth h2 {
+  font-family: "Sora", Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+body:not(.kontras):not(.gelap) .auth h2 {
+  color: #0B1220;
+}
+
+/* panel sapaan: tinta gelap + cahaya oranye */
+
+body:not(.kontras):not(.gelap) .auth-panel {
+  background: radial-gradient(circle at 25% 20%, rgba(34, 197, 94, 0.4), rgba(34, 197, 94, 0) 60%), #0B1220;
+}
+
+body:not(.kontras):not(.gelap) .auth-panel h2 {
+  color: #FFFFFF;
+}
+
+body:not(.kontras):not(.gelap) .auth-panel .auth-aksen {
+  color: #4ADE80;
+}
+
+body:not(.kontras):not(.gelap) .auth-panel p {
+  color: #C3CAD6;
+}
+
+/* kolom isian login: kotak bulat */
+
+body:not(.kontras):not(.gelap) .auth .garis,
+body.gelap:not(.kontras) .auth .garis {
+  min-height: 52px;
+  padding: 0 16px;
+  margin-bottom: 14px;
+  border: 1px solid #DCE1E9;
+  border-radius: 14px;
+  background: #FFFFFF;
+  color: #0B1220;
+  /* kotaknya tetap putih di mode gelap, jadi hurufnya harus gelap */
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+body:not(.kontras):not(.gelap) .auth .garis:focus-within,
+body.gelap:not(.kontras) .auth .garis:focus-within {
+  border-color: #22C55E;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.16);
+}
+
+body:not(.kontras):not(.gelap) .garis input::placeholder,
+body.gelap:not(.kontras) .auth .garis input::placeholder {
+  color: #8A93A5;
+}
+
+body:not(.kontras):not(.gelap) .auth input:-webkit-autofill,
+body.gelap:not(.kontras) .auth input:-webkit-autofill {
+  -webkit-text-fill-color: #0B1220;
+  caret-color: #0B1220;
+}
+
+.auth-utama,
+.auth-garis {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-weight: 700;
+  border-width: 1px;
+  min-height: 50px;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+body:not(.kontras):not(.gelap) .auth-utama,
+body.gelap:not(.kontras) .auth-utama {
+  background: #22C55E;
+  border-color: #22C55E;
+  color: #0B1220;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .auth-utama:hover,
+body.gelap:not(.kontras) .auth-utama:hover {
+  background: #4ADE80;
+  transform: translateY(-1px);
+}
+
+body:not(.kontras):not(.gelap) .auth-garis {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+body:not(.kontras):not(.gelap) .auth-garis:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body:not(.kontras):not(.gelap) .auth-sub {
+  color: #5B6475;
+}
+
+body:not(.kontras):not(.gelap) .pw button,
+body.gelap:not(.kontras) .pw button,
+body:not(.kontras):not(.gelap) .auth-link,
+body.gelap:not(.kontras) .auth-link {
+  color: #15803D;
+}
+
+/* ---------- 18. MODE GELAP: hitam hangat ---------- */
+
+body.gelap:not(.kontras) {
+  background: #070B14;
+  color: #EEF2F8;
+}
+
+/* ---------- 19. ANIMASI HALUS ---------- */
+
+/* tiap ganti halaman, isinya muncul pelan dari bawah */
+
+main > section.halaman-aktif {
+  animation: halaman-muncul 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes halaman-muncul {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* titik logo berdenyut pelan (identitas "gerak") */
+
+.navbar .logo-dot {
+  animation: denyut-titik 2.4s ease-in-out infinite;
+}
+
+@keyframes denyut-titik {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(34, 197, 94, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > section.halaman-aktif,
+  .navbar .logo-dot {
+    animation: none;
+  }
+
+  .tombol,
+  .kartu-info-estetik,
+  .kartu-akses-member,
+  .kartu-kawan,
+  .kartu-kategori-ringkasan {
+    transition: none;
+  }
+}
+
+/* ---------- 20. HP ---------- */
+
+@media (max-width: 680px) {
+  .hero-guest .hero-aksi .tombol {
+    width: 100%;
+  }
+
+  body:not(.kontras):not(.gelap) .hero-guest::before,
+  body.gelap:not(.kontras) .hero-guest::before {
+    width: 360px;
+    height: 360px;
+    right: -30%;
+    top: 30%;
+  }
+
+  body:not(.kontras):not(.gelap) .footer,
+  body.gelap:not(.kontras) .footer {
+    padding: 56px 20px 40px;
+  }
+
+  #intro .intro-logo {
+    font-size: 4.5rem;
+  }
+}
+
+/* cahaya dekorasi jangan bikin halaman bisa digeser ke samping */
+
+main {
+  overflow-x: clip;
+}
+
+/* jarak atas halaman yang sama di semua halaman */
+
+main > section.bagian,
+main > section#gizi.bagian {
+  padding-top: 72px;
+}
+
+@media (max-width: 680px) {
+  main > section.bagian,
+  main > section#gizi.bagian {
+    padding-top: 40px;
+  }
+}
+
+/* ---------- 21. DETAIL HALAMAN ---------- */
+
+/* Jurnal: kartu prompt harian jadi kartu unggulan gelap (sama kayak streak & hasil gizi) */
+
+body:not(.kontras):not(.gelap) .prompt-ai,
+body.gelap:not(.kontras) .prompt-ai {
+  border: 1px solid #0B1220;
+  border-radius: 20px;
+  color: #EEF2F8;
+}
+
+body:not(.kontras) .prompt-ai .teks-prompt {
+  color: #FFFFFF;
+  font-family: "Sora", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Edukasi: link pindah tab jadi teks oranye biasa, bukan kotak */
+
+body:not(.kontras) .link-ke-tab-lain {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  color: #15803D;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body:not(.kontras) .link-ke-tab-lain:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Edukasi: judul utama ikut gaya judul halaman */
+
+#judulHeroEdukasi {
+  font-family: "Sora", Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  margin: 12px 0 8px;
+}
+
+.judul-blok-ringkasan {
+  font-family: "Sora", Arial, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* HP: navbar 2 baris (logo + akun | tombol tampilan + ☰), tingginya ngikutin isi */
+
+@media (max-width: 680px) {
+  body .navbar {
+    height: auto;
+    min-height: 0;
+    padding: 10px 16px;
+  }
+}
+
+/* ---------- 22. PILIHAN CENTANG (check-in, dll): baris kartu yang bisa diklik ---------- */
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #22C55E;
+}
+
+.opsi-aktivitas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0 20px;
+}
+
+.item-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+body:not(.kontras):not(.gelap) .item-checkbox {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+}
+
+body:not(.kontras):not(.gelap) .item-checkbox:hover {
+  border-color: #C3CAD6;
+}
+
+/* yang dicentang: latar oranye muda */
+
+body:not(.kontras):not(.gelap) .item-checkbox:has(input:checked) {
+  background: #ECFDF3;
+  border-color: #22C55E;
+}
+
+body.gelap:not(.kontras) .item-checkbox {
+  background: #121A2B;
+  border: 1px solid #24314A;
+}
+
+body.gelap:not(.kontras) .item-checkbox:has(input:checked) {
+  border-color: #22C55E;
+}
+
+.item-checkbox input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+dialog.modal-dialog h3 {
+  font-family: "Sora", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  padding-right: 48px;
+}
+
+/* ---------- 23. SESI LATIHAN ---------- */
+
+/* timer istirahat: kartu unggulan gelap */
+
+body:not(.kontras):not(.gelap) .box-rest-timer,
+body.gelap:not(.kontras) .box-rest-timer {
+  background: #0B1220;
+  border: 1px solid #0B1220;
+  border-radius: 20px;
+  color: #EEF2F8;
+  box-shadow: none;
+}
+
+body:not(.kontras) .box-rest-timer .label-timer {
+  color: #EEF2F8;
+}
+
+body:not(.kontras) .box-rest-timer .timer-angka {
+  background: transparent;
+  border: none;
+  color: #22C55E;
+  font-family: "Sora", Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+body:not(.kontras) .box-rest-timer .chip-timer {
+  background: #18233A;
+  color: #EEF2F8;
+  border: 1px solid #26344E;
+}
+
+body:not(.kontras) .box-rest-timer .chip-timer.aktif {
+  background: #22C55E;
+  color: #0B1220;
+  border-color: #22C55E;
+}
+
+body:not(.kontras) .box-rest-timer .tombol-timer-main {
+  background: #22C55E;
+  color: #0B1220;
+  border-color: #22C55E;
+}
+
+body:not(.kontras) .box-rest-timer .tombol-timer-reset {
+  background: #18233A;
+  color: #EEF2F8;
+  border: 1px solid #26344E;
+}
+
+/* kotak target di atas judul sesi: pita oranye muda */
+
+body:not(.kontras):not(.gelap) .badge-program-sesi {
+  background: #ECFDF3;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.sesi-header h3,
+.sesi-header h2 {
+  font-family: "Sora", Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+body:not(.kontras):not(.gelap) .progress-bar-bg {
+  background: #EEF1F5;
+  border: none;
+}
+
+dialog .opsi-aktivitas .item-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* =====================================================================
+   GERAK — "NAVY PULSE"
+   Platform kesehatan inklusif: navy = struktur & kepercayaan,
+   hijau = energi & pertumbuhan, area isi terang = tenang & mudah dibaca.
+
+   Warna dasar   navy #0B1220 · navy-2 #121A2B · garis-gelap #24314A
+   Permukaan     latar #F4F6F9 · kartu #FFFFFF · garis #E3E7EE
+   Teks          utama #0B1220 · redup #5B6475 · di atas navy #C3CAD6
+   Aksen         hijau #22C55E · hijau-teks #15803D · hijau-muda #ECFDF3
+   Empat pilar   Gizi #16A34A · Energi #F59E0B · Raga #0EA5E9 · Kawan #8B5CF6
+   Huruf         judul & angka: Sora · isi: Plus Jakarta Sans
+   Sudut         kecil 10px · kartu 20px · panel besar 28px · kapsul 999px
+   Jarak         kelipatan 8px (8, 16, 24, 32, 48, 64, 96)
+   ===================================================================== */
+
+/* ---------- 1. ANGKA STATISTIK: tegas & rata ---------- */
+
+.angka-kalori,
+.makro-angka,
+.angka-besar-streak,
+.timer-angka,
+.podium-angka-poin,
+.xp-counter-tag,
+#angkaStreak,
+#angkaLevel {
+  font-family: "Sora", Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+h1,
+h2 {
+  letter-spacing: -0.04em;
+}
+
+/* ---------- 2. NAVBAR NAVY ---------- */
+
+body:not(.kontras):not(.gelap) .navbar,
+body.gelap:not(.kontras) .navbar {
+  background: rgba(11, 18, 32, 0.92);
+  color: #FFFFFF;
+  border: none;
+  border-bottom: 1px solid #1E2A40;
+  box-shadow: none;
+  backdrop-filter: saturate(160%) blur(16px);
+  -webkit-backdrop-filter: saturate(160%) blur(16px);
+}
+
+body:not(.kontras) .navbar .logo {
+  color: #FFFFFF;
+}
+
+body:not(.kontras):not(.gelap) .navbar .menu a,
+body.gelap:not(.kontras) .navbar .menu a {
+  color: #A8B3C7;
+}
+
+body:not(.kontras):not(.gelap) .navbar .menu a:hover,
+body.gelap:not(.kontras) .navbar .menu a:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* menu aktif: kapsul hijau */
+
+body:not(.kontras):not(.gelap) .navbar .menu a[aria-current="page"],
+body.gelap:not(.kontras) .navbar .menu a[aria-current="page"] {
+  color: #0B1220;
+  background: #22C55E;
+}
+
+body:not(.kontras) .navbar .tombol-masuk-daftar {
+  background: #22C55E;
+  border-color: #22C55E;
+  color: #0B1220;
+}
+
+body:not(.kontras) .navbar .tombol-masuk-daftar:hover {
+  background: #4ADE80;
+  border-color: #4ADE80;
+}
+
+body:not(.kontras):not(.gelap) .navbar .user-profile-nav,
+body.gelap:not(.kontras) .navbar .user-profile-nav {
+  background: #121A2B;
+  border: 1px solid #24314A;
+}
+
+body:not(.kontras):not(.gelap) .navbar .nav-user-nama,
+body.gelap:not(.kontras) .navbar .nav-user-nama {
+  color: #FFFFFF;
+}
+
+body:not(.kontras):not(.gelap) .navbar .nav-poin-rank-chip,
+body.gelap:not(.kontras) .navbar .nav-poin-rank-chip {
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #86EFAC;
+}
+
+body:not(.kontras):not(.gelap) .navbar .tombol-keluar-nav,
+body.gelap:not(.kontras) .navbar .tombol-keluar-nav {
+  background: transparent;
+  border: 1px solid rgba(252, 165, 165, 0.35);
+  color: #FCA5A5;
+}
+
+body:not(.kontras):not(.gelap) .navbar .tombol-keluar-nav:hover,
+body.gelap:not(.kontras) .navbar .tombol-keluar-nav:hover {
+  background: rgba(252, 165, 165, 0.1);
+}
+
+body:not(.kontras):not(.gelap) .navbar .grup-skala-teks,
+body.gelap:not(.kontras) .navbar .grup-skala-teks {
+  background: #121A2B;
+  border: 1px solid #24314A;
+}
+
+body:not(.kontras):not(.gelap) .navbar .tombol-ikon,
+body.gelap:not(.kontras) .navbar .tombol-ikon {
+  color: #E6EAF2;
+  background: transparent;
+}
+
+body:not(.kontras):not(.gelap) .navbar .tombol-ikon:hover,
+body.gelap:not(.kontras) .navbar .tombol-ikon:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body:not(.kontras):not(.gelap) .navbar .tombol-ikon[aria-pressed="true"],
+body.gelap:not(.kontras) .navbar .tombol-ikon[aria-pressed="true"] {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #0B1220;
+}
+
+@media (max-width: 1100px) {
+  body:not(.kontras):not(.gelap) .navbar .menu,
+  body.gelap:not(.kontras) .navbar .menu {
+    background: #0B1220;
+    border: 1px solid #24314A;
+    box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.5);
+  }
+
+  body:not(.kontras):not(.gelap) .navbar .menu a[aria-current="page"],
+  body.gelap:not(.kontras) .navbar .menu a[aria-current="page"] {
+    background: #22C55E;
+    color: #0B1220;
+  }
+}
+
+@media (max-width: 680px) {
+  body:not(.kontras):not(.gelap) .navbar .nav-tombol,
+  body.gelap:not(.kontras) .navbar .nav-tombol {
+    border-top: 1px solid #1E2A40;
+  }
+}
+
+/* ---------- 3. HERO TAMU: panel navy editorial ---------- */
+
+body:not(.kontras) .hero-guest {
+  margin: 24px 4% 0;
+  padding: 72px 64px;
+  border-radius: 32px;
+  background: #0B1220;
+  overflow: hidden;
+}
+
+/* garis grid tipis ala dashboard + cahaya hijau di pojok */
+
+body:not(.kontras) .hero-guest::before {
+  right: auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: radial-gradient(circle at 85% 15%, rgba(34, 197, 94, 0.22), rgba(34, 197, 94, 0) 40%),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 48px 48px;
+}
+
+body:not(.kontras) .hero-guest #judulHeroGuest {
+  color: #FFFFFF;
+}
+
+body:not(.kontras) .hero-guest .stabilo {
+  color: #22C55E;
+  -webkit-text-fill-color: #22C55E;
+}
+
+body:not(.kontras) .hero-guest .label {
+  color: #86EFAC;
+}
+
+body:not(.kontras) .hero-guest .hero-deskripsi {
+  color: #C3CAD6;
+}
+
+body:not(.kontras) .hero-guest .tombol-garis {
+  background: transparent;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+body:not(.kontras) .hero-guest .tombol-garis:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #FFFFFF;
+}
+
+body:not(.kontras):not(.gelap) .hero-guest .kartu-guest-welcome,
+body.gelap:not(.kontras) .hero-guest .kartu-guest-welcome {
+  box-shadow: 0 40px 80px -24px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- 4. EMPAT PILAR: tiap pilar punya warna sendiri ---------- */
+
+.kartu-pilar {
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid #22C55E;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.kartu-pilar:hover {
+  transform: translateY(-3px);
+}
+
+body:not(.kontras) .kartu-pilar.warna-hijau {
+  border-top-color: #16A34A;
+}
+
+body:not(.kontras) .kartu-pilar.warna-oranye {
+  border-top-color: #F59E0B;
+}
+
+body:not(.kontras) .kartu-pilar.warna-ungu {
+  border-top-color: #0EA5E9;
+}
+
+body:not(.kontras) .kartu-pilar.warna-biru {
+  border-top-color: #8B5CF6;
+}
+
+body:not(.kontras) .kartu-pilar .huruf {
+  font-family: "Sora", Arial, sans-serif;
+  font-weight: 800;
+}
+
+body:not(.kontras) .kartu-pilar.warna-hijau .huruf {
+  color: #16A34A;
+}
+
+body:not(.kontras) .kartu-pilar.warna-oranye .huruf {
+  color: #D97706;
+}
+
+body:not(.kontras) .kartu-pilar.warna-ungu .huruf {
+  color: #0284C7;
+}
+
+body:not(.kontras) .kartu-pilar.warna-biru .huruf {
+  color: #7C3AED;
+}
+
+/* titik kecil pilar (Gizi · Energi · Raga · Kawan) */
+
+body:not(.kontras) .pilar-gizi .titik-pilar {
+  background: #16A34A;
+}
+
+body:not(.kontras) .pilar-energi .titik-pilar {
+  background: #F59E0B;
+}
+
+body:not(.kontras) .pilar-raga .titik-pilar {
+  background: #0EA5E9;
+}
+
+body:not(.kontras) .pilar-kawan .titik-pilar {
+  background: #8B5CF6;
+}
+
+/* ---------- 5. PROGRES (XP, rank, sesi, quiz): hijau ---------- */
+
+body:not(.kontras) .isi-xp,
+body:not(.kontras) .progress-bar-isi,
+body:not(.kontras) .bar-progress-quiz-fill {
+  background: #22C55E;
+  border-radius: 999px;
+}
+
+body:not(.kontras):not(.gelap) .bar-xp,
+body:not(.kontras):not(.gelap) .bar-progress-quiz-track {
+  background: #EEF1F5;
+  border: none;
+  border-radius: 999px;
+}
+
+/* ---------- 6. GERAK AI: asisten modern ---------- */
+
+body:not(.kontras) .gerak-ai-trigger {
+  background: #0B1220;
+  color: #FFFFFF;
+  border: 1px solid #24314A;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25), 0 16px 32px -12px rgba(11, 18, 32, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body:not(.kontras) .gerak-ai-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.3), 0 20px 40px -12px rgba(11, 18, 32, 0.6);
+}
+
+body:not(.kontras) .gerak-ai-trigger-badge {
+  background: #22C55E;
+  color: #0B1220;
+  border: 2px solid #0B1220;
+}
+
+body:not(.kontras):not(.gelap) .gerak-ai-bubble,
+body.gelap:not(.kontras) .gerak-ai-bubble {
+  background: #0B1220;
+  color: #E6EAF2;
+  border: 1px solid #24314A;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px -16px rgba(11, 18, 32, 0.55);
+}
+
+body:not(.kontras) .gerak-ai-bubble-text {
+  color: #E6EAF2;
+}
+
+body:not(.kontras) .gerak-ai-bubble-cta {
+  background: #22C55E;
+  color: #0B1220;
+  border: none;
+  border-radius: 999px;
+}
+
+body:not(.kontras) .gerak-ai-bubble-close {
+  color: #A8B3C7;
+}
+
+body:not(.kontras):not(.gelap) .gerak-ai-panel,
+body.gelap:not(.kontras) .gerak-ai-panel {
+  border: 1px solid #E3E7EE;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -24px rgba(11, 18, 32, 0.45);
+}
+
+body.gelap:not(.kontras) .gerak-ai-panel {
+  border-color: #24314A;
+}
+
+body:not(.kontras) .gerak-ai-header {
+  background: #0B1220;
+  color: #FFFFFF;
+  border: none;
+}
+
+body:not(.kontras) .gerak-ai-judul {
+  color: #FFFFFF;
+  font-family: "Sora", Arial, sans-serif;
+}
+
+body:not(.kontras) .gerak-ai-avatar {
+  background: rgba(34, 197, 94, 0.16);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+body:not(.kontras) .gerak-ai-btn-ctrl {
+  background: rgba(255, 255, 255, 0.06);
+  color: #E6EAF2;
+  border: 1px solid #24314A;
+}
+
+body:not(.kontras) .gerak-ai-btn-ctrl:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+body:not(.kontras) .gerak-ai-status-chip {
+  background: rgba(34, 197, 94, 0.14);
+  color: #86EFAC;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+body:not(.kontras):not(.gelap) .gerak-ai-context-bar {
+  background: #ECFDF3;
+  color: #15803D;
+  border-bottom: 1px solid #BBF7D0;
+}
+
+body:not(.kontras):not(.gelap) .gerak-ai-messages {
+  background: #F4F6F9;
+}
+
+/* gelembung chat: pengguna = navy, GERAK AI = putih */
+
+body:not(.kontras) .gerak-ai-msg-user .gerak-ai-msg-content {
+  background: #0B1220;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 18px 18px 6px 18px;
+}
+
+body:not(.kontras):not(.gelap) .gerak-ai-msg-assistant .gerak-ai-msg-content {
+  background: #FFFFFF;
+  color: #0B1220;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px 18px 18px 6px;
+}
+
+body:not(.kontras) .gerak-ai-suggestion-chip {
+  background: #FFFFFF;
+  color: #0B1220;
+  border: 1px solid #DCE1E9;
+  border-radius: 999px;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+body:not(.kontras) .gerak-ai-suggestion-chip:hover {
+  border-color: #22C55E;
+  background: #ECFDF3;
+}
+
+body:not(.kontras):not(.gelap) .gerak-ai-form {
+  background: #FFFFFF;
+  border-top: 1px solid #E3E7EE;
+}
+
+body:not(.kontras) .gerak-ai-submit {
+  background: #22C55E;
+  color: #0B1220;
+  border: none;
+}
+
+body:not(.kontras) .gerak-ai-submit:hover {
+  background: #4ADE80;
+}
+
+body:not(.kontras) .gerak-ai-typing-dots span {
+  background: #22C55E;
+}
+
+/* ---------- 7. KAWAN: status online & label demo jelas ---------- */
+
+body:not(.kontras) .kawan-streak {
+  color: #15803D;
+  font-weight: 700;
+}
+
+/* ---------- 8. JURNAL: nuansa tenang (biru Raga, bukan hijau mencolok) ---------- */
+
+body:not(.kontras):not(.gelap) .prompt-ai,
+body.gelap:not(.kontras) .prompt-ai {
+  background: #0B1220;
+  background-image: radial-gradient(circle at 100% 0%, rgba(14, 165, 233, 0.3), rgba(14, 165, 233, 0) 55%);
+}
+
+body:not(.kontras) .prompt-ai .kartu-label {
+  color: #7DD3FC;
+}
+
+/* ---------- 9. HP: hero navy lebih ringkas ---------- */
+
+@media (max-width: 680px) {
+  body:not(.kontras) .hero-guest {
+    margin: 12px 12px 0;
+    padding: 40px 20px;
+    border-radius: 24px;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 1100px) {
+  body:not(.kontras) .hero-guest {
+    padding: 56px 40px;
+  }
+}
+
+/* logo putih di navbar navy (aturan lama lebih spesifik, jadi ditimpa di sini) */
+
+body:not(.kontras):not(.gelap) .navbar .logo,
+body.gelap:not(.kontras) .navbar .logo {
+  color: #FFFFFF;
+}
+
+/* teks hero di atas navy: terang & mudah dibaca */
+
+body:not(.kontras):not(.gelap) .hero-guest .hero-deskripsi,
+body.gelap:not(.kontras) .hero-guest .hero-deskripsi {
+  color: #C3CAD6;
+}
+
+body:not(.kontras):not(.gelap) .hero-guest .label,
+body.gelap:not(.kontras) .hero-guest .label {
+  color: #86EFAC;
+}
+
+body:not(.kontras):not(.gelap) .hero-guest .tombol-garis,
+body.gelap:not(.kontras) .hero-guest .tombol-garis {
+  background: transparent;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* judul hero muat 2 baris di laptop */
+
+body:not(.kontras) .hero-guest #judulHeroGuest {
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+}
+
+/* ekor balon sapaan AI ikut navy */
+
+body:not(.kontras):not(.gelap) .gerak-ai-bubble::after,
+body.gelap:not(.kontras) .gerak-ai-bubble::after {
+  background: #0B1220;
+  border-color: #24314A;
+}
+
+/* chip info kecil (terkunci/terkonfirmasi): hijau muda */
+
+body:not(.kontras):not(.gelap) .badge-energi-hari-ini {
+  background: #ECFDF3;
+  color: #15803D;
+  border-color: #BBF7D0;
+}
+
+/* teks hijau di latar terang: hijau lebih tua (kontras >= 3:1 untuk judul besar, WCAG AA) */
+
+body:not(.kontras):not(.gelap) .stabilo,
+body:not(.kontras):not(.gelap) .member-nama-highlight {
+  color: #16A34A;
+  -webkit-text-fill-color: #16A34A;
+}
+
+/* di atas panel navy tetap hijau terang */
+
+body:not(.kontras):not(.gelap) .hero-guest .stabilo {
+  color: #22C55E;
+  -webkit-text-fill-color: #22C55E;
+}
+
+@media (max-width: 680px) {
+  #beranda.seksi-beranda-utama {
+    padding-top: 8px;
+  }
+
+  #wadahBerandaMember {
+    padding-top: 8px;
+  }
+}
+
+/* logo "Gerak." — huruf G kapital */
+
+.logo,
+.intro-logo,
+.loading-logo,
+.loading-logo i {
+  text-transform: none;
+}

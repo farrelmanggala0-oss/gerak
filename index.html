@@ -1,0 +1,2826 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GERAK - Gizi, Energi, Raga, Kawan | Platform Kesehatan Inklusif Gen Z</title>
+  <meta name="description" content="GERAK adalah platform kesehatan inklusif Gen Z untuk menghitung kalori aman, merawat energi & streak ramah, refleksi raga, dan mencari kawan olahraga.">
+  <meta name="theme-color" content="#0B1220">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏃</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/01-dasar.css">
+  <link rel="stylesheet" href="css/02-beranda.css">
+  <link rel="stylesheet" href="css/03-kawan.css">
+  <link rel="stylesheet" href="css/04-gizi-workout.css">
+  <link rel="stylesheet" href="css/05-komponen-umum.css">
+  <link rel="stylesheet" href="css/06-poin-rank.css">
+  <link rel="stylesheet" href="css/07-mode-gelap-kontras.css">
+  <link rel="stylesheet" href="css/08-responsif.css">
+  <link rel="stylesheet" href="css/09-gerak-ai-animasi.css">
+  <link rel="stylesheet" href="css/10-workout-layar-penuh.css">
+  <link rel="stylesheet" href="css/11-jurnal.css">
+  <link rel="stylesheet" href="css/12-edukasi.css">
+  <link rel="stylesheet" href="css/13-intro-masuk-navbar.css">
+  <link rel="stylesheet" href="css/14-design-system-navy-pulse.css">
+  <link rel="stylesheet" href="css/15-fitur-kesehatan.css">
+</head>
+<body>
+
+  <!-- Intro animasi tiap web dibuka (dari Gerak Pertama) -->
+  <div id="intro" aria-hidden="true">
+    <h1>
+      <span style="animation-delay: 0.8s">Selamat</span>
+      <span style="animation-delay: 1s">datang</span>
+      <span style="animation-delay: 1.2s">di</span><br>
+      <span class="intro-logo" style="animation-delay: 1.5s"><span class="logo-g">G</span>erak<b>.</b></span>
+    </h1>
+    <p style="animation-delay: 2s">Sehat lebih gampang kalau ada temennya</p>
+  </div>
+
+  <!-- Loading setelah daftar/masuk (dari Gerak Pertama) -->
+  <div id="loading" role="status" aria-label="Memuat" hidden>
+    <div class="loading-logo">
+      <i class="logo-g" style="animation-delay: 0s">G</i><i style="animation-delay: 0.1s">e</i><i style="animation-delay: 0.2s">r</i><i style="animation-delay: 0.3s">a</i><i style="animation-delay: 0.4s">k</i><span style="animation-delay: 0.5s">.</span>
+    </div>
+    <div class="loading-bar"><div></div></div>
+    <p>Lagi pemanasan…</p>
+  </div>
+
+  <!-- Skip link untuk aksesibilitas keyboard -->
+  <a href="#konten" class="skip-link">Lewati ke konten utama</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <a href="#beranda" class="logo" aria-label="GERAK Beranda"><span class="logo-g">G</span>erak<span class="logo-dot" aria-hidden="true">.</span></a>
+
+    <nav class="menu" id="menu" aria-label="Navigasi utama">
+      <a href="#beranda"><span class="ikon-nav" aria-hidden="true">🏠</span>Beranda</a>
+      <a href="#gizi"><span class="ikon-nav" aria-hidden="true">🥗</span>Gizi</a>
+      <a href="#workout" id="navWorkout" class="nav-terkunci" title="Atur gizi terlebih dahulu untuk membuka Work Out"><span class="ikon-nav" aria-hidden="true">🏋️</span>Work Out <span id="ikonKunciNav" aria-hidden="true">🔒</span></a>
+      <a href="#kawan" id="navKawan"><span class="ikon-nav" aria-hidden="true">🤝</span>Kawan</a>
+      <a href="#poinRank" id="navPoinRank"><span class="ikon-nav" aria-hidden="true">🏅</span>Poin &amp; Rank</a>
+      <a href="#jurnal"><span class="ikon-nav" aria-hidden="true">📓</span>Jurnal</a>
+      <a href="#edukasi"><span class="ikon-nav" aria-hidden="true">📚</span>Edukasi</a>
+    </nav>
+
+    <!-- Tombol Masuk / Daftar Akun & Profil Pengguna -->
+    <div class="nav-auth-container" id="navAuthContainer">
+      <button type="button" class="tombol-masuk-daftar" id="tombolBukaAuth">
+        Masuk / Daftar
+      </button>
+      <div class="user-profile-nav" id="userProfileNav" style="display: none;">
+        <span class="nav-avatar-mini" id="navAvatarMini">👤</span>
+        <span class="nav-user-nama" id="navUserNama">Pengguna</span>
+        <a href="#poinRank" class="nav-poin-rank-chip" id="navPoinRankChip" title="Lihat Poin &amp; Rank">
+          <span class="nav-rank-ikon" id="navRankIkon">🌱</span>
+          <span class="nav-poin-angka" id="navPoinAngka">0 Poin</span>
+        </a>
+        <button type="button" class="tombol-keluar-nav" id="tombolKeluarAkun" title="Keluar dari akun">Keluar</button>
+      </div>
+    </div>
+
+    <div class="nav-tombol">
+      <!-- Pengatur Ukuran Teks (A-, A, A+) -->
+      <div class="grup-skala-teks" role="group" aria-label="Pengaturan ukuran teks">
+        <button class="tombol-ikon" id="tombolTeksKecil" title="Perkecil teks (A-)" aria-label="Perkecil ukuran teks">A−</button>
+        <button class="tombol-ikon" id="tombolTeksNormal" title="Ukuran teks normal (A)" aria-label="Ukuran teks normal" aria-pressed="true">A</button>
+        <button class="tombol-ikon" id="tombolTeksBesar" title="Perbesar teks (A+)" aria-label="Perbesar ukuran teks">A+</button>
+      </div>
+
+      <button class="tombol-ikon" id="tombolBaca" title="Baca nyaring teks terpilih" aria-label="Baca nyaring teks" aria-pressed="false">🔊</button>
+      <button class="tombol-ikon" id="tombolKontras" title="Mode kontras tinggi" aria-label="Mode kontras tinggi" aria-pressed="false">◐</button>
+      <button class="tombol-ikon" id="tombolGelap" title="Mode gelap" aria-label="Mode gelap" aria-pressed="false">🌙</button>
+      <button class="tombol-ikon tombol-menu" id="tombolMenu" title="Buka menu navigasi" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="menu">☰</button>
+    </div>
+  </header>
+
+  <main id="konten" tabindex="-1">
+
+    <!-- ================= BERANDA (DUAL MODE: GUEST & MEMBER) ================= -->
+    <section id="beranda" class="seksi-beranda-utama" aria-label="Beranda GERAK">
+
+      <!-- ================= 1. GUEST MODE (PENGUNJUNG BELUM LOGIN) ================= -->
+      <div id="wadahBerandaGuest" class="beranda-guest-wrap">
+        <!-- A. Hero Section Guest -->
+        <div class="hero hero-guest" aria-labelledby="judulHeroGuest">
+          <div class="hero-teks">
+            <p class="label">Platform sehat inklusif buat Gen Z</p>
+            <h1 id="judulHeroGuest">Gerak bareng,<br><span class="stabilo">sehat bareng.</span></h1>
+            <p class="hero-deskripsi">
+              GERAK. merupakan platform untuk membantu pengguna membangun kebiasaan sehat melalui pengaturan gizi, workout, komunitas olahraga, pencapaian poin, dan jurnal harian.
+            </p>
+            <div class="hero-aksi">
+              <button type="button" class="tombol tombol-utama" id="tombolGuestMulaiGratis">
+                ✨ Mulai Gratis
+              </button>
+              <a href="#pengenalanFiturGuest" class="tombol tombol-garis" id="tombolGuestJelajahi">
+                🔍 Jelajahi GERAK.
+              </a>
+            </div>
+          </div>
+
+          <!-- Kartu Selamat Datang & Highlight Keunggulan Guest -->
+          <div class="hero-kartu hero-kartu-guest">
+            <div class="kartu-status kartu-guest-welcome">
+              <div class="tag-welcome-pill">👋 SELAMAT DATANG DI GERAK.</div>
+              <h3 class="judul-welcome-guest">Sehat Itu Ramah, Bukan Beban.</h3>
+              <p class="kartu-kecil">
+                Mulai perjalanan kebugaranmu hari ini dengan panduan terukur berbasis sains dan komunitas positif tanpa penghakiman.
+              </p>
+              <div class="list-keunggulan-guest">
+                <div class="item-keunggulan">
+                  <span class="ikon-keunggulan">🥗</span>
+                  <div>
+                    <strong>Gizi Aman &amp; Terukur</strong>
+                    <p class="teks-kecil-muted">Batas minimum kalori aman tanpa kelaparan ekstrem.</p>
+                  </div>
+                </div>
+                <div class="item-keunggulan">
+                  <span class="ikon-keunggulan">🏋️</span>
+                  <div>
+                    <strong>Work Out Personal</strong>
+                    <p class="teks-kecil-muted">Latihan diselaraskan target kalori +25 poin/sesi.</p>
+                  </div>
+                </div>
+                <div class="item-keunggulan">
+                  <span class="ikon-keunggulan">👥</span>
+                  <div>
+                    <strong>14 Cabang Olahraga</strong>
+                    <p class="teks-kecil-muted">Temukan partner lari, badminton, padel, gym, dll.</p>
+                  </div>
+                </div>
+                <div class="item-keunggulan">
+                  <span class="ikon-keunggulan">🔥</span>
+                  <div>
+                    <strong>Streak Ramah Istirahat</strong>
+                    <p class="teks-kecil-muted">Jatah istirahat tanpa takut kehilangan streak.</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="tombol tombol-utama lebar-penuh tombol-guest-cta-mini" id="tombolGuestCtaMini">
+                Buat Akun Sekarang — Gratis
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- B. Pengenalan Fitur GERAK. -->
+        <div class="bagian-sub-guest" id="pengenalanFiturGuest">
+          <div class="judul-bagian">
+            <p class="label">Fitur Utama</p>
+            <h2>Kenali Fitur Unggulan GERAK.</h2>
+            <p class="sub-judul">Semua yang kamu butuhkan untuk merawat raga dan energi dalam satu ekosistem yang aman, terukur, dan inklusif.</p>
+          </div>
+
+          <div class="grid-fitur-guest">
+            <!-- 1. Gizi -->
+            <div class="kartu-fitur-guest kartu-gizi-guest">
+              <div class="ikon-fitur-bulat aksen-gizi">🥗</div>
+              <h3>Gizi</h3>
+              <p>Penghitungan kebutuhan kalori harian dan pengaturan target gizi berbasis Mifflin-St Jeor dengan perlindungan batas aman minimum dan batasan usia.</p>
+              <a href="#gizi" class="link-jelajah-fitur">Buka Kalkulator Gizi ➔</a>
+            </div>
+
+            <!-- 2. Work Out -->
+            <div class="kartu-fitur-guest kartu-workout-guest">
+              <div class="ikon-fitur-bulat aksen-workout">🏋️</div>
+              <h3>Work Out</h3>
+              <p>Program latihan fisik yang dapat disesuaikan dengan target pengguna, diselaraskan dengan kebutuhan kalori, dan dilengkapi 30 tips pemulihan &amp; energi.</p>
+              <a href="#workout" class="link-jelajah-fitur">Jelajahi Program Latihan ➔</a>
+            </div>
+
+            <!-- 3. Kawan -->
+            <div class="kartu-fitur-guest kartu-kawan-guest">
+              <div class="ikon-fitur-bulat aksen-kawan">👥</div>
+              <h3>Kawan</h3>
+              <p>Menemukan teman olahraga berdasarkan minat dan aktivitas dari 14 cabang olahraga, bergabung di agenda komunitas, dan pantau kawan yang sedang aktif.</p>
+              <a href="#kawan" class="link-jelajah-fitur">Cari Teman Olahraga ➔</a>
+            </div>
+
+            <!-- 4. Poin & Rank -->
+            <div class="kartu-fitur-guest kartu-poin-guest">
+              <div class="ikon-fitur-bulat aksen-poin">🏆</div>
+              <h3>Poin &amp; Rank</h3>
+              <p>Mengumpulkan poin dari workout yang diselesaikan (+25 poin/sesi), menaikkan rank dari 11 tingkatan, dan bersaing secara sportif di Leaderboard komunitas.</p>
+              <a href="#poinRank" class="link-jelajah-fitur">Lihat Sistem Poin &amp; Rank ➔</a>
+            </div>
+
+            <!-- 5. Jurnal -->
+            <div class="kartu-fitur-guest kartu-jurnal-guest">
+              <div class="ikon-fitur-bulat aksen-jurnal">📝</div>
+              <h3>Jurnal</h3>
+              <p>Mencatat refleksi dan kebiasaan harian dengan prompt reflektif tanpa takut dihakimi untuk menjaga keseimbangan raga dan pikiranmu.</p>
+              <a href="#jurnal" class="link-jelajah-fitur">Tulis Refleksi Raga ➔</a>
+            </div>
+
+            <!-- 6. Edukasi -->
+            <div class="kartu-fitur-guest kartu-edukasi-guest">
+              <div class="ikon-fitur-bulat aksen-edukasi">💡</div>
+              <h3>Edukasi</h3>
+              <p>Mempelajari informasi dan panduan hidup sehat berbasis sains untuk membedah mitos kebugaran, pola makan seimbang, dan pemulihan tubuh optimal.</p>
+              <a href="#edukasi" class="link-jelajah-fitur">Baca Panduan Sehat ➔</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- C. Preview Fitur (Showcase Simulasi) -->
+        <div class="bagian-sub-guest bagian-preview-guest">
+          <div class="judul-bagian">
+            <p class="label">Showcase Sistem</p>
+            <h3>Lihat Cara GERAK. Membantumu</h3>
+            <p class="sub-judul">Contoh nyata bagaimana gamifikasi ramah dan fitur terpadu menjaga motivasimu setiap hari.</p>
+            <div class="badge-simulasi-tag">✨ CONTOH SIMULASI EDUKASI — Data aslimu akan tercatat otomatis saat kamu membuat akun</div>
+          </div>
+
+          <div class="grid-preview-guest">
+            <!-- Preview 1: Streak -->
+            <div class="kartu-preview-guest preview-streak">
+              <div class="preview-header">
+                <span class="preview-badge badge-orange">🔥 SIMULASI STREAK</span>
+                <span class="teks-simulasi-label">Contoh</span>
+              </div>
+              <p class="preview-angka">7 Hari <span class="api">🔥</span></p>
+              <p class="kartu-kecil">Konsistensi kebiasaan sehat terbangun!</p>
+              <div class="minggu-preview" aria-hidden="true">
+                <span class="dot-preview-hari nyala">Sen</span>
+                <span class="dot-preview-hari nyala">Sel</span>
+                <span class="dot-preview-hari nyala">Rab</span>
+                <span class="dot-preview-hari nyala">Kam</span>
+                <span class="dot-preview-hari nyala">Jum</span>
+                <span class="dot-preview-hari nyala">Sab</span>
+                <span class="dot-preview-hari nyala">Min</span>
+              </div>
+              <p class="teks-simulasi-desc">🛡️ <b>Jatah Istirahat:</b> 1 hari tersisa. Streak tidak putus saat kamu perlu rehat.</p>
+            </div>
+
+            <!-- Preview 2: Level & XP -->
+            <div class="kartu-preview-guest preview-level">
+              <div class="preview-header">
+                <span class="preview-badge badge-blue">⚡ SIMULASI LEVEL &amp; XP</span>
+                <span class="teks-simulasi-label">Contoh</span>
+              </div>
+              <div class="baris-antara" style="margin-top: 0.5rem;">
+                <strong>Level 3</strong>
+                <span class="teks-kecil-muted">80 / 100 XP</span>
+              </div>
+              <div class="bar-xp" style="margin: 0.75rem 0;" aria-hidden="true"><div class="isi-xp" style="width: 80%;"></div></div>
+              <p class="kartu-kecil">Tingkat: <b>Pejuang Konsisten</b></p>
+              <p class="teks-simulasi-desc">Dapatkan +20 XP dari check-in dan +10 XP dari menulis jurnal harian.</p>
+            </div>
+
+            <!-- Preview 3: Poin & Rank -->
+            <div class="kartu-preview-guest preview-poin">
+              <div class="preview-header">
+                <span class="preview-badge badge-yellow">🏆 SIMULASI POIN &amp; RANK</span>
+                <span class="teks-simulasi-label">Contoh</span>
+              </div>
+              <div class="baris-antara" style="margin-top: 0.5rem;">
+                <span class="rank-simulasi-chip">🌱 Mulai Semangat</span>
+                <strong class="angka-poin-simulasi">350 Poin</strong>
+              </div>
+              <div class="bar-xp" style="margin: 0.75rem 0;" aria-hidden="true"><div class="isi-xp" style="width: 70%;"></div></div>
+              <p class="kartu-kecil">Badge: <b>Bibit Gerak</b> • 150 poin lagi ke Pejuang Konsisten</p>
+              <p class="teks-simulasi-desc">Setiap 1 sesi workout memberikan <b>+25 Poin</b> nyata untuk menaikkan rank.</p>
+            </div>
+
+            <!-- Preview 4: Workout -->
+            <div class="kartu-preview-guest preview-workout">
+              <div class="preview-header">
+                <span class="preview-badge badge-green">🏋️ SIMULASI WORKOUT</span>
+                <span class="teks-simulasi-label">Contoh</span>
+              </div>
+              <h4 style="margin-top: 0.5rem;">Full-Body Functional</h4>
+              <p class="kartu-kecil">20 Menit • 4 Gerakan • Tanpa Alat</p>
+              <div class="simulasi-checklist">
+                <span>✔ Jumping Jacks (45s)</span>
+                <span>✔ Bodyweight Squats (15 rep)</span>
+                <span>✔ Push-Up Modifikasi (10 rep)</span>
+                <span>✔ Plank Hold (30s)</span>
+              </div>
+              <p class="teks-simulasi-desc">Diselaraskan otomatis dengan target kalori dan dilengkapi timer interaktif.</p>
+            </div>
+
+            <!-- Preview 5: Komunitas Kawan -->
+            <div class="kartu-preview-guest preview-kawan">
+              <div class="preview-header">
+                <span class="preview-badge badge-purple">👥 SIMULASI KOMUNITAS</span>
+                <span class="teks-simulasi-label">Contoh</span>
+              </div>
+              <h4 style="margin-top: 0.5rem;">Rekan Olahraga di Sekitarmu</h4>
+              <p class="kartu-kecil">14 Cabang Olahraga Terintegrasi</p>
+              <div class="simulasi-kawan-item">
+                <span class="avatar-simulasi">🏃</span>
+                <div>
+                  <strong>Dimas Pratama</strong>
+                  <p class="teks-kecil-muted">Lari • 1.2 km di GBK • Sedang Aktif</p>
+                </div>
+              </div>
+              <div class="simulasi-kawan-item">
+                <span class="avatar-simulasi">🎾</span>
+                <div>
+                  <strong>Nadia Putri</strong>
+                  <p class="teks-kecil-muted">Padel • 2.5 km di Cilandak • Cari Partner</p>
+                </div>
+              </div>
+              <p class="teks-simulasi-desc">Privasi koordinat aman, filter radius 1-10 km berbasis titik acuan publik.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- D. Ajakan Membuat Akun (CTA Box) -->
+        <div class="banner-cta-guest-wrap">
+          <div class="banner-cta-guest">
+            <span class="badge-cta-pill">🚀 GABUNG SEKARANG</span>
+            <h2>Siap Memulai Kebiasaan Sehat Bersama GERAK.?</h2>
+            <p class="deskripsi-cta-guest">
+              Bergabunglah secara gratis bersama ribuan Gen Z lainnya. Atur kebutuhan gizi seimbangmu, ikuti program workout terarah, kumpulkan poin rank, dan temukan teman olahraga di sekitarmu tanpa tekanan.
+            </p>
+            <div class="aksi-cta-guest">
+              <button type="button" class="tombol tombol-utama tombol-cta-besar" id="tombolCtaDaftarGuest">
+                ✨ Buat Akun Gratis Sekarang
+              </button>
+            </div>
+            <p class="teks-aman-cta">
+              🔒 100% Gratis • Data tersimpan aman di perangkatmu • Ramah &amp; Tanpa Tekanan
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 2. MEMBER MODE (PENGGUNA SUDAH LOGIN) ================= -->
+      <div id="wadahBerandaMember" class="beranda-member-wrap" style="display: none;">
+        <!-- A. Hero Section Member -->
+        <div class="hero hero-member" aria-labelledby="judulHeroMember" data-seksi-ai="berandaHero">
+          <div class="hero-teks hero-teks-member">
+            <div class="baris-pill-salam">
+              <div class="badge-member-salam">
+                <span class="dot-live-pulsing" aria-hidden="true"></span>
+                <span class="ikon-member-salam">⚡</span>
+                <span class="teks-member-status" id="memberStatusLoginBadge">Member Aktif</span>
+              </div>
+              <span class="badge-energi-hari-ini">🔥 Siap Bergerak</span>
+            </div>
+
+            <h1 id="judulHeroMember" class="judul-sapaan-member">
+              Halo, <span id="memberNamaSapaan" class="member-nama-highlight">Kawan</span>! <span class="wave-tangan" aria-hidden="true">👋</span>
+            </h1>
+
+            <div class="kotak-motivasi-member">
+              <p class="hero-deskripsi member-sub-sapaan" id="memberSubSapaan">
+                Siap bergerak lebih sehat hari ini? Pantau progres kebugaranmu, kumpulkan poin dari latihan, dan jaga kebiasaan baikmu tanpa tekanan.
+              </p>
+              <div class="micro-stats-member">
+                <span class="micro-stat-item">🎯 <b>3 Misi Harian</b></span>
+                <span class="micro-stat-pemisah">•</span>
+                <span class="micro-stat-item">⚡ <b>+25 Poin/Sesi</b></span>
+                <span class="micro-stat-pemisah">•</span>
+                <span class="micro-stat-item">🛡️ <b>Streak Terlindungi</b></span>
+              </div>
+            </div>
+
+            <div class="hero-aksi hero-aksi-member">
+              <button class="tombol tombol-utama tombol-aksi-checkin" id="tombolCheckin">
+                <span class="ikon-tombol-checkin">✔</span> Check-in Hari Ini
+              </button>
+              <a href="#kawan" class="tombol tombol-garis tombol-aksi-kawan" id="tombolHeroCariKawan">
+                👥 Cari Kawan Gerak
+              </a>
+            </div>
+
+            <!-- Elemen Visual Dekoratif GERAK (Mengisi area kosong di bawah tombol) -->
+            <div class="kartu-dekorasi-gerak" role="region" aria-label="Dekorasi Semangat Bergerak GERAK">
+              <div class="watermark-huruf-g" aria-hidden="true">G<span class="watermark-dot">.</span></div>
+              
+              <div class="konten-dekorasi-teks">
+                <div class="baris-tag-dekorasi">
+                  <span class="tag-dekorasi-chip">⚡ GERAK SETIAP HARI</span>
+                  <span class="chip-ritme-sehat">RITME SEHAT</span>
+                </div>
+                <h3 class="judul-dekorasi-gerak">Konsisten bergerak, rasakan bedanya.</h3>
+                <p class="sub-dekorasi-gerak">Langkah kecil harian untuk tubuh bugar dan pikiran segar tanpa beban.</p>
+                
+                <div class="pilar-mini-row" aria-hidden="true">
+                  <span class="pill-mini-item pilar-gizi"><span class="titik-pilar"></span>Gizi</span>
+                  <span class="pill-mini-item pilar-energi"><span class="titik-pilar"></span>Energi</span>
+                  <span class="pill-mini-item pilar-raga"><span class="titik-pilar"></span>Raga</span>
+                  <span class="pill-mini-item pilar-kawan"><span class="titik-pilar"></span>Kawan</span>
+                </div>
+              </div>
+
+              <div class="wadah-svg-gerak" aria-hidden="true">
+                <svg class="svg-siluet-gerak" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Ground Curves & Kinetic Ribbons -->
+                  <path d="M 8 114 C 55 114, 85 96, 120 100 C 155 104, 180 122, 212 112" stroke="#FF5A1F" stroke-width="8" stroke-linecap="round"/>
+                  <path d="M 24 122 C 70 122, 105 108, 142 112 C 172 116, 195 125, 214 118" class="siluet-garis" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 6"/>
+                  
+                  <!-- Trailing Motion Energy Lines -->
+                  <path d="M 42 62 L 78 62" stroke="#FF5A1F" stroke-width="3.5" stroke-linecap="round"/>
+                  <path d="M 32 73 L 70 73" stroke="#FF8A4C" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 52 52 L 86 52" stroke="#D9480F" stroke-width="2.5" stroke-linecap="round"/>
+
+                  <!-- Stylized Runner Silhouette -->
+                  <!-- Head -->
+                  <circle class="siluet-tubuh" cx="138" cy="28" r="11" fill="#111111"/>
+                  
+                  <!-- Torso -->
+                  <path class="siluet-tubuh" d="M 132 39 L 118 73 L 128 75 L 142 42 Z" fill="#111111"/>
+                  
+                  <!-- Back Arm -->
+                  <path class="siluet-garis" d="M 128 47 L 108 52 L 96 43" stroke="#111111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  
+                  <!-- Front Arm -->
+                  <path class="siluet-garis" d="M 136 46 L 156 42 L 168 55" stroke="#111111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  
+                  <!-- Back Leg -->
+                  <path class="siluet-garis" d="M 118 73 L 95 89 L 72 83" stroke="#111111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path class="siluet-garis" d="M 72 83 L 64 87" stroke="#111111" stroke-width="5" stroke-linecap="round"/>
+                  
+                  <!-- Front Leg -->
+                  <path class="siluet-garis" d="M 118 73 L 143 86 L 163 111" stroke="#111111" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path class="siluet-garis" d="M 163 111 L 176 111" stroke="#111111" stroke-width="5" stroke-linecap="round"/>
+                  
+                  <!-- Kinetic Accents: Stars & Sparks -->
+                  <path d="M 184 16 Q 184 25 193 25 Q 184 25 184 34 Q 184 25 175 25 Q 184 25 184 16 Z" fill="#D9480F"/>
+                  <path d="M 88 16 Q 88 23 95 23 Q 88 23 88 30 Q 88 23 81 23 Q 88 23 88 16 Z" fill="#FF5A1F" stroke="#111111" stroke-width="1.2"/>
+                  
+                  <circle cx="170" cy="35" r="3.5" fill="#FF5A1F" stroke="#111111" stroke-width="1"/>
+                  <circle class="siluet-tubuh" cx="202" cy="48" r="2.5" fill="#111111"/>
+                  <circle cx="98" cy="98" r="2.5" fill="#FF8A4C"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- B. Ringkasan Aktivitas Member (Streak, Level, dan AYO MULAI) -->
+          <div class="hero-kartu hero-kartu-member">
+            <!-- Grid Status Atas: Streak & Level Side-by-Side -->
+            <div class="grid-status-atas-member" data-seksi-ai="berandaStatus">
+              <!-- Kartu Streak Harian -->
+              <div class="kartu-status kartu-streak kartu-streak-aesthetic" role="region" aria-label="Status streak harian">
+                <div class="baris-antara header-kartu-streak">
+                  <span class="kartu-label badge-label-streak">🔥 STREAK HARIAN</span>
+                  <span class="chip-status-streak-mini">KONSISTENSI</span>
+                </div>
+                <div class="konten-streak-aesthetic">
+                  <div class="lingkaran-api-streak">
+                    <span class="api-flame-anim" aria-hidden="true">🔥</span>
+                  </div>
+                  <div>
+                    <p class="angka-besar-streak"><span id="angkaStreak">0</span> <small>Hari</small></p>
+                    <p class="kartu-kecil teks-streak-aesthetic" id="teksStreak">Yuk check-in untuk menyalakan api kebiasaan sehatmu!</p>
+                  </div>
+                </div>
+                <div class="minggu minggu-aesthetic" id="mingguIni" role="group" aria-label="Riwayat check-in 7 hari terakhir"></div>
+                <div class="wadah-info-jatah">
+                  <span class="ikon-perisai" aria-hidden="true">🛡️</span>
+                  <p class="kartu-kecil info-jatah" id="infoJatahIstirahat">Jatah istirahat: 1 hari</p>
+                </div>
+              </div>
+
+              <!-- Kartu Level & XP -->
+              <div class="kartu-status kartu-level kartu-level-aesthetic" role="region" aria-label="Status level dan XP">
+                <div class="baris-antara">
+                  <div class="badge-level-chip">
+                    <span class="ikon-level-chip" aria-hidden="true">⚡</span>
+                    <span class="kartu-label">Level <span id="angkaLevel">1</span></span>
+                  </div>
+                  <div class="xp-counter-tag">
+                    <span id="angkaXP">0</span> <span class="muted-xp">/ 100 XP</span>
+                  </div>
+                </div>
+                <div class="bar-xp bar-xp-aesthetic" id="barXP" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progres level 1">
+                  <div class="isi-xp" id="isiXP"></div>
+                </div>
+                <div class="baris-antara baris-bawah-level">
+                  <p class="nama-level-aesthetic" id="namaLevel">Pemula Gerak</p>
+                  <span class="tag-motivasi-xp">+20 XP per check-in</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kartu Progres Berat Badan & Kalori: AYO MULAI -->
+            <div class="kartu-status kartu-ayo-mulai" id="kartuAyoMulai" role="region" aria-label="Pelacak Progres Berat Badan dan Kalori AYO MULAI" data-seksi-ai="berandaAyoMulai">
+              <div class="baris-antara header-ayo-mulai">
+                <span class="kartu-label badge-label-ayo-mulai">🎯 AYO MULAI</span>
+                <span class="chip-target-aktif chip-kosong" id="ayoMulaiTargetBadge">Belum Ada Target</span>
+              </div>
+
+              <p class="deskripsi-ayo-mulai">
+                Pantau perjalananmu menuju target berat badan dengan memperhatikan asupan gizi, aktivitas workout, dan kebiasaan olahraga bersama.
+              </p>
+
+              <!-- Ringkasan Metrik Berat Badan -->
+              <div class="grid-metrik-berat">
+                <div class="item-metrik-berat">
+                  <span class="label-metrik-kecil">Berat Awal</span>
+                  <p class="nilai-metrik-berat"><strong id="ayoMulaiBeratAwal">-</strong></p>
+                </div>
+                <div class="item-metrik-berat">
+                  <span class="label-metrik-kecil">Berat Terbaru</span>
+                  <p class="nilai-metrik-berat"><strong id="ayoMulaiBeratTerbaru">-</strong></p>
+                </div>
+                <div class="item-metrik-berat">
+                  <span class="label-metrik-kecil">Perubahan</span>
+                  <p class="nilai-metrik-berat"><strong id="ayoMulaiPerubahan">-</strong></p>
+                </div>
+              </div>
+
+              <!-- Banner Ekuivalen Energi -->
+              <div class="banner-ekuivalen-energi" id="wadahEkuivalenEnergi">
+                <span class="ikon-ekuivalen" id="ayoMulaiIkonEkuivalen">⚡</span>
+                <div class="info-ekuivalen-teks">
+                  <p class="teks-ekuivalen-utama" id="ayoMulaiEkuivalenTeks">Estimasi Ekuivalen Energi: -</p>
+                  <p class="teks-ekuivalen-sub" id="ayoMulaiEkuivalenSub">Lengkapi data berat badan di Kalkulator Gizi untuk mulai memantau progres.</p>
+                </div>
+              </div>
+
+              <!-- Ringkasan 3 Sumber Aktivitas -->
+              <div class="ringkasan-tiga-sumber">
+                <div class="sumber-item" id="sumberGiziItem">
+                  <span class="sumber-ikon">🥗</span>
+                  <div class="sumber-info">
+                    <span class="sumber-nama">Gizi</span>
+                    <span class="sumber-nilai" id="ayoMulaiRingkasanGizi">Belum dihitung</span>
+                  </div>
+                </div>
+                <div class="sumber-item" id="sumberWorkoutItem">
+                  <span class="sumber-ikon">🏋️</span>
+                  <div class="sumber-info">
+                    <span class="sumber-nama">Work Out</span>
+                    <span class="sumber-nilai" id="ayoMulaiRingkasanWorkout">0 sesi selesai</span>
+                  </div>
+                </div>
+                <div class="sumber-item" id="sumberKawanItem">
+                  <span class="sumber-ikon">👥</span>
+                  <div class="sumber-info">
+                    <span class="sumber-nama">Olahraga Bersama</span>
+                    <span class="sumber-nilai" id="ayoMulaiRingkasanKawan">0 kegiatan tercatat</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tombol Utama AYO MULAI -->
+              <button type="button" class="tombol tombol-utama lebar-penuh tombol-aksi-ayo-mulai" id="btnAyoMulaiUtama">
+                🚀 AYO MULAI
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- C. Panel Bawah Interaktif: Tab Switcher (Siap Melakukan vs 4 Pilar) -->
+        <div class="panel-bawah-beranda" id="panelBawahBeranda" data-seksi-ai="berandaAktivitas">
+          <div class="baris-antara header-panel-bawah-beranda">
+            <div class="tab-switcher-beranda" role="tablist" aria-label="Tampilan Aktivitas dan Pilar GERAK">
+              <button type="button" class="tab-btn-beranda tab-beranda-aktif" id="tabBtnSiapMelakukan" role="tab" aria-selected="true" aria-controls="wadahAktivitasHariIni">
+                🎯 Aktivitas Hari Ini (Siap Melakukan)
+              </button>
+              <button type="button" class="tab-btn-beranda" id="tabBtnEmpatPilar" role="tab" aria-selected="false" aria-controls="wadahEmpatPilarBeranda">
+                🏛️ 4 Pilar GERAK
+              </button>
+            </div>
+            <div class="status-checkin-badge" id="memberStatusCheckinBadge">
+              ⏳ Belum check-in hari ini
+            </div>
+          </div>
+
+          <!-- Tab Panel 1: Aktivitas Hari Ini (Siap Melakukan) -->
+          <div class="panel-tab-konten panel-tab-aktif" id="wadahAktivitasHariIni" role="tabpanel" aria-labelledby="tabBtnSiapMelakukan">
+            <div class="grid-akses-cepat-member">
+              <!-- 1. Gizi -->
+              <div class="kartu-akses-member" id="kartuAksesGizi">
+                <div class="header-akses-member">
+                  <span class="ikon-akses">🥗</span>
+                  <span class="badge-status-akses" id="badgeStatusGizi">Belum Dihitung</span>
+                </div>
+                <h4>Target Gizi</h4>
+                <p class="deskripsi-akses" id="deskripsiAksesGizi">
+                  Atur kebutuhan kalori dan target gizi harianmu agar program latihan terbuka.
+                </p>
+              </div>
+
+              <!-- 2. Work Out -->
+              <div class="kartu-akses-member" id="kartuAksesWorkout">
+                <div class="header-akses-member">
+                  <span class="ikon-akses">🏋️</span>
+                  <span class="badge-status-akses" id="badgeStatusWorkout">Terkunci 🔒</span>
+                </div>
+                <h4>Program Latihan</h4>
+                <p class="deskripsi-akses" id="deskripsiAksesWorkout">
+                  Latihan terarah +25 poin/sesi diselaraskan dengan target kalorimu.
+                </p>
+              </div>
+
+              <!-- 3. Jurnal -->
+              <div class="kartu-akses-member" id="kartuAksesJurnal">
+                <div class="header-akses-member">
+                  <span class="ikon-akses">📝</span>
+                  <span class="badge-status-akses badge-jurnal">Refleksi</span>
+                </div>
+                <h4>Jurnal Harian</h4>
+                <p class="deskripsi-akses">
+                  Tuliskan kondisi tubuh, energi, dan suasana hatimu hari ini (+10 XP).
+                </p>
+              </div>
+
+              <!-- 4. Cari Kawan -->
+              <div class="kartu-akses-member" id="kartuAksesKawan">
+                <div class="header-akses-member">
+                  <span class="ikon-akses">👥</span>
+                  <span class="badge-status-akses badge-online">14 Cabor</span>
+                </div>
+                <h4>Teman Olahraga</h4>
+                <p class="deskripsi-akses">
+                  Cari rekan di sekitarmu, gabung sesi komunitas, atau ajak kawan aktif.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Panel 2: 4 Pilar GERAK -->
+          <div class="panel-tab-konten" id="wadahEmpatPilarBeranda" role="tabpanel" aria-labelledby="tabBtnEmpatPilar" style="display: none;">
+            <div class="pilar pilar-beranda-tab" aria-label="Empat Pilar GERAK">
+              <div class="kartu-pilar warna-hijau">
+                <span class="huruf" aria-hidden="true">G</span>
+                <h3>Gizi</h3>
+                <p>Kalkulator kalori aman untuk diet, bulking, atau jaga gizi seimbang.</p>
+              </div>
+              <div class="kartu-pilar warna-oranye">
+                <span class="huruf" aria-hidden="true">E</span>
+                <h3>Energi</h3>
+                <p>Check-in bermakna, jatah istirahat inklusif, dan naikin levelmu.</p>
+              </div>
+              <div class="kartu-pilar warna-ungu">
+                <span class="huruf" aria-hidden="true">R</span>
+                <h3>Raga</h3>
+                <p>Jurnal mood dan kondisi badan dengan prompt reflektif harian.</p>
+              </div>
+              <div class="kartu-pilar warna-biru">
+                <span class="huruf" aria-hidden="true">K</span>
+                <h3>Kawan</h3>
+                <p>Temukan kawan olahraga yang cocok dan inklusif di sekitarmu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- D. Pengenalan GERAK (Seksi Beranda Scrolling) -->
+        <div class="seksi-konten-tambahan" id="berandaPengenalan" data-seksi-ai="berandaPengenalan">
+          <div class="header-seksi-tambahan">
+            <span class="label">Filosofi GERAK</span>
+            <h3>Kebugaran Inklusif Tanpa Beban &amp; Tanpa Tekanan</h3>
+            <p>Sehat itu bukan tentang menyiksa diri dengan diet ekstrem atau jam-jam melelahkan di gym. Sehat adalah merawat energimu setiap hari.</p>
+          </div>
+          <div class="grid-kartu-informasi">
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">🌱</span>
+                <span class="badge-mini aksen-hijau">RAMAH PEMULA</span>
+              </div>
+              <h4>Mulai dari Mana Saja</h4>
+              <p>Tidak perlu menunggu tubuh bugar untuk mulai berolahraga. Setiap gerakan kecil—jalan kaki santai, peregangan ringan, hingga tidur cukup—adalah kemajuan berharga.</p>
+            </div>
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">🛡️</span>
+                <span class="badge-mini aksen-ungu">TANPA TOXIC CULTURE</span>
+              </div>
+              <h4>Bebas Rasa Bersalah</h4>
+              <p>Terlewat latihan atau butuh istirahat? Fitur streak kami dilengkapi jatah istirahat terproteksi, sehingga kamu tidak akan kehilangan progres hanya karena tubuhmu butuh jeda.</p>
+            </div>
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">🤝</span>
+                <span class="badge-mini aksen-oranye">KOMUNITAS NYATA</span>
+              </div>
+              <h4>Bergerak Bersama Kawan</h4>
+              <p>Temukan teman berolahraga di 14 cabang olahraga berbeda dengan radius nyata di sekitarmu. Bersama kawan, berolahraga jadi jauh lebih seru dan konsisten.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- E. Cara Menggunakan GERAK (Seksi Beranda Scrolling) -->
+        <div class="seksi-konten-tambahan" id="berandaCaraPakai" data-seksi-ai="berandaCaraPakai">
+          <div class="header-seksi-tambahan">
+            <span class="label">Panduan Cepat</span>
+            <h3>4 Langkah Mudah Memulai Kebiasaan Sehatmu</h3>
+            <p>Ikuti alur praktis ini untuk merasakan manfaat penuh ekosistem GERAK.</p>
+          </div>
+          <div class="grid-kartu-informasi">
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">1️⃣</span>
+                <span class="badge-mini aksen-hijau">LANGKAH 1</span>
+              </div>
+              <h4>Hitung Kalori di Menu Gizi</h4>
+              <p>Gunakan kalkulator Mifflin-St Jeor dengan formula ilmiah untuk mengetahui kebutuhan energimu dan membuka program latihan secara otomatis.</p>
+            </div>
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">2️⃣</span>
+                <span class="badge-mini aksen-biru">LANGKAH 2</span>
+              </div>
+              <h4>Jalankan Latihan &amp; Raih Poin</h4>
+              <p>Selesaikan sesi latihan ramah sendi di menu Work Out. Setiap sesi yang tuntas memberimu <strong>+25 Poin</strong> untuk menaikkan rank kebugaran.</p>
+            </div>
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">3️⃣</span>
+                <span class="badge-mini aksen-ungu">LANGKAH 3</span>
+              </div>
+              <h4>Refleksi di Jurnal Raga</h4>
+              <p>Lakukan check-in harian dan tulis apa yang dirasakan tubuhmu. Tulisan refleksi minimal 10 karakter memberikan <strong>+10 XP</strong>.</p>
+            </div>
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">4️⃣</span>
+                <span class="badge-mini aksen-oranye">LANGKAH 4</span>
+              </div>
+              <h4>Ajak Kawan &amp; Jaga Konsistensi</h4>
+              <p>Temukan teman di menu Kawan, ikuti agenda olahraga bareng, dan gunakan GERAK AI jika kamu butuh bantuan atau panduan kapan saja.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- F. Ringkasan Manfaat Platform (Seksi Beranda Scrolling) -->
+        <div class="seksi-konten-tambahan" id="berandaManfaat" data-seksi-ai="berandaManfaat">
+          <div class="header-seksi-tambahan">
+            <span class="label">Keunggulan GERAK</span>
+            <h3>Ringkasan Manfaat Platform Kebugaran Terpadu</h3>
+            <p>Dirancang dari riset mendalam kebutuhan gaya hidup generasi muda saat ini.</p>
+          </div>
+          <div class="grid-kartu-informasi">
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">🔬</span>
+                <span class="badge-mini aksen-hijau">TERUKUR &amp; AMAN</span>
+              </div>
+              <h4>Batas Aman Anti-Malnutrisi</h4>
+              <p>Kami memblokir rekomendasi defisit ekstrem di bawah 1.200 kkal dan membatasi mode diet khusus untuk usia 18+ demi mencegah stunting dan gangguan metabolisme.</p>
+            </div>
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">🤖</span>
+                <span class="badge-mini aksen-biru">GERAK AI ASSISTANT</span>
+              </div>
+              <h4>Pendamping Kontekstual 24/7</h4>
+              <p>Didukung Google Gemini Free Tier, asisten AI kami mengenali halaman dan posisi layarmu untuk memberikan bimbingan yang tepat sasaran secara gratis.</p>
+            </div>
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">🔒</span>
+                <span class="badge-mini aksen-ungu">PRIVASI LOKAL</span>
+              </div>
+              <h4>Data Milikmu Sepenuhnya</h4>
+              <p>Semua catatan berat badan, jurnal, dan progres tersimpan aman di browser lokalmu. Tanpa pelacak iklan, tanpa penjualan data pihak ketiga.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= GIZI ================= -->
+    <section class="bagian" id="gizi" aria-labelledby="judulGizi">
+      <div class="judul-bagian">
+        <p class="label">Gizi</p>
+        <h2 id="judulGizi">Kalkulator kalori harian</h2>
+        <p class="sub-judul">Perhitungan aman berbasis Mifflin-St Jeor dengan perlindungan batas minimum dan batas usia.</p>
+      </div>
+
+      <div class="gizi-wrap">
+        <form class="form-gizi" id="formGizi" novalidate data-seksi-ai="giziKalkulator">
+          <fieldset class="fieldset-target">
+            <legend class="kartu-label">Pilih Target Kamu</legend>
+            <div class="pilih-target">
+              <label class="opsi-target">
+                <input type="radio" name="target" value="diet">
+                <span>🥗 Diet</span>
+              </label>
+              <label class="opsi-target">
+                <input type="radio" name="target" value="jaga" checked>
+                <span>⚖️ Jaga</span>
+              </label>
+              <label class="opsi-target">
+                <input type="radio" name="target" value="bulking">
+                <span>💪 Bulking</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <p class="pesan-info-gizi" id="infoRemajaGizi" style="display: none;" role="note"></p>
+
+          <div class="baris-input">
+            <label for="kelamin">Jenis kelamin
+              <select id="kelamin">
+                <option value="pria">Pria</option>
+                <option value="wanita">Wanita</option>
+              </select>
+              <span class="info-kunci-field" id="infoKunciKelamin" style="display: none;">🔒 Terkonfirmasi pada profil</span>
+            </label>
+            <label for="tanggalLahir">Tanggal lahir
+              <input type="date" id="tanggalLahir" aria-describedby="errTanggalLahir">
+              <span class="pesan-error-inline" id="errTanggalLahir" aria-live="polite"></span>
+            </label>
+          </div>
+
+          <div class="baris-input">
+            <label for="umur">Umur (tahun)
+              <input type="number" id="umur" value="20" min="10" max="100" readonly aria-describedby="errUmur">
+              <span class="pesan-bantu-field" id="bantuUmur">Otomatis dari tanggal lahir</span>
+              <span class="pesan-error-inline" id="errUmur" aria-live="polite"></span>
+            </label>
+            <label for="tinggi">Tinggi (cm)
+              <input type="number" id="tinggi" value="168" min="100" max="250" aria-describedby="errTinggi">
+              <span class="info-kunci-field" id="infoKunciTinggi" style="display: none;">🔒 Terkunci batas usia</span>
+              <span class="pesan-error-inline" id="errTinggi" aria-live="polite"></span>
+            </label>
+          </div>
+
+          <div class="baris-input">
+            <label for="berat">Berat (kg)
+              <input type="number" id="berat" value="60" min="20" max="250" aria-describedby="errBerat">
+              <span class="pesan-bantu-field">Dapat diperbarui sewaktu-waktu</span>
+              <span class="pesan-error-inline" id="errBerat" aria-live="polite"></span>
+            </label>
+            <label for="aktivitas">Seberapa aktif kamu?
+              <select id="aktivitas">
+                <option value="1.2">Jarang gerak / rebahan</option>
+                <option value="1.375" selected>Olahraga ringan (1-3x seminggu)</option>
+                <option value="1.55">Olahraga sedang (3-5x seminggu)</option>
+                <option value="1.725">Olahraga berat (hampir setiap hari)</option>
+              </select>
+            </label>
+          </div>
+
+          <button type="submit" class="tombol tombol-utama">Hitung Kalori Aman</button>
+        </form>
+
+        <div class="hasil-gizi" id="hasilGizi" role="region" aria-live="polite" data-seksi-ai="giziHasilPenjelasan">
+          <p class="kartu-label">Target kalori kamu</p>
+          <p class="angka-kalori"><span id="angkaKalori">-</span> <small>kkal/hari</small></p>
+          <p class="kartu-kecil bmi-label" id="bmiInfo"></p>
+          <div class="makro">
+            <div class="makro-item">
+              <p class="makro-angka" id="protein">-</p>
+              <p class="kartu-kecil">Protein</p>
+            </div>
+            <div class="makro-item">
+              <p class="makro-angka" id="karbo">-</p>
+              <p class="kartu-kecil">Karbohidrat</p>
+            </div>
+            <div class="makro-item">
+              <p class="makro-angka" id="lemak">-</p>
+              <p class="kartu-kecil">Lemak</p>
+            </div>
+          </div>
+          <p class="kartu-kecil" id="saranGizi">Tekan "Hitung Kalori Aman" untuk melihat hasil analisis gizi.</p>
+          <p class="disclaimer-medis">⚠️ Ini estimasi umum, bukan pengganti saran ahli gizi atau dokter.</p>
+          <button type="button" class="tombol tombol-utama lebar-penuh tombol-mulai-workout-hasil" id="tombolMulaiWorkoutDariGizi" style="display: none; margin-top: 1.25rem;">
+            🏋️ Mulai Work Out
+          </button>
+        </div>
+      </div>
+
+      <!-- Panduan Memilih Target Gizi (Seksi Gizi Scrolling) -->
+      <div class="seksi-konten-tambahan" id="giziPanduanTarget" data-seksi-ai="giziPanduanTarget">
+        <div class="header-seksi-tambahan">
+          <span class="label">Strategi Kalori</span>
+          <h3>Panduan Target: Diet vs Jaga vs Bulking</h3>
+          <p>Pilih arah tujuan yang paling selaras dengan kondisi tubuh dan target energimu saat ini.</p>
+        </div>
+        <div class="grid-kartu-informasi">
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">🥗</span>
+              <span class="badge-mini aksen-hijau">DIET SEHAT (18+)</span>
+            </div>
+            <h4>Defisit Moderat Bertahap</h4>
+            <p>Mengurangi 500 kkal dari kebutuhan energi harian untuk penurunan berat badan berkala (±0,5 kg/minggu). Dilindungi batas minimum 1.200 kkal/hari dan dibatasi khusus 18+ agar pertumbuhan remaja tidak terganggu.</p>
+          </div>
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">⚖️</span>
+              <span class="badge-mini aksen-oranye">JAGA BERAT BADAN</span>
+            </div>
+            <h4>Keseimbangan Maintenance</h4>
+            <p>Mengonsumsi kalori seimbang dengan aktivitas harian. Sangat direkomendasikan untuk remaja masa pertumbuhan, pemula kebugaran, atau saat tubuh sedang butuh stabilisasi energi.</p>
+          </div>
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">💪</span>
+              <span class="badge-mini aksen-ungu">BULKING TERENCANA</span>
+            </div>
+            <h4>Surplus Massa Otot</h4>
+            <p>Menambah 300 kkal di atas maintenance, dipadukan program latihan beban atau bodyweight di Work Out agar kalori ekstra diubah menjadi jaringan otot padat, bukan tumpukan lemak jenuh.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rincian Makronutrisi (Seksi Gizi Scrolling) -->
+      <div class="seksi-konten-tambahan" id="giziMakronutrisi" data-seksi-ai="giziMakronutrisi">
+        <div class="header-seksi-tambahan">
+          <span class="label">Fondasi Nutrisi</span>
+          <h3>Kenali Tiga Makronutrisi Esensial Tubuhmu</h3>
+          <p>Setiap kalori yang masuk membawa fungsi biologis penting untuk metabolisme harianmu.</p>
+        </div>
+        <div class="grid-kartu-informasi">
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">🥩</span>
+              <span class="badge-mini aksen-hijau">PROTEIN (20–25%)</span>
+            </div>
+            <h4>Pembangun &amp; Pemulih Otot</h4>
+            <p>Menghasilkan 4 kkal/gram. Sangat vital untuk memulihkan serat otot setelah berolahraga, menjaga massa bebas lemak saat diet, serta memicu rasa kenyang lebih lama.</p>
+            <ul>
+              <li>Sumber hewani: telur, dada ayam, ikan nila, tuna, susu.</li>
+              <li>Sumber nabati: tempe, tahu, kacang kedelai, edamame.</li>
+            </ul>
+          </div>
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">🍚</span>
+              <span class="badge-mini aksen-biru">KARBOHIDRAT (50–55%)</span>
+            </div>
+            <h4>Bahan Bakar Utama Otak &amp; Raga</h4>
+            <p>Menghasilkan 4 kkal/gram. Disimpan sebagai glikogen di otot dan hati untuk memasok energi instan saat bergerak aktif dan mempertahankan konsentrasi belajar/bekerja.</p>
+            <ul>
+              <li>Karbo kompleks: nasi merah, oat, ubi jalar, kentang rebus.</li>
+              <li>Hindari konsumsi gula rafinasi berlebih pada minuman kemasan.</li>
+            </ul>
+          </div>
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">🥑</span>
+              <span class="badge-mini aksen-ungu">LEMAK SEHAT (25–30%)</span>
+            </div>
+            <h4>Regulator Hormon &amp; Vitamin</h4>
+            <p>Menghasilkan 9 kkal/gram. Jangan dimusuhi! Lemak tak jenuh esensial dibutuhkan untuk produksi hormon tubuh dan penyerapan vitamin larut lemak (A, D, E, K).</p>
+            <ul>
+              <li>Sumber baik: alpukat, minyak zaitun, kacang almond, biji chia.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edukasi Gizi & Hidrasi (Seksi Gizi Scrolling) -->
+      <div class="seksi-konten-tambahan" id="giziEdukasiNutrisi" data-seksi-ai="giziEdukasiNutrisi">
+        <div class="header-seksi-tambahan">
+          <span class="label">Kesehatan Terukur</span>
+          <h3>Kunci Hidrasi Harian &amp; Batas Kalori Aman</h3>
+          <p>Kebugaran berkelanjutan berakar pada disiplin hidrasi dan penolakan diet ekstrem.</p>
+        </div>
+        <div class="grid-kartu-informasi">
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">💧</span>
+              <span class="badge-mini aksen-biru">HIDRASI CUKUP</span>
+            </div>
+            <h4>Minimal 2 Liter (±8 Gelas) Sehari</h4>
+            <p>Dehidrasi ringan (1–2%) saja sudah dapat menurunkan konsentrasi dan membakar energi lebih lambat. Siapkan botol minum di dekatmu saat beraktivitas atau latihan.</p>
+          </div>
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">🛡️</span>
+              <span class="badge-mini aksen-oranye">PERLINDUNGAN METABOLISME</span>
+            </div>
+            <h4>Mengapa Defisit Ekstrem Berbahaya?</h4>
+            <p>Makan di bawah 1.200 kkal memaksa tubuh masuk ke mode adaptasi kelaparan (starvation mode), memicu kerontokan rambut, penurunan massa otot drastis, dan efek yo-yo saat berhenti.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WORK OUT ================= -->
+    <section class="bagian" id="workout" aria-labelledby="judulWorkout">
+      <div class="judul-bagian">
+        <p class="label">Work Out</p>
+        <h2 id="judulWorkout">Program latihan fisik</h2>
+        <p class="sub-judul">Rekomendasi gerakan yang diselaraskan dengan target kalori dan energimu.</p>
+      </div>
+
+      <!-- Kondisi Terkunci (Jika belum atur gizi) -->
+      <div class="kotak-workout-terkunci" id="wadahWorkoutTerkunci" data-seksi-ai="workoutStatusAkses">
+        <div class="badge-terkunci-pill">🔒 FITUR PERSONALISASI TERKUNCI</div>
+        <div class="lingkaran-ikon-kunci" aria-hidden="true">🔒</div>
+        <h3>Buka Program Latihan Personalmu</h3>
+        <p class="deskripsi-kunci">
+          Program latihan GERAK diselaraskan khusus dengan kebutuhan kalori dan target kebugaranmu (Diet, Jaga, atau Bulking).
+          Selesaikan perhitungan kalorimu terlebih dahulu di <b>Kalkulator Gizi</b> untuk membuka rekomendasi sesi latihan yang aman dan terukur.
+        </p>
+        <div class="langkah-buka-kunci" aria-label="Alur membuka Work Out">
+          <span class="langkah-item">1. 🥗 Hitung Target Gizi</span>
+          <span class="langkah-arrow" aria-hidden="true">➔</span>
+          <span class="langkah-item">2. 🔓 Akses Terbuka Otomatis</span>
+          <span class="langkah-arrow" aria-hidden="true">➔</span>
+          <span class="langkah-item">3. 🏃 Mulai Olahraga</span>
+        </div>
+        <button type="button" class="tombol tombol-utama tombol-buka-gizi" id="tombolAturGiziDariWorkout">
+          🥗 Atur &amp; Hitung Kalori Sekarang
+        </button>
+      </div>
+
+      <!-- Kondisi Terbuka (Jika sudah atur gizi) -->
+      <div class="wadah-workout-terbuka" id="wadahWorkoutTerbuka" style="display: none;">
+        <div class="workout-header-card">
+          <div class="baris-antara">
+            <span class="badge-target-workout" id="workoutBadgeTarget">🎯 Target: -</span>
+            <button type="button" class="tombol-ubah-target" id="tombolUbahGizi">⚙️ Sesuaikan Target Gizi</button>
+          </div>
+          <h3 class="judul-program" id="workoutJudulProgram">-</h3>
+          <p class="fokus-program" id="workoutFokusProgram">-</p>
+
+          <div class="program-meta-chips" id="workoutMetaChips">
+            <span class="meta-chip">🗓️ <b id="workoutChipHari">4 Sesi / Minggu</b></span>
+            <span class="meta-chip">⏱️ <b id="workoutChipDurasi">30–45 Menit / Sesi</b></span>
+            <span class="meta-chip">⚡ <b>Ramah Sendi &amp; Bodyweight</b></span>
+          </div>
+
+          <div class="workout-aksi-utama">
+            <button type="button" class="tombol tombol-utama" id="btnMulaiLatihanHariIni">
+              ▶ Mulai Latihan
+            </button>
+            <button type="button" class="tombol tombol-sekunder" id="btnLihatSemuaLatihan">
+              📖 Lihat Semua Latihan
+            </button>
+          </div>
+        </div>
+
+        <!-- Slider / Carousel Jadwal Latihan -->
+        <div class="slider-workout-wrapper" data-seksi-ai="workoutJadwalMingguan">
+          <div class="slider-top-nav">
+            <div class="slider-info">
+              <span class="label-sub">Jadwal Sesi Latihan</span>
+              <p class="teks-kecil-muted">Geser kartu untuk melihat seluruh rangkaian latihan mingguanmu.</p>
+            </div>
+            <div class="slider-nav-controls">
+              <button type="button" class="tombol-nav-slider" id="btnSliderPrev" aria-label="Lihat jadwal sebelumnya" title="Sebelumnya">
+                ←
+              </button>
+              <span class="indikator-slider-angka" id="indikatorSliderAngka" aria-live="polite">1 / 4</span>
+              <button type="button" class="tombol-nav-slider" id="btnSliderNext" aria-label="Lihat jadwal berikutnya" title="Berikutnya">
+                →
+              </button>
+            </div>
+          </div>
+
+          <!-- Viewport Slider -->
+          <div class="slider-workout-viewport" id="sliderWorkoutViewport" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Jadwal program latihan">
+            <div class="slider-workout-track" id="sliderWorkoutTrack">
+              <!-- Kartu-kartu program latihan diisi lewat js/workout.js -->
+            </div>
+          </div>
+
+          <!-- Titik Indikator Slider (Dots) -->
+          <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Pilih kartu jadwal latihan">
+            <!-- Diisi dinamis via js/workout.js -->
+          </div>
+        </div>
+
+        <div class="tips-workout-box" id="boxTipsWorkout" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Tips pemulihan dan energi" data-seksi-ai="workoutTipsPemulihan">
+          <div class="tips-header-bar">
+            <div class="tips-header-judul">
+              <h4>💡 Tips Pemulihan &amp; Energi</h4>
+              <span class="badge-tips-kategori" id="tipsKategori">💧 Hidrasi &amp; Elektrolit</span>
+            </div>
+            <div class="tips-nav-kontrol" role="group" aria-label="Navigasi 30 tips pemulihan dan energi">
+              <button type="button" class="tombol-panah-tips" id="btnTipsPrev" aria-label="Tips sebelumnya" title="Tips Sebelumnya">←</button>
+              <span class="tips-counter" id="tipsCounter" aria-live="polite">1 / 30</span>
+              <button type="button" class="tombol-panah-tips" id="btnTipsNext" aria-label="Tips berikutnya" title="Tips Berikutnya">→</button>
+            </div>
+          </div>
+          <div class="tips-konten-area" id="tipsKontenArea">
+            <h5 class="tips-judul" id="tipsJudul">-</h5>
+            <p id="workoutTips">-</p>
+          </div>
+          <div class="tips-swipe-hint">
+            <small class="teks-kecil-muted">💡 Geser kartu atau klik tombol panah (← / →) untuk menjelajahi 30 tips</small>
+          </div>
+        </div>
+
+        <!-- Riwayat Kesehatan: keluhan latihan & medical checkup (js/kesehatan-ui.js) -->
+        <section class="seksi-riwayat-kesehatan" id="riwayatKesehatan" aria-labelledby="judulRiwayatKesehatan" data-seksi-ai="workoutRiwayatKesehatan">
+          <div class="kepala-riwayat-kesehatan">
+            <div>
+              <span class="label">Riwayat kesehatan</span>
+              <h3 id="judulRiwayatKesehatan">Medical checkup &amp; keluhan latihan</h3>
+              <p>Catatan keluhan saat latihan dan hasil medical checkup, dianalisis supaya latihanmu tetap aman. Disimpan di perangkat ini saja.</p>
+            </div>
+            <button type="button" class="tombol tombol-garis" id="btnTambahCheckup">🩺 Catat medical checkup</button>
+          </div>
+
+          <div class="ringkasan-kesehatan" id="ringkasanKesehatan"></div>
+
+          <div class="kartu-analisis-kesehatan">
+            <div class="kepala-analisis-kesehatan">
+              <h4>✨ Analisis GERAK AI</h4>
+              <button type="button" class="tombol tombol-utama" id="btnAnalisisKesehatanAI">Analisis dengan GERAK AI</button>
+            </div>
+            <p class="info-kirim-ai">Yang dikirim ke AI hanya ringkasan keluhan &amp; angka checkup, tanpa nama dan tanpa catatan pribadimu.</p>
+            <div id="isiAnalisisKesehatan" aria-live="polite"></div>
+            <p class="disclaimer-kesehatan">Ini edukasi, bukan diagnosis. Untuk keluhan berat atau berulang, periksakan ke dokter atau fisioterapis.</p>
+          </div>
+
+          <div class="grid-daftar-kesehatan">
+            <div>
+              <h4>Keluhan latihan</h4>
+              <ul class="daftar-kesehatan" id="daftarKeluhanKesehatan"></ul>
+            </div>
+            <div>
+              <h4>Medical checkup</h4>
+              <ul class="daftar-kesehatan" id="daftarCheckupKesehatan"></ul>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Manfaat Latihan Fisik Terstruktur (Seksi Work Out Scrolling) -->
+      <div class="seksi-konten-tambahan" id="workoutManfaatLatihan" data-seksi-ai="workoutManfaatLatihan">
+        <div class="header-seksi-tambahan">
+          <span class="label">Manfaat Berkelanjutan</span>
+          <h3>Mengapa Memilih Latihan Ramah Sendi?</h3>
+          <p>Latihan beban tubuh (bodyweight) memprioritaskan mobilitas, penguatan postur, dan keamanan ligamen jangka panjang.</p>
+        </div>
+        <div class="grid-kartu-informasi">
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">🧘</span>
+              <span class="badge-mini aksen-hijau">KOREKSI POSTUR</span>
+            </div>
+            <h4>Atasi Dampak Terlalu Lama Duduk</h4>
+            <p>Gerakan seperti glute bridge, wall angel, dan plank aktif memperkuat otot inti dan punggung atas, meluruskan kembali bahu yang membungkuk akibat layar gadget.</p>
+          </div>
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">⚡</span>
+              <span class="badge-mini aksen-oranye">ENERGIZER HARIAN</span>
+            </div>
+            <h4>Lonjakan Endorfin &amp; Fokus</h4>
+            <p>Sesi 30 menit memicu pelepasan endorfin alami yang menurunkan hormon kortisol (pemicu stres), meningkatkan kualitas tidur malam, dan mempertajam konsentrasi.</p>
+          </div>
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">🏆</span>
+              <span class="badge-mini aksen-ungu">+25 POIN / SESI</span>
+            </div>
+            <h4>Poin Nyata Setiap Latihan</h4>
+            <p>Setiap kali kamu menyelesaikan sesi latihan secara penuh, sistem otomatis menambahkan +25 Poin untuk menaikkan tingkatan rank dan posisimu di Leaderboard!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CARI KAWAN ================= -->
+    <section class="bagian" id="kawan" aria-labelledby="judulKawan">
+      <div class="judul-bagian">
+        <p class="label">Kawan</p>
+        <h2 id="judulKawan">Cari kawan gerak</h2>
+        <p class="sub-judul">Pilih olahraga yang kamu suka dan ajak kawan gerak bareng dengan aman.</p>
+      </div>
+
+      <!-- Kondisi Terkunci Kawan (Wajib Buat Akun / Masuk) -->
+      <div class="kotak-kawan-terkunci" id="wadahKawanTerkunci">
+        <div class="badge-terkunci-pill">🔒 WAJIB AKUN GERAK</div>
+        <div class="lingkaran-ikon-kunci" aria-hidden="true">🤝</div>
+        <h3>Buat Akun untuk Terhubung dengan Kawan</h3>
+        <p class="deskripsi-kunci">
+          Untuk menjaga ekosistem olahraga tetap aman, inklusif, dan saling menghormati, kamu wajib memiliki akun GERAK sebelum menjelajah profil dan mengajak kawan olahraga bareng.
+        </p>
+        <button type="button" class="tombol tombol-utama" id="btnBukaAuthDariKawan">
+          🚀 Masuk / Daftar Akun Sekarang
+        </button>
+      </div>
+
+      <div class="wadah-konten-kawan" id="wadahKontenKawan">
+        <!-- Akses Navigasi Fitur Kawan (Akses Terpisah) -->
+        <div class="subnav-kawan" id="subnavKawan" role="tablist" aria-label="Pilihan Menu Fitur Kawan">
+          <button type="button" class="subnav-kawan-btn aktif" id="tabKawanJelajah" role="tab" aria-selected="true" aria-controls="panelKawanJelajah">
+            👥 Jelajah Kawan
+          </button>
+          <button type="button" class="subnav-kawan-btn" id="tabKawanBareng" role="tab" aria-selected="false" aria-controls="panelKawanBareng">
+            ⚡ Olahraga Bareng
+          </button>
+          <button type="button" class="subnav-kawan-btn" id="tabKawanSekitar" role="tab" aria-selected="false" aria-controls="panelKawanSekitar">
+            📍 Teman di Sekitar
+          </button>
+        </div>
+
+        <!-- 1. Panel Jelajah Kawan -->
+        <div class="panel-subfitur" id="panelKawanJelajah" role="tabpanel" aria-labelledby="tabKawanJelajah">
+          <!-- Filter 14 Olahraga (Scroll Horizontal di Layar Kecil) -->
+          <div class="wrap-filter-scroll" tabindex="0" role="region" aria-label="Deretan filter olahraga horizontal" data-seksi-ai="kawanPencarianFilter">
+            <div class="filter filter-kawan-scroll" id="filterKawan" role="group" aria-label="Filter kawan berdasarkan jenis olahraga">
+              <button type="button" class="chip aktif" data-olahraga="semua" aria-pressed="true">Semua</button>
+              <button type="button" class="chip" data-olahraga="Futsal" aria-pressed="false">⚽ Futsal</button>
+              <button type="button" class="chip" data-olahraga="Padel" aria-pressed="false">🎾 Padel</button>
+              <button type="button" class="chip" data-olahraga="Sepak Bola" aria-pressed="false">⚽ Sepak Bola</button>
+              <button type="button" class="chip" data-olahraga="Basket" aria-pressed="false">🏀 Basket</button>
+              <button type="button" class="chip" data-olahraga="Voli" aria-pressed="false">🏐 Voli</button>
+              <button type="button" class="chip" data-olahraga="Badminton" aria-pressed="false">🏸 Badminton</button>
+              <button type="button" class="chip" data-olahraga="Tenis" aria-pressed="false">🎾 Tenis</button>
+              <button type="button" class="chip" data-olahraga="Lari" aria-pressed="false">🏃 Lari</button>
+              <button type="button" class="chip" data-olahraga="Renang" aria-pressed="false">🏊 Renang</button>
+              <button type="button" class="chip" data-olahraga="Bersepeda" aria-pressed="false">🚴 Bersepeda</button>
+              <button type="button" class="chip" data-olahraga="Gym" aria-pressed="false">🏋️ Gym</button>
+              <button type="button" class="chip" data-olahraga="Hiking" aria-pressed="false">🥾 Hiking</button>
+              <button type="button" class="chip" data-olahraga="Yoga" aria-pressed="false">🧘 Yoga</button>
+            </div>
+          </div>
+
+          <!-- Bagian Sedang Aktif (Tepat di bawah Filter Olahraga) -->
+          <div class="seksi-sedang-aktif" id="seksiSedangAktif" data-seksi-ai="kawanSedangAktif">
+            <div class="header-sedang-aktif">
+              <div class="judul-sedang-aktif">
+                <span class="dot-online-anim" aria-hidden="true"></span>
+                <h3>Sedang Aktif</h3>
+                <span class="badge-online-count" id="badgeOnlineCount">Online</span>
+              </div>
+              <button type="button" class="btn-lihat-semua-aktif" id="btnLihatSemuaAktif" aria-label="Buka daftar pengguna aktif lengkap">
+                Lihat Semua →
+              </button>
+            </div>
+            <p class="teks-transparansi-online">
+              <span>ℹ️</span> <em>Status online lokal &amp; aktivitas simulasi berkala komunitas (bukan koneksi backend realtime).</em>
+            </p>
+            <div class="wadah-avatar-aktif" id="wadahAvatarSedangAktif">
+              <!-- Diisi dinamis lewat js/kawan.js -->
+            </div>
+          </div>
+
+          <div id="kawanLiveRegion" class="sr-only" aria-live="polite"></div>
+          <div class="grid-kawan" id="gridKawan">
+            <!-- Kartu kawan diisi aman lewat js/kawan.js -->
+          </div>
+
+          <div class="kotak-aman" role="region" aria-label="Panduan keamanan">
+            <h3>🛡️ Tips aman ketemu kawan baru</h3>
+            <ul>
+              <li>Selalu sepakati pertemuan pertama di <b>tempat umum yang ramai</b> saat siang atau pagi hari.</li>
+              <li>Utamakan kawan dengan penanda <b>✔ Terverifikasi (demo)</b>.</li>
+              <li>Beri tahu keluarga, sahabat, atau teman terdekat mengenai lokasi dan waktu kegiatanmu.</li>
+              <li>Jika ada perilaku mencurigakan atau tidak pantas, segera gunakan tombol <b>Laporkan</b> atau <b>Blokir</b>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. Panel Olahraga Bareng -->
+        <div class="panel-subfitur" id="panelKawanBareng" role="tabpanel" aria-labelledby="tabKawanBareng" style="display: none;" data-seksi-ai="kawanOlahragaBareng">
+          <div class="kotak-banner-subfitur">
+            <div class="badge-subfitur-pill">⚡ OLAHRAGA BARENG</div>
+            <h3>Temukan Partner Olahraga Bersama</h3>
+            <p class="deskripsi-subfitur">
+              Cari kawan yang sedang ingin berolahraga bareng sesuai jadwal, area publik, dan tingkat kemampuan. Langsung gabung atau ajak gerak!
+            </p>
+          </div>
+
+          <div class="wrap-filter-scroll" tabindex="0" role="region" aria-label="Filter kategori olahraga bareng">
+            <div class="filter filter-kawan-scroll" id="filterOlahragaBareng" role="group" aria-label="Filter kategori olahraga bareng">
+              <button type="button" class="chip aktif" data-kategori-bareng="semua" aria-pressed="true">Semua Olahraga</button>
+              <button type="button" class="chip" data-kategori-bareng="Lari" aria-pressed="false">🏃 Lari</button>
+              <button type="button" class="chip" data-kategori-bareng="Padel" aria-pressed="false">🎾 Padel</button>
+              <button type="button" class="chip" data-kategori-bareng="Badminton" aria-pressed="false">🏸 Badminton</button>
+              <button type="button" class="chip" data-kategori-bareng="Gym" aria-pressed="false">🏋️ Gym</button>
+              <button type="button" class="chip" data-kategori-bareng="Bersepeda" aria-pressed="false">🚴 Bersepeda</button>
+              <button type="button" class="chip" data-kategori-bareng="Futsal" aria-pressed="false">⚽ Futsal</button>
+              <button type="button" class="chip" data-kategori-bareng="Basket" aria-pressed="false">🏀 Basket</button>
+              <button type="button" class="chip" data-kategori-bareng="Renang" aria-pressed="false">🏊 Renang</button>
+              <button type="button" class="chip" data-kategori-bareng="Hiking" aria-pressed="false">🥾 Hiking</button>
+              <button type="button" class="chip" data-kategori-bareng="Yoga" aria-pressed="false">🧘 Yoga</button>
+            </div>
+          </div>
+
+          <div class="grid-olahraga-bareng" id="gridOlahragaBareng">
+            <!-- Diisi dinamis lewat js/kawan.js -->
+          </div>
+        </div>
+
+        <!-- 3. Panel Teman di Sekitar -->
+        <div class="panel-subfitur" id="panelKawanSekitar" role="tabpanel" aria-labelledby="tabKawanSekitar" style="display: none;" data-seksi-ai="kawanTemanSekitar">
+          <div class="kotak-banner-subfitur">
+            <div class="badge-subfitur-pill">📍 TEMAN DI SEKITAR</div>
+            <h3>Temukan Kawan Berdasarkan Perkiraan Jarak</h3>
+            <p class="deskripsi-subfitur">
+              Cari rekan olahraga di sekitarmu berdasarkan radius perkiraan jarak ke area publik bersama. Privasi terjaga: koordinat atau alamat rumah pribadi tidak pernah diminta maupun dibagikan.
+            </p>
+          </div>
+
+          <!-- Kotak Kendali Izin Lokasi & Acuan Manual -->
+          <div class="kotak-kendali-lokasi" id="kotakKendaliLokasi">
+            <div class="baris-status-lokasi">
+              <span class="ikon-lokasi-status" id="ikonStatusLokasi">📡</span>
+              <div class="info-status-lokasi">
+                <strong id="labelStatusLokasi">Izin Lokasi Belum Diaktifkan</strong>
+                <p class="teks-kecil-muted" id="deskripsiStatusLokasi">
+                  Aktifkan izin lokasi browser untuk mengukur jarak perkiraan, atau pilih titik acuan area publik terdekat secara manual.
+                </p>
+              </div>
+            </div>
+
+            <div class="aksi-lokasi-group">
+              <button type="button" class="tombol tombol-utama" id="btnMintaIzinLokasi">
+                📍 Aktifkan Lokasi Saya
+              </button>
+              <div class="pemisah-atau">atau</div>
+              <div class="wadah-select-acuan">
+                <label for="selectTitikAcuan" class="sr-only">Pilih Titik Acuan Publik</label>
+                <select id="selectTitikAcuan" class="select-acuan-lokasi">
+                  <option value="">-- Pilih Titik Acuan Publik --</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter Radius & Olahraga di Sekitar -->
+          <div class="baris-filter-sekitar">
+            <div class="grup-radius">
+              <span class="label-filter-sekitar">🎯 Radius Jarak:</span>
+              <div class="filter-radius-chips" id="filterRadiusKawan" role="group" aria-label="Pilihan radius jarak">
+                <button type="button" class="chip-radius" data-radius="1" aria-pressed="false">1 km</button>
+                <button type="button" class="chip-radius" data-radius="3" aria-pressed="false">3 km</button>
+                <button type="button" class="chip-radius aktif" data-radius="5" aria-pressed="true">5 km</button>
+                <button type="button" class="chip-radius" data-radius="10" aria-pressed="false">10 km</button>
+              </div>
+            </div>
+
+            <div class="grup-olahraga-sekitar">
+              <label for="selectOlahragaSekitar" class="label-filter-sekitar">🏃 Olahraga:</label>
+              <select id="selectOlahragaSekitar" class="select-olahraga-sekitar">
+                <option value="semua">Semua Olahraga</option>
+                <option value="Lari">Lari</option>
+                <option value="Gym">Gym</option>
+                <option value="Futsal">Futsal</option>
+                <option value="Badminton">Badminton</option>
+                <option value="Padel">Padel</option>
+                <option value="Sepak Bola">Sepak Bola</option>
+                <option value="Basket">Basket</option>
+                <option value="Voli">Voli</option>
+                <option value="Tenis">Tenis</option>
+                <option value="Renang">Renang</option>
+                <option value="Bersepeda">Bersepeda</option>
+                <option value="Hiking">Hiking</option>
+                <option value="Yoga">Yoga</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="liveRegionSekitar" class="sr-only" aria-live="polite"></div>
+          <div class="grid-kawan" id="gridTemanSekitar">
+            <!-- Diisi dinamis lewat js/kawan.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= POIN & RANK ================= -->
+    <section class="bagian seksi-poin-rank" id="poinRank" aria-labelledby="judulPoinRank">
+      <div class="judul-bagian">
+        <p class="label">Poin &amp; Rank</p>
+        <h2 id="judulPoinRank">Poin &amp; Rank</h2>
+        <p class="sub-judul">Selesaikan workout, kumpulkan poin, naikkan rank, dan kejar posisi teratas!</p>
+      </div>
+
+      <!-- 1. Kartu Dashboard Poin & Progres Pengguna -->
+      <div class="kartu-poin-utama" id="kartuPoinUtama" data-seksi-ai="poinTotalDashboard">
+        <!-- Diisi dinamis via js/poin-rank.js -->
+      </div>
+
+      <!-- 2. Galeri Tingkatan Rank & Koleksi Badge -->
+      <div class="wrap-galeri-rank" data-seksi-ai="poinTingkatanBadge">
+        <div class="header-galeri-rank">
+          <div>
+            <h3>🎖️ Tingkatan Rank &amp; Koleksi Badge</h3>
+            <p class="teks-kecil-muted">Setiap 500 poin membawamu ke tier yang lebih prestisius. Selesaikan workout untuk membuka seluruh rank!</p>
+          </div>
+          <span class="badge-total-rank" id="badgeTotalRankCounter">11 Tingkatan</span>
+        </div>
+        <div class="grid-galeri-rank" id="gridGaleriRank">
+          <!-- Diisi dinamis via js/poin-rank.js -->
+        </div>
+      </div>
+
+      <!-- 3. Leaderboard Komunitas -->
+      <div class="wrap-leaderboard" id="wrapLeaderboard" data-seksi-ai="poinLeaderboardKomunitas">
+        <div class="header-leaderboard">
+          <div class="judul-leaderboard-box">
+            <h3>🏆 Leaderboard Komunitas GERAK</h3>
+            <p class="teks-kecil-muted">Papan peringkat nyata berdasarkan akumulasi poin workout yang berhasil diselesaikan.</p>
+          </div>
+          <div class="filter-periode-leaderboard" role="group" aria-label="Filter periode leaderboard">
+            <button type="button" class="chip-leaderboard aktif" id="tabLeaderboardSemua" data-periode="keseluruhan" aria-pressed="true">
+              🏅 Keseluruhan
+            </button>
+            <button type="button" class="chip-leaderboard" id="tabLeaderboardMingguan" data-periode="mingguan" aria-pressed="false">
+              📅 Minggu Ini
+            </button>
+          </div>
+        </div>
+
+        <!-- Banner Info Posisi & Kejar Poin Pengguna -->
+        <div class="banner-posisi-user" id="bannerPosisiUser">
+          <!-- Diisi dinamis via js/poin-rank.js -->
+        </div>
+
+        <!-- Visual Podium Top 3 -->
+        <div class="podium-top3" id="podiumTop3">
+          <!-- Diisi dinamis via js/poin-rank.js -->
+        </div>
+
+        <!-- Tabel Peringkat Leaderboard -->
+        <div class="tabel-leaderboard-wadah">
+          <table class="tabel-leaderboard" id="tabelLeaderboard" aria-label="Tabel peringkat poin pengguna">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 80px;">Rank</th>
+                <th scope="col">Pengguna</th>
+                <th scope="col">Tier &amp; Badge</th>
+                <th scope="col" style="text-align: right;">Total Poin</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyLeaderboard">
+              <!-- Diisi dinamis via js/poin-rank.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Catatan Transparansi Sistem Nyata -->
+        <div class="catatan-leaderboard-nyata">
+          <p>
+            ℹ️ <b>Sistem Peringkat Nyata:</b> Leaderboard dihitung dari data pengguna aktif di sistem lokal GERAK. Setiap 1 sesi workout yang diselesaikan secara valid memberikan <b>+25 poin</b> tanpa manipulasi angka dekoratif.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Panduan Perolehan Poin & Level (Seksi Poin & Rank Scrolling) -->
+      <div class="seksi-konten-tambahan" id="poinTransparansiSistem" data-seksi-ai="poinTotalDashboard">
+        <div class="header-seksi-tambahan">
+          <span class="label">Sistem Reward</span>
+          <h3>Transparansi Poin &amp; Penghargaan Level GERAK</h3>
+          <p>Setiap aksi sehat yang kamu lakukan memiliki apresiasi nyata tanpa sistem gacha atau manipulasi.</p>
+        </div>
+        <div class="grid-kartu-informasi">
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">🏋️</span>
+              <span class="badge-mini aksen-hijau">+25 POIN / SESI</span>
+            </div>
+            <h4>Selesaikan Sesi Latihan</h4>
+            <p>Selesaikan sirkuit latihan di menu Work Out secara bertahap. Sistem memberikan 25 poin untuk menaikkan rank kebugaranmu ke tier berikutnya.</p>
+          </div>
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">🔥</span>
+              <span class="badge-mini aksen-oranye">+20 XP / CHECK-IN</span>
+            </div>
+            <h4>Nyalakan Api Kebiasaan</h4>
+            <p>Lakukan check-in harian untuk mempertahankan streak konsistensi dan mengumpulkan XP akun menuju level yang lebih tinggi.</p>
+          </div>
+          <div class="kartu-info-estetik">
+            <div class="top-badge-wrap">
+              <span class="ikon-besar">📝</span>
+              <span class="badge-mini aksen-ungu">+10 XP / JURNAL</span>
+            </div>
+            <h4>Catatan Refleksi Raga</h4>
+            <p>Tulis jurnal minimal 10 karakter untuk mendengarkan kondisi tubuh dan suasana hatimu (+10 XP per hari dengan perlindungan anti-spam).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= JURNAL ================= -->
+    <section class="bagian" id="jurnal" aria-labelledby="judulJurnal">
+      <div class="judul-bagian">
+        <p class="label">Raga &amp; Komunitas</p>
+        <h2 id="judulJurnal">Jurnal &amp; Komunitas GERAK.</h2>
+        <p class="sub-judul">Ruang refleksi pribadi untuk mendengarkan sinyal raga, serta ruang publik untuk saling berbagi inspirasi hidup sehat.</p>
+      </div>
+
+      <!-- Segmented Control Dual Mode: Jurnal Pribadi vs Jurnal Publik -->
+      <div class="jurnal-tab-kontrol" role="tablist" aria-label="Mode Jurnal GERAK">
+        <button type="button" class="tab-mode-jurnal-btn aktif" id="tabBtnJurnalPribadi" role="tab" aria-selected="true" data-mode="pribadi">
+          🔒 Jurnal Pribadi
+        </button>
+        <button type="button" class="tab-mode-jurnal-btn" id="tabBtnJurnalPublik" role="tab" aria-selected="false" data-mode="publik">
+          🌍 Jurnal Publik &amp; Komunitas
+        </button>
+      </div>
+
+      <!-- ================= 1. WADAH JURNAL PRIBADI ================= -->
+      <div class="wadah-mode-jurnal" id="wadahModeJurnalPribadi">
+        <div class="jurnal-wrap">
+          <div class="kartu-jurnal" data-seksi-ai="jurnalRefleksiRaga">
+            <div class="prompt-ai" role="region" aria-label="Prompt refleksi hari ini" data-seksi-ai="jurnalCheckinHarian">
+              <p class="kartu-label" id="labelPrompt">💡 Prompt harian</p>
+              <p class="teks-prompt" id="teksPrompt">Apa hal terbaik yang terjadi hari ini?</p>
+              <button class="tombol-kecil" id="tombolPrompt" aria-label="Ganti prompt refleksi harian">Ganti prompt ↻</button>
+            </div>
+
+            <!-- Mood Tracker -->
+            <fieldset class="pilih-mood-fieldset" data-seksi-ai="jurnalMoodPicker">
+              <legend class="kartu-label">Mood kamu sekarang</legend>
+              <div class="pilih-mood" id="pilihMood" role="radiogroup">
+                <label class="label-mood">
+                  <input type="radio" name="mood" value="😄" class="sr-only">
+                  <span class="mood-ikon" aria-hidden="true">😄</span>
+                  <span class="sr-only">Sangat senang</span>
+                </label>
+                <label class="label-mood dipilih">
+                  <input type="radio" name="mood" value="🙂" checked class="sr-only">
+                  <span class="mood-ikon" aria-hidden="true">🙂</span>
+                  <span class="sr-only">Senang / Baik-baik saja</span>
+                </label>
+                <label class="label-mood">
+                  <input type="radio" name="mood" value="😐" class="sr-only">
+                  <span class="mood-ikon" aria-hidden="true">😐</span>
+                  <span class="sr-only">Biasa saja</span>
+                </label>
+                <label class="label-mood">
+                  <input type="radio" name="mood" value="😔" class="sr-only">
+                  <span class="mood-ikon" aria-hidden="true">😔</span>
+                  <span class="sr-only">Sedih / Lelah mental</span>
+                </label>
+                <label class="label-mood">
+                  <input type="radio" name="mood" value="😫" class="sr-only">
+                  <span class="mood-ikon" aria-hidden="true">😫</span>
+                  <span class="sr-only">Sangat lelah / Stres</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Body & Energy Check (Opsional) -->
+            <div class="box-body-check" id="boxBodyCheck">
+              <div class="baris-antara body-check-header">
+                <span class="kartu-label">⚡ Body &amp; Energy Check <small class="teks-muted">(Opsional)</small></span>
+                <button type="button" class="btn-toggle-check" id="btnToggleBodyCheck" aria-expanded="false">
+                  Buka Opsi Kondisi Raga ▾
+                </button>
+              </div>
+              <div class="body-check-grid" id="bodyCheckGrid" style="display: none;">
+                <!-- Kondisi Tubuh -->
+                <div class="item-check-grup">
+                  <span class="label-sub-check">Kondisi Tubuh:</span>
+                  <div class="pilihan-chip-grup" id="grupKondisiTubuh" role="group">
+                    <button type="button" class="chip-opsi" data-kategori="kondisiTubuh" data-nilai="Segar &amp; Bugar">✨ Segar</button>
+                    <button type="button" class="chip-opsi" data-kategori="kondisiTubuh" data-nilai="Pegal Otot">🦵 Pegal Otot</button>
+                    <button type="button" class="chip-opsi" data-kategori="kondisiTubuh" data-nilai="Kurang Enak Badan">🤒 Kurang Enak</button>
+                    <button type="button" class="chip-opsi" data-kategori="kondisiTubuh" data-nilai="Butuh Stretching">🧘 Butuh Stretch</button>
+                  </div>
+                </div>
+                <!-- Tingkat Energi -->
+                <div class="item-check-grup">
+                  <span class="label-sub-check">Tingkat Energi:</span>
+                  <div class="pilihan-chip-grup" id="grupTingkatEnergi" role="group">
+                    <button type="button" class="chip-opsi" data-kategori="energi" data-nilai="Rendah">⚡ Rendah</button>
+                    <button type="button" class="chip-opsi" data-kategori="energi" data-nilai="Cukup">⚡⚡ Cukup</button>
+                    <button type="button" class="chip-opsi" data-kategori="energi" data-nilai="Tinggi">⚡⚡⚡ Tinggi</button>
+                    <button type="button" class="chip-opsi" data-kategori="energi" data-nilai="Melimpah">⚡⚡⚡⚡ Melimpah</button>
+                  </div>
+                </div>
+                <!-- Kualitas Tidur -->
+                <div class="item-check-grup">
+                  <span class="label-sub-check">Kualitas Tidur:</span>
+                  <div class="pilihan-chip-grup" id="grupKualitasTidur" role="group">
+                    <button type="button" class="chip-opsi" data-kategori="tidur" data-nilai="Nyenyak (>7 jam)">😴 Nyenyak (>7j)</button>
+                    <button type="button" class="chip-opsi" data-kategori="tidur" data-nilai="Cukup (5-6 jam)">🥱 Cukup (5-6j)</button>
+                    <button type="button" class="chip-opsi" data-kategori="tidur" data-nilai="Kurang (<5 jam)">😵 Kurang (<5j)</button>
+                    <button type="button" class="chip-opsi" data-kategori="tidur" data-nilai="Sulit Tidur">🌙 Sulit Tidur</button>
+                  </div>
+                </div>
+                <!-- Tingkat Stres -->
+                <div class="item-check-grup">
+                  <span class="label-sub-check">Tingkat Stres:</span>
+                  <div class="pilihan-chip-grup" id="grupTingkatStres" role="group">
+                    <button type="button" class="chip-opsi" data-kategori="stres" data-nilai="Rileks">😌 Rileks</button>
+                    <button type="button" class="chip-opsi" data-kategori="stres" data-nilai="Terkendali">🧘 Terkendali</button>
+                    <button type="button" class="chip-opsi" data-kategori="stres" data-nilai="Sedang">🤯 Sedang</button>
+                    <button type="button" class="chip-opsi" data-kategori="stres" data-nilai="Tinggi">🚨 Tinggi</button>
+                  </div>
+                </div>
+                <!-- Aktivitas Fisik Hari Ini -->
+                <div class="item-check-grup">
+                  <span class="label-sub-check">Aktivitas Fisik:</span>
+                  <div class="pilihan-chip-grup" id="grupAktivitasFisik" role="group">
+                    <button type="button" class="chip-opsi" data-kategori="aktivitasFisik" data-nilai="Istirahat / Rest Day">🛌 Rest Day</button>
+                    <button type="button" class="chip-opsi" data-kategori="aktivitasFisik" data-nilai="Jalan Santai">🚶 Jalan Santai</button>
+                    <button type="button" class="chip-opsi" data-kategori="aktivitasFisik" data-nilai="Workout Sesi">🏋️ Workout</button>
+                    <button type="button" class="chip-opsi" data-kategori="aktivitasFisik" data-nilai="Olahraga Tim">⚽ Olahraga Tim</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <label for="isiJurnal" class="kartu-label">Catatan raga &amp; pikiran hari ini</label>
+            <textarea id="isiJurnal" rows="5" placeholder="Tulis bagaimana badan dan pikiranmu hari ini... (minimal 10 karakter untuk mendapatkan XP)"></textarea>
+            
+            <div class="baris-antara simpan-jurnal-baris">
+              <button class="tombol tombol-utama" id="tombolSimpan">Simpan Jurnal Pribadi</button>
+              <span class="badge-privat-info" title="Hanya kamu yang bisa melihat catatan ini">🔒 Privat &amp; Aman</span>
+            </div>
+          </div>
+
+          <!-- Riwayat Jurnal Pribadi -->
+          <div class="riwayat-jurnal" role="region" aria-label="Riwayat jurnal harian" data-seksi-ai="jurnalRiwayatCatatan">
+            <div class="baris-antara riwayat-header-bar">
+              <p class="kartu-label">Riwayat Jurnal Pribadi</p>
+              <button type="button" class="tombol-teks-bahaya" id="btnHapusSemuaJurnalPribadi" title="Hapus semua jurnal pribadi">🗑️ Hapus Riwayat</button>
+            </div>
+
+            <!-- Pencarian & Filter Mood -->
+            <div class="filter-jurnal-pribadi">
+              <input type="text" id="cariJurnalPribadi" placeholder="🔍 Cari kata kunci jurnal..." class="input-cari-jurnal" aria-label="Cari catatan jurnal pribadi">
+              <div class="filter-mood-pills" id="filterMoodPills" role="group" aria-label="Filter berdasarkan mood">
+                <button type="button" class="pill-mood aktif" data-mood="semua">Semua</button>
+                <button type="button" class="pill-mood" data-mood="😄">😄</button>
+                <button type="button" class="pill-mood" data-mood="🙂">🙂</button>
+                <button type="button" class="pill-mood" data-mood="😐">😐</button>
+                <button type="button" class="pill-mood" data-mood="😔">😔</button>
+                <button type="button" class="pill-mood" data-mood="😫">😫</button>
+              </div>
+            </div>
+
+            <div id="daftarJurnal" aria-live="polite">
+              <!-- Diisi secara aman lewat js/jurnal.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Weekly Wellness Insights (Pola & Rekomendasi 7 Hari) -->
+        <div class="kartu-weekly-insights" id="kartuWeeklyInsights">
+          <div class="header-weekly-insights">
+            <div class="baris-antara">
+              <div class="judul-weekly-wrap">
+                <span class="badge-mini aksen-ungu">AI WELLNESS REPORT</span>
+                <h3>📊 Weekly Wellness Insights</h3>
+              </div>
+              <button type="button" class="tombol tombol-kecil tombol-garis" id="btnAnalisisWeeklyAI">
+                ✨ Minta Analisis Tren Mingguan
+              </button>
+            </div>
+            <p class="deskripsi-weekly">Rangkuman pola suasana hati, fluktuasi energi, dan kualitas pemulihan raga dalam 7 hari terakhir.</p>
+          </div>
+          <div class="konten-weekly-grid" id="wadahKontenWeekly">
+            <!-- Diisi dinamis via js/jurnal.js -->
+          </div>
+        </div>
+
+        <!-- Manfaat Refleksi Raga (Seksi Jurnal Scrolling) -->
+        <div class="seksi-konten-tambahan" id="jurnalManfaatRefleksi" data-seksi-ai="jurnalRefleksiRaga">
+          <div class="header-seksi-tambahan">
+            <span class="label">Koneksi Raga &amp; Jiwa</span>
+            <h3>Mengapa Menulis Jurnal Baik untuk Tubuhmu?</h3>
+            <p>Mendengarkan sinyal kelelahan dan emosi adalah bagian tak terpisahkan dari kebugaran sejati.</p>
+          </div>
+          <div class="grid-kartu-informasi">
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">🧘</span>
+                <span class="badge-mini aksen-ungu">MIND-BODY CONNECTION</span>
+              </div>
+              <h4>Deteksi Dini Sinyal Lelah</h4>
+              <p>Mencatat bagaimana raga terasa membantumu mengenali kapan harus meningkatkan intensitas latihan dan kapan harus memprioritaskan istirahat tidur untuk mencegah burnout.</p>
+            </div>
+            <div class="kartu-info-estetik">
+              <div class="top-badge-wrap">
+                <span class="ikon-besar">🛡️</span>
+                <span class="badge-mini aksen-hijau">RUANG BEBAS PENGHAKIMAN</span>
+              </div>
+              <h4>Kesehatan Emosional Gen Z</h4>
+              <p>Tidak ada jawaban salah dalam jurnal ini. Baik saat energimu penuh maupun saat lelah melanda, akui kondisimu apa adanya tanpa rasa bersalah.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 2. WADAH JURNAL PUBLIK / KOMUNITAS ================= -->
+      <div class="wadah-mode-jurnal" id="wadahModeJurnalPublik" style="display: none;">
+        <div class="komunitas-header-box">
+          <div class="baris-antara header-komunitas-atas">
+            <div>
+              <span class="badge-mini aksen-hijau">KOMUNITAS HIDUP SEHAT</span>
+              <h3 class="judul-komunitas-utama">🌍 Suara &amp; Inspirasi Komunitas GERAK.</h3>
+              <p class="sub-komunitas">Bagikan tips nutrisi praktis, pengalaman olahraga bareng kawan, ritual pemulihan, dan motivasi harian.</p>
+            </div>
+            <button type="button" class="tombol tombol-utama btn-buat-postingan" id="btnBukaBuatPostingan">
+              ✍️ Buat Postingan
+            </button>
+          </div>
+
+          <!-- Banner Disclaimer Medis & Moderasi Komunitas -->
+          <div class="banner-disclaimer-komunitas">
+            <span class="disclaimer-ikon">💡</span>
+            <div class="disclaimer-teks">
+              <strong>Tips &amp; Pengalaman Rekan Sebaya:</strong> Konten di ruang publik ini ditulis oleh sesama pengguna untuk saling menginspirasi dan bukan merupakan diagnosis atau nasihat medis resmi. Konsultasikan selalu kondisi kesehatan spesifikmu dengan dokter atau tenaga profesional.
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Kategori Komunitas -->
+        <div class="filter-kategori-publik-wrap">
+          <span class="label-filter-kategori">Filter Topik:</span>
+          <div class="filter-kategori-publik" id="filterKategoriPublik" role="group" aria-label="Filter kategori komunitas">
+            <button type="button" class="chip aktif" data-kategori="semua">🌟 Semua Topik</button>
+            <button type="button" class="chip" data-kategori="Tips Gizi">🥗 Tips Gizi</button>
+            <button type="button" class="chip" data-kategori="Workout &amp; Fitness">🏋️ Workout &amp; Fitness</button>
+            <button type="button" class="chip" data-kategori="Pengalaman Olahraga">🏃 Pengalaman Olahraga</button>
+            <button type="button" class="chip" data-kategori="Recovery &amp; Istirahat">🛌 Recovery &amp; Istirahat</button>
+            <button type="button" class="chip" data-kategori="Mental Wellness">🧠 Mental Wellness</button>
+            <button type="button" class="chip" data-kategori="Motivasi &amp; Kebiasaan Sehat">⚡ Motivasi</button>
+          </div>
+        </div>
+
+        <!-- Feed Postingan Komunitas -->
+        <div class="feed-komunitas" id="feedKomunitas" aria-live="polite">
+          <!-- Diisi secara dinamis melalui js/jurnal.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUKASI ================= -->
+    <section class="bagian" id="edukasi" aria-labelledby="judulHeroEdukasi">
+
+      <!-- ================= NAVIGASI INTERNAL EDUKASI ================= -->
+      <div class="edukasi-navigation-sticky">
+        <nav class="edukasi-nav-tabs" aria-label="Navigasi Halaman Edukasi" role="tablist">
+          <button type="button" class="tab-edukasi-btn aktif" id="tabBtnEdukasiRingkasan" role="tab" aria-selected="true" data-tab="ringkasan">
+            🏠 Ringkasan
+          </button>
+          <button type="button" class="tab-edukasi-btn" id="tabBtnEdukasiSemuaMateri" role="tab" aria-selected="false" data-tab="materi">
+            📚 Semua Materi
+          </button>
+          <button type="button" class="tab-edukasi-btn" id="tabBtnEdukasiQuiz" role="tab" aria-selected="false" data-tab="quiz">
+            📝 Quiz
+          </button>
+          <button type="button" class="tab-edukasi-btn" id="tabBtnEdukasiMiniGames" role="tab" aria-selected="false" data-tab="games">
+            🎮 Mini Games
+          </button>
+          <button type="button" class="tab-edukasi-btn" id="tabBtnEdukasiProgres" role="tab" aria-selected="false" data-tab="progres">
+            📊 Progres Belajar
+          </button>
+        </nav>
+      </div>
+
+      <!-- ================= 1. TAB RINGKASAN ================= -->
+      <div class="panel-edukasi-tab aktif" id="panelEdukasiRingkasan" role="tabpanel" aria-labelledby="tabBtnEdukasiRingkasan">
+        
+        <!-- A. Hero Section -->
+        <div class="hero-edukasi-ringkasan" data-seksi-ai="edukasiKategoriSehat">
+          <span class="badge-mini aksen-hijau">PUSAT PEMBELAJARAN SAINS KESEHATAN GERAK</span>
+          <h2 id="judulHeroEdukasi">Belajar Kesehatan, Jadi Lebih Seru!</h2>
+          <p class="hero-edukasi-deskripsi">Pelajari gizi, olahraga, dan kesehatan melalui materi ilmiah, quiz interaktif, serta mini games.</p>
+        </div>
+
+        <!-- B. Learning Progress Ringkasan Cepat -->
+        <div class="blok-ringkasan-seksi" id="seksiProgresCepatRingkasan">
+          <div class="baris-antara-ringkasan">
+            <h3 class="judul-blok-ringkasan">📊 Progres Belajar Kamu</h3>
+            <button type="button" class="link-ke-tab-lain" id="btnKeProgresLengkap">Lihat Seluruh Pencapaian ➔</button>
+          </div>
+          <div id="wadahLearningProgressRingkasan" class="grid-metrik-cepat">
+            <!-- Render metrik cepat dinamis -->
+          </div>
+        </div>
+
+        <!-- C. Lanjutkan Belajar -->
+        <div class="blok-ringkasan-seksi" id="seksiLanjutkanBelajar">
+          <h3 class="judul-blok-ringkasan">▶️ Lanjutkan Belajar</h3>
+          <div id="wadahLanjutkanBelajarCard">
+            <!-- Render kartu lanjutkan dinamis -->
+          </div>
+        </div>
+
+        <!-- D. Kategori Materi (3 Kategori Utama) -->
+        <div class="blok-ringkasan-seksi" id="seksiKategoriRingkasan">
+          <div class="baris-antara-ringkasan">
+            <h3 class="judul-blok-ringkasan">📂 Kategori Pembelajaran</h3>
+            <button type="button" class="link-ke-tab-lain" id="btnKeSemuaMateriDariKategori">Buka Semua 20 Materi ➔</button>
+          </div>
+          <div class="grid-kategori-ringkasan">
+            <button type="button" class="kartu-kategori-ringkasan aksen-gizi" data-kategori="Gizi dan Nutrisi">
+              <span class="ikon-kat-besar">🥗</span>
+              <div class="info-kat">
+                <h4>Gizi dan Nutrisi</h4>
+                <p>10 Modul Terstruktur</p>
+                <span class="sub-kat-desc">Isi Piringku, karbohidrat, protein otot, lemak sehat, serat usus, dan mitos diet.</span>
+              </div>
+              <span class="panah-kat">Jelajahi ➔</span>
+            </button>
+
+            <button type="button" class="kartu-kategori-ringkasan aksen-olahraga" data-kategori="Olahraga dan Kebugaran">
+              <span class="ikon-kat-besar">🏃</span>
+              <div class="info-kat">
+                <h4>Olahraga dan Kebugaran</h4>
+                <p>6 Modul Terstruktur</p>
+                <span class="sub-kat-desc">Prinsip FITT, pemanasan dinamis, kardio vs beban, hipertrofi, dan rest day.</span>
+              </div>
+              <span class="panah-kat">Jelajahi ➔</span>
+            </button>
+
+            <button type="button" class="kartu-kategori-ringkasan aksen-gaya" data-kategori="Kesehatan dan Gaya Hidup">
+              <span class="ikon-kat-besar">🧠</span>
+              <div class="info-kat">
+                <h4>Kesehatan dan Gaya Hidup</h4>
+                <p>4 Modul Terstruktur</p>
+                <span class="sub-kat-desc">Tidur restoratif, hidrasi seluler, manajemen stres, dan ergonomi postur.</span>
+              </div>
+              <span class="panah-kat">Jelajahi ➔</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- E. Daily Knowledge Challenge -->
+        <div class="blok-ringkasan-seksi" id="seksiDailyChallengeRingkasan">
+          <div id="wadahDailyChallenge">
+            <!-- Daily challenge rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- F. Mini Games Showcase -->
+        <div class="blok-ringkasan-seksi" id="seksiMiniGamesRingkasan">
+          <div class="baris-antara-ringkasan">
+            <div>
+              <h3 class="judul-blok-ringkasan">🎮 Mini Games Edukasi</h3>
+              <p class="sub-blok-desc">Uji ketelitian dan taktik kebugaranmu sambil bermain!</p>
+            </div>
+            <button type="button" class="link-ke-tab-lain" id="btnKeMiniGamesLengkap">Buka Arena Games ➔</button>
+          </div>
+          <div class="grid-games-ringkasan">
+            <div class="kartu-game-ringkasan">
+              <span class="ikon-game-mini">🍽️</span>
+              <div class="info-game-mini">
+                <h5>Susun Isi Piringku</h5>
+                <p>Tata porsi gizi seimbang Kemenkes RI.</p>
+              </div>
+              <button type="button" class="tombol tombol-kecil tombol-play-mini" data-game="isiPiringku">Mainkan</button>
+            </div>
+
+            <div class="kartu-game-ringkasan">
+              <span class="ikon-game-mini">🥑</span>
+              <div class="info-game-mini">
+                <h5>Tebak Nutrisi</h5>
+                <p>8 ronde kilat tebak zat gizi alami.</p>
+              </div>
+              <button type="button" class="tombol tombol-kecil tombol-play-mini" data-game="tebakNutrisi">Mainkan</button>
+            </div>
+
+            <div class="kartu-game-ringkasan">
+              <span class="ikon-game-mini">🧐</span>
+              <div class="info-game-mini">
+                <h5>Mitos atau Fakta</h5>
+                <p>10 pernyataan sains kesehatan nyata.</p>
+              </div>
+              <button type="button" class="tombol tombol-kecil tombol-play-mini" data-game="mitosFakta">Mainkan</button>
+            </div>
+
+            <div class="kartu-game-ringkasan">
+              <span class="ikon-game-mini">🔍</span>
+              <div class="info-game-mini">
+                <h5>Food Detective</h5>
+                <p>Bedah label Informasi Nilai Gizi.</p>
+              </div>
+              <button type="button" class="tombol tombol-kecil tombol-play-mini" data-game="foodDetective">Mainkan</button>
+            </div>
+
+            <div class="kartu-game-ringkasan">
+              <span class="ikon-game-mini">⚡</span>
+              <div class="info-game-mini">
+                <h5>Fitness Challenge</h5>
+                <p>5 stage taktis strategi workout.</p>
+              </div>
+              <button type="button" class="tombol tombol-kecil tombol-play-mini" data-game="fitnessChallenge">Mainkan</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- G. Health Fact of the Day -->
+        <div class="blok-ringkasan-seksi" id="seksiFactOfTheDayRingkasan">
+          <div id="wadahFactOfTheDay">
+            <!-- Fact of the day rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- FONDASI KESEHATAN AWAL (100% DIPERTAHANKAN) -->
+        <div class="fondasi-kesehatan-card" id="edukasiFondasiAwalWrap">
+          <div class="judul-bagian" data-seksi-ai="edukasiKategoriSehat">
+            <p class="label">Fondasi Awal</p>
+            <h3 id="judulEdukasi">Belajar singkat soal gizi</h3>
+            <p class="sub-judul">Modul pendek 2 menit mengacu pada pedoman gizi Kementerian Kesehatan RI.</p>
+          </div>
+
+          <div class="daftar-modul">
+            <details class="modul" data-seksi-ai="edukasiStunting">
+              <summary>Apa itu stunting?</summary>
+              <p>Stunting adalah kondisi gagal tumbuh pada anak balita akibat kekurangan gizi kronis, terutama pada 1000 Hari Pertama Kehidupan (sejak janin dalam kandungan hingga anak berusia 2 tahun).</p>
+            </details>
+            <details class="modul" data-seksi-ai="edukasiStunting">
+              <summary>Kenapa Gen Z perlu tahu?</summary>
+              <p>Gen Z adalah calon orang tua masa depan. Status gizi dan kebiasaan sehat yang dibangun saat remaja dan dewasa muda menentukan kualitas kesehatan generasi penerus bangsa.</p>
+            </details>
+            <details class="modul" data-seksi-ai="edukasiStunting">
+              <summary>Cara mencegah stunting sejak muda</summary>
+              <p>Menerapkan pola makan bergizi seimbang (utamakan protein hewani), mencegah anemia pada remaja putri dengan tablet tambah darah, serta menjaga sanitasi air dan lingkungan.</p>
+            </details>
+            <details class="modul" data-seksi-ai="edukasiGiziSeimbang">
+              <summary>Porsi "Isi Piringku" Kemenkes</summary>
+              <p>Panduan porsi satu piring makan: 1/3 makanan pokok (karbohidrat), 1/3 sayuran, 1/6 lauk pauk (protein), dan 1/6 buah-buahan, disertai konsumsi air putih minimal 8 gelas per hari.</p>
+            </details>
+          </div>
+
+          <!-- Modul Tambahan: Panduan Olahraga FITT & Kebiasaan Sehat (Seksi Edukasi Scrolling) -->
+          <div class="seksi-konten-tambahan" id="edukasiPanduanOlahraga" data-seksi-ai="edukasiKategoriSehat">
+            <div class="header-seksi-tambahan">
+              <span class="label">Panduan Gerak</span>
+              <h4>Prinsip FITT untuk Memulai Latihan Aman</h4>
+              <p>Formula ilmiah olahraga bagi pemula agar terhindar dari cedera otot dan kelelahan berlebih.</p>
+            </div>
+            <div class="grid-kartu-informasi">
+              <div class="kartu-info-estetik">
+                <div class="top-badge-wrap">
+                  <span class="ikon-besar">🗓️</span>
+                  <span class="badge-mini aksen-hijau">FREQUENCY</span>
+                </div>
+                <h5>3–4 Kali Seminggu</h5>
+                <p>Frekuensi ideal pemula untuk membangun ritme fisik. Berikan jeda 1 hari istirahat aktif di antara hari latihan beban untuk pemulihan optimal.</p>
+              </div>
+              <div class="kartu-info-estetik">
+                <div class="top-badge-wrap">
+                  <span class="ikon-besar">⚡</span>
+                  <span class="badge-mini aksen-oranye">INTENSITY</span>
+                </div>
+                <h5>Intensitas Ringan ke Sedang</h5>
+                <p>Gunakan 'Talk Test': kamu masih dapat berbicara dalam kalimat pendek tanpa terengah-engah kehabisan napas selama sesi latihan.</p>
+              </div>
+              <div class="kartu-info-estetik">
+                <div class="top-badge-wrap">
+                  <span class="ikon-besar">⏱️</span>
+                  <span class="badge-mini aksen-biru">TIME &amp; TYPE</span>
+                </div>
+                <h5>30–45 Menit Ramah Sendi</h5>
+                <p>Fokus pada gerakan fungsional tubuh (squat, push-up bertumpu lutut, plank) dan kardio santai seperti jalan cepat atau bersepeda.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="seksi-konten-tambahan" id="edukasiKebiasaanSehat" data-seksi-ai="edukasiGiziSeimbang">
+            <div class="header-seksi-tambahan">
+              <span class="label">Gaya Hidup</span>
+              <h4>5 Kebiasaan Mikro Harian untuk Energi Maksimal</h4>
+              <p>Perubahan kecil yang memberikan dampak eksponensial bagi kesehatan tubuh dan mentalmu.</p>
+            </div>
+            <div class="grid-kartu-informasi">
+              <div class="kartu-info-estetik">
+                <div class="top-badge-wrap">
+                  <span class="ikon-besar">😴</span>
+                  <span class="badge-mini aksen-ungu">TIDUR BERKUALITAS</span>
+                </div>
+                <h5>7–8 Jam Setiap Malam</h5>
+                <p>Hormon pertumbuhan (HGH) dilepaskan saat fase tidur nyenyak untuk memperbaiki jaringan otot yang lelah dan menyegarkan sel-sel otak.</p>
+              </div>
+              <div class="kartu-info-estetik">
+                <div class="top-badge-wrap">
+                  <span class="ikon-besar">👁️</span>
+                  <span class="badge-mini aksen-hijau">ISTIRAHAT LAYAR</span>
+                </div>
+                <h5>Aturan 20-20-20</h5>
+                <p>Setiap 20 menit menatap layar laptop/HP, alihkan pandangan ke objek berjarak 20 kaki (6 meter) selama 20 detik untuk mengistirahatkan otot mata.</p>
+              </div>
+              <div class="kartu-info-estetik">
+                <div class="top-badge-wrap">
+                  <span class="ikon-besar">🚶</span>
+                  <span class="badge-mini aksen-biru">AKTIVITAS NON-OLAHRAGA</span>
+                </div>
+                <h5>Target 6.000 Langkah Harian</h5>
+                <p>Pilih tangga ketimbang lift dan berjalan santai saat menelepon untuk menjaga peredaran darah tetap lancar sepanjang hari.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= 2. TAB SEMUA MATERI ================= -->
+      <div class="panel-edukasi-tab" id="panelEdukasiSemuaMateri" role="tabpanel" aria-labelledby="tabBtnEdukasiSemuaMateri" style="display: none;">
+        <div class="header-panel-edukasi">
+          <span class="label">Katalog Materi Pembelajaran</span>
+          <h3>📚 20 Modul Pembelajaran Terverifikasi Ilmiah</h3>
+          <p>Pelajari panduan kesehatan langkah demi langkah dengan rujukan jurnal peer-reviewed dan tips praktis sehari-hari.</p>
+        </div>
+
+        <!-- Toolbar Pencarian & Filter Lengkap -->
+        <div class="toolbar-katalog-lengkap">
+          <div class="baris-atas-toolbar">
+            <div class="kotak-cari-materi">
+              <span class="ikon-cari-materi">🔍</span>
+              <input type="search" id="inputCariMateri" placeholder="Cari materi gizi, workout, tidur, serat, postur..." aria-label="Cari materi pembelajaran">
+            </div>
+            <div class="sort-wrap">
+              <label for="selectSortMateri" class="sr-only">Urutkan materi</label>
+              <select id="selectSortMateri" class="select-sort-edukasi" aria-label="Urutkan materi pembelajaran">
+                <option value="nomor">Urutan: Modul 1 – 20</option>
+                <option value="judul">Judul: A – Z</option>
+                <option value="waktu">Durasi: Tercepat</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Filter Kategori Pills -->
+          <div class="baris-filter-kategori" id="wadahFilterKategoriMateri" role="group" aria-label="Filter kategori materi">
+            <button type="button" class="pill-filter-kategori aktif" data-kategori="semua">Semua (20)</button>
+            <button type="button" class="pill-filter-kategori" data-kategori="Gizi dan Nutrisi">🥗 Gizi &amp; Nutrisi (10)</button>
+            <button type="button" class="pill-filter-kategori" data-kategori="Olahraga dan Kebugaran">🏃 Olahraga &amp; Kebugaran (6)</button>
+            <button type="button" class="pill-filter-kategori" data-kategori="Kesehatan dan Gaya Hidup">🧠 Gaya Hidup (4)</button>
+          </div>
+
+          <!-- Filter Sekunder: Kesulitan & Status -->
+          <div class="baris-filter-sekunder">
+            <div class="filter-group-mini">
+              <span class="label-mini-filter">Tingkat:</span>
+              <select id="filterKesulitanMateri" class="select-mini-filter" aria-label="Filter tingkat kesulitan">
+                <option value="semua">Semua Tingkat</option>
+                <option value="Pemula">Pemula</option>
+                <option value="Menengah">Menengah</option>
+                <option value="Lanjutan">Lanjutan</option>
+              </select>
+            </div>
+
+            <div class="filter-group-mini">
+              <span class="label-mini-filter">Status:</span>
+              <select id="filterStatusMateri" class="select-mini-filter" aria-label="Filter status belajar">
+                <option value="semua">Semua Status</option>
+                <option value="belum">Belum Selesai</option>
+                <option value="selesai">Sudah Selesai</option>
+                <option value="favorit">Favorit ⭐</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 20 Kartu Materi -->
+        <div class="grid-materi-edukasi" id="gridKatalogMateri">
+          <!-- Render 20 kartu materi dinamis -->
+        </div>
+      </div>
+
+      <!-- ================= 3. TAB QUIZ ================= -->
+      <div class="panel-edukasi-tab" id="panelEdukasiQuiz" role="tabpanel" aria-labelledby="tabBtnEdukasiQuiz" style="display: none;">
+        <div class="header-panel-edukasi">
+          <span class="label">Evaluasi Pemahaman</span>
+          <h3>📝 Hub Quiz Pembelajaran Edukasi</h3>
+          <p>Uji pemahamanmu dari 20 materi kesehatan terstruktur. Setiap quiz memiliki 5 soal dengan feedback instan dan pembahasan ilmiah.</p>
+        </div>
+
+        <!-- Quick Summary Quiz & Filter -->
+        <div class="toolbar-quiz-hub">
+          <div class="stat-quiz-bar" id="statQuizQuickBar">
+            <!-- Render ringkasan quiz cepat dinamis -->
+          </div>
+          <div class="filter-quiz-bar" id="wadahFilterQuizHub">
+            <button type="button" class="pill-filter-quiz aktif" data-filter="semua">Semua Quiz (20)</button>
+            <button type="button" class="pill-filter-quiz" data-filter="belum">Belum Dikerjakan</button>
+            <button type="button" class="pill-filter-quiz" data-filter="selesai">Sudah Dikerjakan</button>
+          </div>
+        </div>
+
+        <!-- Grid 20 Kartu Quiz -->
+        <div class="grid-hub-quiz" id="gridHubQuizEdukasi">
+          <!-- Render 20 kartu quiz dinamis -->
+        </div>
+      </div>
+
+      <!-- ================= 4. TAB MINI GAMES ================= -->
+      <div class="panel-edukasi-tab" id="panelEdukasiMiniGames" role="tabpanel" aria-labelledby="tabBtnEdukasiMiniGames" style="display: none;">
+        <div class="header-panel-edukasi">
+          <span class="label">Arena Interaktif</span>
+          <h3>🎮 5 Mini Games Edukasi Kesehatan</h3>
+          <p>Belajar sains kesehatan sambil bermain! Pilih permainan yang ingin kamu mainkan di bawah ini:</p>
+        </div>
+
+        <!-- Grid 5 Mini Games Detail -->
+        <div class="grid-arena-mini-games" id="gridHubMiniGames">
+          <!-- Render 5 kartu game interaktif -->
+        </div>
+      </div>
+
+      <!-- ================= 5. TAB PROGRES BELAJAR ================= -->
+      <div class="panel-edukasi-tab" id="panelEdukasiProgres" role="tabpanel" aria-labelledby="tabBtnEdukasiProgres" style="display: none;">
+        <div class="header-panel-edukasi">
+          <span class="label">Pusat Pencapaian</span>
+          <h3>📊 Dasbor Progres &amp; Lencana Belajar</h3>
+          <p>Pantau seluruh materi yang telah kamu tuntaskan, riwayat quiz, statistik mini games, dan lencana keahlianmu.</p>
+        </div>
+
+        <div id="wadahDetailLearningProgress">
+          <!-- Render dasbor progres lengkap dinamis -->
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER & DATA PRIVASI ================= -->
+  <footer class="footer">
+    <p class="logo"><span class="logo-g">G</span>erak<span class="logo-dot" aria-hidden="true">.</span></p>
+    <p>Gizi · Energi · Raga · Kawan</p>
+    <p class="kartu-kecil">Dibuat untuk LOGICODIX 2026 — Inclusive Health &amp; Well-being</p>
+
+    <!-- Panel Data & Privasi -->
+    <div class="panel-privasi">
+      <p class="info-privasi">🔒 <b>Privasi Terjaga:</b> Semua data kamu tersimpan secara lokal di peramban ini tanpa pelacak pihak ketiga.</p>
+      <div class="tombol-privasi-wrap">
+        <button class="tombol-kecil" id="tombolEksporData">📁 Ekspor Data Saya (JSON)</button>
+        <button class="tombol-kecil tombol-bahaya" id="tombolHapusData">🗑️ Hapus Semua Data</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= DIALOG NATIVE (MODAL AKSESIBEL) ================= -->
+
+  <!-- 1. Dialog Check-in Bermakna -->
+  <dialog id="dialogCheckin" class="modal-dialog" aria-labelledby="judulDialogCheckin">
+    <div class="modal-isi">
+      <button class="tutup-modal" data-tutup aria-label="Tutup dialog check-in">✕</button>
+      <h3 id="judulDialogCheckin">Hari ini kamu ngapain buat badanmu?</h3>
+      <p class="kartu-kecil">Pilih minimal satu hal baik yang kamu lakukan hari ini (termasuk istirahat):</p>
+      <form id="formCheckin">
+        <div class="opsi-aktivitas">
+          <label class="item-checkbox"><input type="checkbox" name="aktivitasCheckin" value="gerak" checked> 🏃 Olahraga / jalan kaki santai</label>
+          <label class="item-checkbox"><input type="checkbox" name="aktivitasCheckin" value="makan"> 🥗 Makan teratur bergizi</label>
+          <label class="item-checkbox"><input type="checkbox" name="aktivitasCheckin" value="tidur"> 😴 Tidur cukup (7-8 jam)</label>
+          <label class="item-checkbox"><input type="checkbox" name="aktivitasCheckin" value="minum"> 💧 Minum air putih cukup (±2 liter)</label>
+          <label class="item-checkbox"><input type="checkbox" name="aktivitasCheckin" value="istirahat"> 🧘 Istirahat / me time tenang</label>
+        </div>
+        <button type="submit" class="tombol tombol-utama lebar-penuh">Konfirmasi Check-in</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- 6. Dialog Sesi Latihan Interaktif (Mulai Latihan) -->
+  <dialog id="dialogSesiLatihan" class="modal-dialog modal-workout" aria-labelledby="judulDialogSesiLatihan">
+    <div class="modal-isi">
+      <button class="tutup-modal" data-tutup aria-label="Keluar dari layar penuh latihan (X)">✕</button>
+
+      <div class="sesi-header">
+        <div class="badge-program-sesi" id="sesiBadgeProgram" style="display: none;">🎯 Program Terstruktur</div>
+        <span class="tag tag-hari" id="sesiBadgeHari">Hari 1 · Full Body</span>
+        <h3 id="judulDialogSesiLatihan">Sirkuit Pengencangan Otot</h3>
+        <p class="kartu-kecil" id="sesiDeskripsiSingkat">Selesaikan setiap gerakan secara bertahap. Centang bila gerakan telah tuntas!</p>
+      </div>
+
+      <!-- Progres Bar Sesi -->
+      <div class="wadah-progress-sesi">
+        <div class="baris-antara info-progress-teks">
+          <span>Progres Latihan</span>
+          <span id="angkaProgressSesi" class="teks-tebal">0 / 0 Gerakan Tuntas</span>
+        </div>
+        <div class="progress-bar-bg" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressBarAria" aria-label="Progres gerakan sesi latihan">
+          <div class="progress-bar-isi" id="progressBarSesi" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Quick Rest Timer Neo-brutalist -->
+      <div class="box-rest-timer">
+        <div class="baris-antara">
+          <span class="label-timer">⏱️ Timer Istirahat Antar Set</span>
+          <span class="timer-angka" id="displayTimerIstirahat">00:45</span>
+        </div>
+        <div class="baris-timer-kontrol">
+          <div class="tombol-preset-group">
+            <button type="button" class="chip-timer" data-durasi="30">30s</button>
+            <button type="button" class="chip-timer aktif" data-durasi="45">45s</button>
+            <button type="button" class="chip-timer" data-durasi="60">60s</button>
+          </div>
+          <div class="tombol-aksi-timer">
+            <button type="button" class="tombol-timer-main" id="btnToggleTimer">▶ Mulai</button>
+            <button type="button" class="tombol-timer-reset" id="btnResetTimer">↻ Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daftar Gerakan Interaktif -->
+      <div class="daftar-gerakan-sesi" id="wadahDaftarGerakanSesi">
+        <!-- Diisi dinamis via js/workout.js -->
+      </div>
+
+      <div class="hero-aksi">
+        <button type="button" class="tombol tombol-utama lebar-penuh" id="btnSelesaikanLatihan">
+          🎉 Selesaikan Sesi Latihan (+25 Poin &amp; +15 XP)
+        </button>
+      </div>
+    </div>
+
+    <!-- Dialog lapor keluhan: ada di dalam dialog sesi supaya tetap tampil saat mode layar penuh -->
+    <dialog id="dialogLaporKeluhan" class="modal-dialog dialog-kesehatan" aria-labelledby="judulLaporKeluhan">
+      <button type="button" class="tutup-modal" data-tutup aria-label="Tutup laporan keluhan">✕</button>
+      <form id="formLaporKeluhan" class="form-kesehatan" novalidate>
+        <span class="label">Laporan keluhan latihan</span>
+        <h3 id="judulLaporKeluhan">Ada yang nggak nyaman?</h3>
+        <p class="sub-kesehatan">Gerakan: <b id="laporNamaGerakan">-</b></p>
+        <fieldset class="grup-pilihan-kesehatan">
+          <legend>Bagian tubuh mana? <small>(boleh pilih lebih dari satu)</small></legend>
+          <div class="chip-pilihan-kesehatan" id="pilihanBagianTubuh"></div>
+        </fieldset>
+        <fieldset class="grup-pilihan-kesehatan">
+          <legend>Rasanya seperti apa? <small>(boleh pilih lebih dari satu)</small></legend>
+          <div class="chip-pilihan-kesehatan" id="pilihanJenisKeluhan"></div>
+        </fieldset>
+        <div class="baris-isian-kesehatan">
+          <label for="laporFase">Kapan terasa?
+            <select id="laporFase"></select>
+          </label>
+          <label for="laporIntensitas"><span>Seberapa berat? <output id="laporIntensitasNilai" for="laporIntensitas">4</output>/10</span>
+            <input type="range" id="laporIntensitas" min="1" max="10" value="4">
+          </label>
+        </div>
+        <label for="laporCatatan">Catatan posisi tubuh (opsional)
+          <textarea id="laporCatatan" maxlength="300" rows="2" placeholder="Contoh: lutut kanan nyeri pas turun, kaki agak sempit"></textarea>
+        </label>
+        <p class="pesan-error-kesehatan" id="laporError" role="alert"></p>
+        <button type="submit" class="tombol tombol-utama lebar-penuh">Simpan laporan</button>
+      </form>
+      <div class="hasil-lapor-kesehatan" id="hasilLaporKeluhan" hidden></div>
+    </dialog>
+  </dialog>
+
+  <!-- Dialog catat medical checkup -->
+  <dialog id="dialogCheckup" class="modal-dialog dialog-kesehatan" aria-labelledby="judulCheckup">
+    <button type="button" class="tutup-modal" data-tutup aria-label="Tutup catatan checkup">✕</button>
+    <form id="formCheckup" class="form-kesehatan" novalidate>
+      <span class="label">Medical checkup</span>
+      <h3 id="judulCheckup">Catat hasil medical checkup</h3>
+      <p class="sub-kesehatan">Isi yang kamu punya saja, semua kolom angka boleh dikosongkan.</p>
+      <div class="baris-isian-kesehatan">
+        <label for="checkupTanggal">Tanggal checkup
+          <input type="date" id="checkupTanggal" required>
+        </label>
+        <label for="checkupTempat">Tempat (opsional)
+          <input type="text" id="checkupTempat" maxlength="80" placeholder="Puskesmas / klinik / RS">
+        </label>
+      </div>
+      <div class="baris-isian-kesehatan empat">
+        <label for="checkupSistolik">Tensi atas <small>(mmHg)</small>
+          <input type="number" id="checkupSistolik" inputmode="numeric" min="70" max="250" placeholder="120">
+        </label>
+        <label for="checkupDiastolik">Tensi bawah <small>(mmHg)</small>
+          <input type="number" id="checkupDiastolik" inputmode="numeric" min="40" max="150" placeholder="80">
+        </label>
+        <label for="checkupDetak">Detak istirahat <small>(bpm)</small>
+          <input type="number" id="checkupDetak" inputmode="numeric" min="30" max="200" placeholder="72">
+        </label>
+        <label for="checkupGula">Gula darah puasa <small>(mg/dL)</small>
+          <input type="number" id="checkupGula" inputmode="numeric" min="40" max="600" placeholder="90">
+        </label>
+      </div>
+      <div class="baris-isian-kesehatan">
+        <label for="checkupKolesterol">Kolesterol total <small>(mg/dL)</small>
+          <input type="number" id="checkupKolesterol" inputmode="numeric" min="80" max="500" placeholder="180">
+        </label>
+        <label for="checkupAnjuran">Anjuran dokter soal olahraga
+          <select id="checkupAnjuran"></select>
+        </label>
+      </div>
+      <label for="checkupCatatan">Catatan dokter (opsional)
+        <textarea id="checkupCatatan" maxlength="500" rows="2" placeholder="Contoh: kurangi garam, boleh olahraga ringan"></textarea>
+      </label>
+      <p class="pesan-error-kesehatan" id="checkupError" role="alert"></p>
+      <button type="submit" class="tombol tombol-utama lebar-penuh">Simpan hasil checkup</button>
+    </form>
+  </dialog>
+
+  <!-- 7. Dialog Katalog Semua Latihan & Video Demonstrasi -->
+  <dialog id="dialogSemuaLatihan" class="modal-dialog modal-workout-katalog" aria-labelledby="judulDialogSemuaLatihan">
+    <div class="modal-isi">
+      <button class="tutup-modal" data-tutup aria-label="Keluar dari layar penuh katalog latihan (X)">✕</button>
+
+      <div class="katalog-header">
+        <span class="badge-target-workout" id="katalogBadgeTarget">🎯 Target: -</span>
+        <h3 id="judulDialogSemuaLatihan">Katalog Gerakan &amp; Video Demonstrasi</h3>
+        <p class="kartu-kecil">Pelajari teknik gerak presisi, kelompok otot, dan pencegahan cedera langkah demi langkah.</p>
+      </div>
+
+      <!-- Filter Kategori Gerakan -->
+      <div class="filter-katalog" id="filterKatalogGerakan" role="group" aria-label="Filter kategori gerakan">
+        <button type="button" class="chip aktif" data-kategori="semua" aria-pressed="true">Semua Gerakan</button>
+        <button type="button" class="chip" data-kategori="upper" aria-pressed="false">Upper Body</button>
+        <button type="button" class="chip" data-kategori="lower" aria-pressed="false">Lower Body</button>
+        <button type="button" class="chip" data-kategori="core" aria-pressed="false">Core &amp; Kardio</button>
+      </div>
+
+            <div class="katalog-list" id="wadahKatalogGerakan">
+        <!-- Diisi dinamis via js/workout.js -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 8. Dialog Masuk & Daftar Akun GERAK -->
+  <dialog id="dialogAuth" class="dialog-auth" aria-labelledby="judulDialogAuth">
+    <button type="button" class="tutup-auth" data-tutup aria-label="Tutup halaman masuk/daftar">✕</button>
+    <div class="auth" id="auth">
+      <!-- Form Daftar Akun -->
+      <form id="formDaftar" class="auth-form auth-daftar">
+        <h2 id="judulDialogAuth">Buat Akun</h2>
+        <label class="garis"><span>👤</span><input type="text" id="inputDaftarNama" maxlength="30" placeholder="Nama lengkap / panggilan" aria-label="Nama lengkap atau panggilan" required></label>
+        <label class="garis"><span>✉️</span><input type="text" id="inputDaftarEmail" placeholder="Email atau No. WhatsApp" aria-label="Email atau nomor WhatsApp" required></label>
+        <label class="garis"><span>🔒</span>
+          <span class="pw">
+            <input type="password" id="inputDaftarSandi" minlength="4" placeholder="Buat kata sandi / PIN" aria-label="Kata sandi atau PIN" required>
+            <button type="button" data-aksi="lihat-pw" aria-label="Tampilkan kata sandi">Lihat</button>
+          </span>
+        </label>
+        <button type="submit" class="auth-utama">Daftar</button>
+        <p class="auth-sub">Udah punya akun? <button type="button" class="auth-link" id="linkPindahMasuk">Masuk</button></p>
+      </form>
+
+      <!-- Form Masuk Akun -->
+      <form id="formMasuk" class="auth-form auth-masuk">
+        <h2>Masuk</h2>
+        <label class="garis"><span>✉️</span><input type="text" id="inputMasukIdentitas" placeholder="Nama panggilan atau email" aria-label="Nama panggilan atau email" required></label>
+        <label class="garis"><span>🔒</span>
+          <span class="pw">
+            <input type="password" id="inputMasukSandi" placeholder="Kata sandi / PIN" aria-label="Kata sandi atau PIN" required>
+            <button type="button" data-aksi="lihat-pw" aria-label="Tampilkan kata sandi">Lihat</button>
+          </span>
+        </label>
+        <button type="submit" class="auth-utama">Masuk</button>
+        <p class="auth-sub">Belum punya akun? <button type="button" class="auth-link" id="linkPindahDaftar">Daftar</button></p>
+      </form>
+
+      <!-- Panel sapaan yang geser -->
+      <div class="auth-panel">
+        <div class="panel-daftar">
+          <h2>Selamat datang <span class="auth-aksen">kembali!</span></h2>
+          <p>Udah punya akun? Masuk pakai nama atau email kamu.</p>
+          <button type="button" class="auth-garis" data-auth="masuk">Masuk →</button>
+        </div>
+        <div class="panel-masuk">
+          <h2>Halo, <span class="auth-aksen">kawan!</span></h2>
+          <p>Belum punya akun? Daftar dan mulai gerak bareng temen.</p>
+          <button type="button" class="auth-garis" data-auth="daftar">Buat Akun →</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 9. Dialog Daftar Pengguna Sedang Aktif Lengkap -->
+  <dialog id="dialogSemuaAktif" class="modal-dialog modal-sedang-aktif" aria-labelledby="judulDialogSemuaAktif">
+    <div class="modal-isi">
+      <button class="tutup-modal" data-tutup aria-label="Tutup dialog pengguna aktif">✕</button>
+      <div class="header-modal-aktif">
+        <span class="badge-online-dot">🟢 STATUS KEHADIRAN KOMUNITAS</span>
+        <h3 id="judulDialogSemuaAktif">Pengguna Sedang Aktif</h3>
+        <p class="kartu-kecil">
+          Berikut adalah pengguna yang sedang online di sesi lokal kamu serta simulasi keaktifan berkala komunitas GERAK.
+        </p>
+      </div>
+      <div class="list-semua-aktif" id="wadahListSemuaAktif">
+        <!-- Diisi dinamis via js/kawan.js -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 10. Dialog Detail Profil Kawan Ringkas -->
+  <dialog id="dialogDetailProfilKawan" class="modal-dialog modal-detail-profil" aria-labelledby="judulDetailProfil">
+    <div class="modal-isi">
+      <button class="tutup-modal" data-tutup aria-label="Tutup dialog detail kawan">✕</button>
+      <div id="wadahDetailProfilKawan">
+        <!-- Diisi dinamis via js/kawan.js -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 9. Dialog Buat Postingan Komunitas Publik -->
+  <dialog id="dialogBuatPostingan" class="modal-dialog modal-komunitas-post" aria-labelledby="judulDialogBuatPost">
+    <div class="modal-isi">
+      <button class="tutup-modal" data-tutup aria-label="Tutup formulir postingan">✕</button>
+
+      <div class="modal-header-komunitas">
+        <span class="badge-mini aksen-hijau">KOMUNITAS PUBLIK</span>
+        <h3 id="judulDialogBuatPost">✍️ Bagikan ke Komunitas GERAK.</h3>
+        <p class="kartu-kecil">Tulis tips nutrisi, cerita latihan, atau motivasi kebugaran yang bermanfaat bagi kawan komunitas.</p>
+      </div>
+
+      <form id="formBuatPostingan" class="form-komunitas-grid">
+        <label for="inputJudulPostingan">Judul Postingan
+          <input type="text" id="inputJudulPostingan" placeholder="Contoh: 3 Peregangan Pagi Buat Hilangkan Kaku Leher" required maxlength="120">
+        </label>
+
+        <div class="baris-dua-kolom">
+          <label for="selectKategoriPostingan">Kategori
+            <select id="selectKategoriPostingan" required>
+              <option value="Tips Gizi">🥗 Tips Gizi</option>
+              <option value="Workout &amp; Fitness">🏋️ Workout &amp; Fitness</option>
+              <option value="Pengalaman Olahraga">🏃 Pengalaman Olahraga</option>
+              <option value="Recovery &amp; Istirahat">🛌 Recovery &amp; Istirahat</option>
+              <option value="Mental Wellness">🧠 Mental Wellness</option>
+              <option value="Motivasi &amp; Kebiasaan Sehat">⚡ Motivasi &amp; Kebiasaan Sehat</option>
+            </select>
+          </label>
+
+          <label for="selectTipePostingan">Jenis Konten
+            <select id="selectTipePostingan">
+              <option value="Tips Komunitas">💡 Tips Komunitas</option>
+              <option value="Pengalaman Pribadi">📖 Cerita / Pengalaman Pribadi</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="label-dan-ai-bar">
+          <label for="inputIsiPostingan">Isi Postingan</label>
+          <div class="grup-ai-bantuan-post" role="group" aria-label="Bantuan GERAK AI">
+            <button type="button" class="btn-ai-mini-assist" id="btnAIIdeJudul" title="Bantu buatkan ide judul menarik">💡 Ide Judul</button>
+            <button type="button" class="btn-ai-mini-assist" id="btnAIRapikanTeks" title="Rapikan tata kalimat dan ejaan">✨ Rapikan Kalimat</button>
+            <button type="button" class="btn-ai-mini-assist" id="btnAISaranKategori" title="Rekomendasikan kategori terbaik">🏷️ Saran Kategori</button>
+          </div>
+        </div>
+        <textarea id="inputIsiPostingan" rows="5" placeholder="Tuliskan pengalaman atau tipsmu secara santun dan ramah kawan... (minimal 15 karakter)" required minlength="15"></textarea>
+
+        <label for="inputGambarPostingan">URL Gambar / Foto Ilustrasi <small class="teks-muted">(Opsional)</small>
+          <input type="url" id="inputGambarPostingan" placeholder="https://contoh.com/gambar-olahraga.jpg">
+        </label>
+
+        <!-- Kotak Pratinjau Sebelum Publikasi -->
+        <div class="kotak-pratinjau-post">
+          <span class="label-pratinjau">👁️ Pratinjau Tampilan Sebelum Dipublikasikan:</span>
+          <div class="kartu-post-preview" id="previewPostinganBox">
+            <div class="preview-header">
+              <span class="preview-avatar">👤</span>
+              <div>
+                <strong id="prevAuthorNama">Kamu</strong>
+                <span class="tag-waktu" id="prevWaktu">Baru saja</span>
+              </div>
+              <span class="tag-kategori-prev" id="prevKategoriBadge">Tips Gizi</span>
+            </div>
+            <h4 id="prevJudul">Judul postingan kamu</h4>
+            <p id="prevIsi">Isi postingan akan tampil di sini seperti yang dilihat oleh kawan komunitas...</p>
+          </div>
+        </div>
+
+        <div class="disclaimer-post-centang">
+          <label class="label-centang-aman">
+            <input type="checkbox" id="checkPersetujuanPublik" required>
+            <span>Saya menyetujui postingan ini dibagikan secara <strong>publik</strong> dan bukan merupakan diagnosis medis sepihak.</span>
+          </label>
+        </div>
+
+        <div class="baris-tombol-aksi-modal">
+          <button type="button" class="tombol tombol-garis" data-tutup>Batal</button>
+          <button type="submit" class="tombol tombol-utama" id="btnPublikasikanPost">🚀 Publikasikan ke Komunitas</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- 10. Dialog Edit Postingan Komunitas -->
+  <dialog id="dialogEditPostingan" class="modal-dialog modal-komunitas-post" aria-labelledby="judulDialogEditPost">
+    <div class="modal-isi">
+      <button class="tutup-modal" data-tutup aria-label="Tutup edit postingan">✕</button>
+
+      <div class="modal-header-komunitas">
+        <span class="badge-mini aksen-ungu">EDIT POSTINGAN</span>
+        <h3 id="judulDialogEditPost">✏️ Edit Postingan Komunitas</h3>
+      </div>
+
+      <form id="formEditPostingan" class="form-komunitas-grid">
+        <input type="hidden" id="editPostId">
+        <label for="editJudulPostingan">Judul Postingan
+          <input type="text" id="editJudulPostingan" required maxlength="120">
+        </label>
+
+        <div class="baris-dua-kolom">
+          <label for="editSelectKategori">Kategori
+            <select id="editSelectKategori" required>
+              <option value="Tips Gizi">🥗 Tips Gizi</option>
+              <option value="Workout &amp; Fitness">🏋️ Workout &amp; Fitness</option>
+              <option value="Pengalaman Olahraga">🏃 Pengalaman Olahraga</option>
+              <option value="Recovery &amp; Istirahat">🛌 Recovery &amp; Istirahat</option>
+              <option value="Mental Wellness">🧠 Mental Wellness</option>
+              <option value="Motivasi &amp; Kebiasaan Sehat">⚡ Motivasi &amp; Kebiasaan Sehat</option>
+            </select>
+          </label>
+
+          <label for="editSelectTipe">Jenis Konten
+            <select id="editSelectTipe">
+              <option value="Tips Komunitas">💡 Tips Komunitas</option>
+              <option value="Pengalaman Pribadi">📖 Cerita / Pengalaman Pribadi</option>
+            </select>
+          </label>
+        </div>
+
+        <label for="editIsiPostingan">Isi Postingan
+          <textarea id="editIsiPostingan" rows="5" required minlength="15"></textarea>
+        </label>
+
+        <div class="baris-tombol-aksi-modal">
+          <button type="button" class="tombol tombol-garis" data-tutup>Batal</button>
+          <button type="submit" class="tombol tombol-utama">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- 11. Dialog Laporkan Postingan Komunitas -->
+  <dialog id="dialogLaporPostingan" class="modal-dialog" aria-labelledby="judulDialogLaporPost">
+    <div class="modal-isi">
+      <button class="tutup-modal" data-tutup aria-label="Tutup dialog lapor postingan">✕</button>
+
+      <div class="modal-header-komunitas">
+        <span class="badge-mini aksen-merah">MODERASI KEAMANAN</span>
+        <h3 id="judulDialogLaporPost">🚩 Laporkan Postingan Komunitas</h3>
+        <p class="kartu-kecil">Bantu kami menjaga ruang komunitas tetap sehat, aman, dan bebas dari misinformasi berbahaya.</p>
+      </div>
+
+      <form id="formLaporPostingan">
+        <input type="hidden" id="laporPostId">
+        <label for="selectAlasanLaporPost">Alasan Pelaporan
+          <select id="selectAlasanLaporPost" required>
+            <option value="Misinformasi kesehatan / klaim medis berbahaya">Misinformasi kesehatan / klaim medis berbahaya</option>
+            <option value="Bahasa kasar, pelecehan, atau penghakiman">Bahasa kasar, pelecehan, atau penghakiman</option>
+            <option value="Spam, iklan komersial, atau promosi obat terlarang">Spam, iklan komersial, atau promosi suplemen gelap</option>
+            <option value="Pelanggaran privasi data orang lain">Pelanggaran privasi data orang lain</option>
+          </select>
+        </label>
+
+        <label for="catatanLaporPost">Catatan Tambahan <small class="teks-muted">(Opsional)</small>
+          <textarea id="catatanLaporPost" rows="3" placeholder="Jelaskan alasan atau bagian yang perlu ditinjau..."></textarea>
+        </label>
+
+        <div class="baris-tombol-aksi-modal">
+          <button type="button" class="tombol tombol-garis" data-tutup>Batal</button>
+          <button type="submit" class="tombol tombol-utama">Kirim Laporan</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- 12. Dialog Edit Jurnal Pribadi -->
+  <dialog id="dialogEditJurnalPribadi" class="modal-dialog" aria-labelledby="judulDialogEditJurnal">
+    <div class="modal-isi">
+      <button class="tutup-modal" data-tutup aria-label="Tutup edit jurnal pribadi">✕</button>
+
+      <div class="modal-header-komunitas">
+        <span class="badge-mini aksen-hijau">JURNAL PRIBADI</span>
+        <h3 id="judulDialogEditJurnal">✏️ Edit Catatan Jurnal</h3>
+        <p class="kartu-kecil">Perbarui catatan refleksi pribadimu.</p>
+      </div>
+
+      <form id="formEditJurnalPribadi">
+        <input type="hidden" id="editJurnalId">
+        
+        <label for="editMoodJurnalSelect">Mood saat itu:
+          <select id="editMoodJurnalSelect">
+            <option value="😄">😄 Sangat senang</option>
+            <option value="🙂">🙂 Baik-baik saja</option>
+            <option value="😐">😐 Biasa saja</option>
+            <option value="😔">😔 Sedih / Lelah mental</option>
+            <option value="😫">😫 Sangat lelah / Stres</option>
+          </select>
+        </label>
+
+        <label for="editIsiJurnalTextarea">Isi Catatan Jurnal
+          <textarea id="editIsiJurnalTextarea" rows="6" required minlength="5"></textarea>
+        </label>
+
+        <div class="baris-tombol-aksi-modal">
+          <button type="button" class="tombol tombol-garis" data-tutup>Batal</button>
+          <button type="submit" class="tombol tombol-utama">Simpan Pembaruan</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- 13. Dialog Reader Materi Edukasi Bertahap (Step-by-Step Experience) -->
+  <dialog id="dialogMateriEdukasi" class="modal-dialog modal-edukasi" aria-labelledby="judulModalMateri">
+    <div class="modal-isi modal-isi-lebar">
+      <button class="tutup-modal" data-tutup aria-label="Tutup modul pembelajaran">✕</button>
+
+      <div class="modal-edukasi-header">
+        <div class="badge-row-materi">
+          <span class="badge-mini aksen-hijau" id="badgeModalNomorKategori">Modul 1 · Gizi dan Nutrisi</span>
+          <span class="badge-mini aksen-biru" id="badgeModalKesulitan">Pemula</span>
+          <span class="estimasi-baca-modal" id="labelModalWaktuBaca">⏱️ 4 Menit</span>
+        </div>
+        <h3 id="judulModalMateri">Mengenal Gizi Seimbang</h3>
+
+        <!-- Stepper Indicator 5 Langkah -->
+        <div class="stepper-materi-bar" role="navigation" aria-label="Langkah Pembelajaran Materi">
+          <div class="stepper-dots-row">
+            <button type="button" class="step-dot-btn aktif" data-step="1" title="Langkah 1: Pengenalan">
+              <span class="step-num">1</span>
+              <span class="step-text">Pengenalan</span>
+            </button>
+            <div class="step-line"></div>
+            <button type="button" class="step-dot-btn" data-step="2" title="Langkah 2: Materi Utama">
+              <span class="step-num">2</span>
+              <span class="step-text">Materi Utama</span>
+            </button>
+            <div class="step-line"></div>
+            <button type="button" class="step-dot-btn" data-step="3" title="Langkah 3: Penerapan">
+              <span class="step-num">3</span>
+              <span class="step-text">Penerapan</span>
+            </button>
+            <div class="step-line"></div>
+            <button type="button" class="step-dot-btn" data-step="4" title="Langkah 4: Kesimpulan">
+              <span class="step-num">4</span>
+              <span class="step-text">Kesimpulan</span>
+            </button>
+            <div class="step-line"></div>
+            <button type="button" class="step-dot-btn" data-step="5" title="Langkah 5: Referensi Ilmiah">
+              <span class="step-num">5</span>
+              <span class="step-text">Referensi</span>
+            </button>
+          </div>
+          <div class="stepper-progress-fill-wrap">
+            <div class="stepper-progress-bar" id="materiProgressBar" style="width: 20%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Area Konten Langkah Aktif -->
+      <div class="pane-modal-edukasi-step" id="paneKontenLangkahMateri">
+        <!-- Konten per step di-render dinamis oleh js/edukasi.js -->
+      </div>
+
+      <!-- Toolbar Bantuan AI Pembelajaran -->
+      <div class="toolbar-ai-pembelajaran">
+        <span class="label-bantuan-ai">🤖 Asistensi GERAK AI:</span>
+        <div class="btn-group-ai-modal">
+          <button type="button" class="tombol-mini tombol-ai-step" id="btnAISederhanakan">Sederhanakan Bahasa</button>
+          <button type="button" class="tombol-mini tombol-ai-step" id="btnAIBedahIstilah">Bedah Istilah Medis / Gizi</button>
+          <button type="button" class="tombol-mini tombol-ai-step" id="btnAIContohLain">Minta Contoh Nyata Lain</button>
+        </div>
+      </div>
+
+      <!-- Navigasi Footer Stepper -->
+      <div class="modal-materi-nav-bar">
+        <button type="button" class="tombol tombol-garis" id="btnLangkahSebelumnya" disabled>
+          ⬅ Sebelumnya
+        </button>
+        <span class="indikator-step-teks" id="labelIndikatorStep">Langkah 1 dari 5</span>
+        <div class="grup-kanan-nav">
+          <button type="button" class="tombol tombol-quiz-shortcut" id="btnBukaQuizDariMateri">
+            📝 Kerjakan Quiz Terkait
+          </button>
+          <button type="button" class="tombol tombol-utama" id="btnLangkahSelanjutnya">
+            Selanjutnya ➔
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 14. Dialog Single-Question Interactive Quiz Player -->
+  <dialog id="dialogQuizPlayer" class="modal-dialog modal-quiz-player" aria-labelledby="judulModalQuizPlayer">
+    <div class="modal-isi modal-isi-quiz">
+      <button class="tutup-modal" data-tutup aria-label="Keluar dari quiz">✕</button>
+
+      <div class="modal-quiz-header">
+        <div class="badge-row-quiz">
+          <span class="badge-mini aksen-ungu" id="badgeQuizMateriTerkait">Quiz Materi 1</span>
+          <span class="badge-mini aksen-biru">5 SOAL INTERAKTIF</span>
+        </div>
+        <h3 id="judulModalQuizPlayer">Quiz: Mengenal Gizi Seimbang</h3>
+        
+        <!-- Stepper Soal -->
+        <div class="stepper-quiz-wrap">
+          <div class="baris-info-soal">
+            <span class="soal-step-counter" id="labelSoalCounter">Pertanyaan 1 dari 5</span>
+            <span class="soal-step-timer" id="labelQuizStatusJawab">Pilih salah satu jawaban:</span>
+          </div>
+          <div class="bar-progress-quiz-track">
+            <div class="bar-progress-quiz-fill" id="barProgressQuiz" style="width: 20%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Area Tampilan 1 Soal Aktif -->
+      <div class="area-soal-quiz-aktif" id="areaSoalQuizAktif">
+        <!-- Render 1 soal aktif dengan 4 opsi A, B, C, D dinamis -->
+      </div>
+
+      <!-- Feedback Langsung & Pembahasan Ilmiah -->
+      <div class="area-feedback-quiz" id="areaFeedbackQuiz" style="display: none;">
+        <!-- Render feedback benar/salah & pembahasan ilmiah -->
+      </div>
+
+      <!-- Tombol Aksi Lanjut Soal -->
+      <div class="area-tombol-quiz-step" id="areaTombolQuizStep">
+        <button type="button" class="tombol tombol-utama lebar-penuh" id="btnLanjutSoalQuiz" style="display: none;">
+          Soal Selanjutnya ➔
+        </button>
+      </div>
+
+      <!-- Tampilan Hasil Akhir Quiz (Setelah Soal 5 Tuntas) -->
+      <div class="area-hasil-akhir-quiz" id="areaHasilAkhirQuiz" style="display: none;">
+        <!-- Render hasil akhir skor %, benar/salah, tombol ulang, tombol AI -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 15. Dialog Mini Games Edukasi -->
+  <dialog id="dialogMiniGameEdukasi" class="modal-dialog modal-edukasi-game" aria-labelledby="judulModalGame">
+    <div class="modal-isi modal-isi-game">
+      <button class="tutup-modal" data-tutup aria-label="Tutup permainan">✕</button>
+
+      <div class="modal-game-header">
+        <h3 id="judulModalGame">Mini Game Edukasi</h3>
+        <span class="badge-mini aksen-hijau">INTERACTIVE GAMEPLAY</span>
+      </div>
+
+      <div id="wadahIsiMiniGame" class="area-game-interaktif">
+        <!-- Papan game interaktif di-render dinamis -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ================= GERAK AI CONTEXTUAL ASSISTANT ================= -->
+  <div id="gerakAiWidget" class="gerak-ai-widget" aria-label="Asisten Pintar GERAK AI">
+    
+    <!-- Bubble Sapaan Kontekstual (Speech Bubble) -->
+    <div id="gerakAiBubble" class="gerak-ai-bubble" style="display: none;" role="status" aria-live="polite">
+      <button type="button" class="gerak-ai-bubble-close" id="btnTutupBubbleAi" aria-label="Abaikan saran AI">✕</button>
+      <div class="gerak-ai-bubble-content" id="kontenBubbleAi">
+        <span class="gerak-ai-bubble-icon">💡</span>
+        <p class="gerak-ai-bubble-text" id="teksBubbleAi">Halo! Ada yang bisa aku bantu?</p>
+      </div>
+      <button type="button" class="gerak-ai-bubble-cta" id="btnBukaChatDariBubble">Tanya GERAK AI ➔</button>
+    </div>
+
+    <!-- Floating Trigger Button -->
+    <button type="button" id="btnToggleAi" class="gerak-ai-trigger" aria-label="Buka Chat GERAK AI" title="Tanya GERAK AI">
+      <div class="gerak-ai-trigger-badge" id="aiTriggerBadge" aria-hidden="true">AI</div>
+      <span class="gerak-ai-trigger-icon" aria-hidden="true">🤖</span>
+      <span class="sr-only">Buka Obrolan GERAK AI</span>
+    </button>
+
+    <!-- Panel Dialog Obrolan GERAK AI -->
+    <div id="gerakAiPanel" class="gerak-ai-panel" style="display: none;" role="dialog" aria-modal="false" aria-labelledby="judulAiPanel">
+      
+      <!-- Header Panel -->
+      <div class="gerak-ai-header">
+        <div class="gerak-ai-header-brand">
+          <span class="gerak-ai-avatar">🤖</span>
+          <div>
+            <h3 id="judulAiPanel" class="gerak-ai-judul">GERAK AI</h3>
+            <span class="gerak-ai-status-chip" id="aiStatusChip">🌱 Mode Pengunjung</span>
+          </div>
+        </div>
+        <div class="gerak-ai-controls">
+          <button type="button" class="gerak-ai-btn-ctrl" id="btnAiMinimize" aria-label="Kecilkan panel" title="Minimize">−</button>
+          <button type="button" class="gerak-ai-btn-ctrl" id="btnAiMaximize" aria-label="Perbesar panel" title="Maximize">⛶</button>
+          <button type="button" class="gerak-ai-btn-ctrl" id="btnAiClose" aria-label="Tutup panel" title="Tutup">✕</button>
+        </div>
+      </div>
+
+      <!-- Active Section Context Chip Bar -->
+      <div class="gerak-ai-context-bar" id="aiContextBar">
+        <span class="gerak-ai-context-icon">📍</span>
+        <span class="gerak-ai-context-text" id="aiContextText">Sedang melihat: Beranda</span>
+      </div>
+
+      <!-- Chat Messages Scrollable Box -->
+      <div class="gerak-ai-messages" id="aiMessagesBox" role="log" aria-live="polite">
+        <!-- Pesan akan di-render di sini -->
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="gerak-ai-typing" id="aiTypingIndicator" style="display: none;" aria-live="polite">
+        <span class="gerak-ai-typing-avatar">🤖</span>
+        <div class="gerak-ai-typing-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <small>GERAK AI sedang mengetik...</small>
+      </div>
+
+      <!-- Quick Suggestions Bar -->
+      <div class="gerak-ai-suggestions" id="aiSuggestionsBar" role="group" aria-label="Rekomendasi pertanyaan cepat">
+        <!-- Chips pertanyaan cepat berdasarkan section -->
+      </div>
+
+      <!-- Chat Input Form -->
+      <form class="gerak-ai-form" id="formAiChat">
+        <input type="text" id="inputAiPesan" class="gerak-ai-input" placeholder="Tanya seputar gizi, latihan, kawan..." maxlength="1500" autocomplete="off" aria-label="Ketik pesan untuk GERAK AI">
+        <button type="submit" class="gerak-ai-submit" id="btnKirimPesanAi" aria-label="Kirim pesan">
+          <span aria-hidden="true">🚀</span>
+        </button>
+      </form>
+      <div class="gerak-ai-footer-note">
+        <small>💡 Google Gemini Free Tier · Informasi bersifat edukatif, bukan diagnosis medis.</small>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Notifikasi status ramah pembaca layar (ARIA Live) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Noscript ramah -->
+  <noscript>
+    <div class="banner-noscript">
+      <p>Aplikasi GERAK membutuhkan JavaScript agar fitur interaktif dan kalkulator gizi dapat berjalan dengan aman.</p>
+    </div>
+  </noscript>
+
+  <!-- Script modul utama -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

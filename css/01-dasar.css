@@ -1,0 +1,354 @@
+/* =========================================
+   GERAK - css/01-dasar.css
+   Desain "Navy Pulse": dasar navy #0B1220, aksen hijau #22C55E,
+   font Sora (judul) & Plus Jakarta Sans (teks).
+   Mendukung mode gelap (body.gelap) dan kontras tinggi (body.kontras).
+
+   CSS GERAK dipecah jadi 15 file (01 s.d. 15) dan dimuat BERURUTAN
+   di index.html. Urutan itu penting: file dengan nomor lebih besar
+   boleh menimpa gaya dari file sebelumnya.
+   ========================================= */
+
+:root {
+  --skala-teks: 1;
+  /* Palet Warna Resmi GERAK */
+  --warna-aqua: #22C55E;
+  --warna-sky: #4ADE80;
+  --warna-violet: #15803D;
+  --warna-deep-purple: #0B1220;
+  --warna-latar: #F4F6F9;
+  /* Gradasi Dinamis Palet Baru */
+  --gradasi-violet-sky: linear-gradient(135deg, #15803D 0%, #4ADE80 100%);
+  /* Efek Glow */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100% * var(--skala-teks, 1));
+  scroll-padding-top: 7.5rem;
+}
+
+body {
+  background: #F4F6F9;
+  color: #0B1220;
+  line-height: 1.6;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+h1,
+h2,
+h3,
+.logo,
+.angka-kalori,
+.makro-angka,
+.huruf {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Aksesibilitas: Skip Link */
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  background: #0B1220;
+  color: #22C55E;
+  border: 2px solid #22C55E;
+  border-radius: 0.5rem;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 3px solid #15803D;
+}
+
+/* Aksesibilitas: Focus-Visible Global (Kontras >= 3:1) */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #22C55E;
+  outline-offset: 3px;
+}
+
+/* Helper Screen Reader Only */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ========== NAVBAR ========== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 6%;
+  background: #F4F6F9;
+  border-bottom: 1px solid #E3E7EE;
+}
+
+.logo {
+  font-size: 1.75rem;
+}
+
+.menu {
+  display: flex;
+  gap: 1.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.menu a {
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  border-bottom: 1px solid #E3E7EE;
+}
+
+.nav-tombol {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.grup-skala-teks {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.tombol-ikon {
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: #FFFFFF;
+  color: #0B1220;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tombol-ikon:hover {
+  background: #22C55E;
+}
+
+.tombol-ikon[aria-pressed="true"] {
+  background: #0B1220;
+  color: #22C55E;
+}
+
+.tombol-menu {
+  display: none;
+}
+
+/* ========== TOMBOL UMUM ========== */
+
+.tombol:hover {
+  box-shadow: none;
+}
+
+.tombol-utama {
+  background: #22C55E;
+  color: #0B1220;
+}
+
+.tombol-garis {
+  background: #FFFFFF;
+  color: #0B1220;
+}
+
+.tombol-bahaya {
+  background: #ff5c5c;
+  color: #ffffff;
+}
+
+.tombol-kecil {
+  padding: 0.375rem 0.875rem;
+  min-height: 38px;
+  font-size: 0.875rem;
+  background: #FFFFFF;
+  color: #0B1220;
+  border: 1px solid #E3E7EE;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.tombol-kecil:hover {
+  background: #EEF1F5;
+}
+
+.lebar-penuh {
+  width: 100%;
+}
+
+/* ========== HERO ========== */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 5rem 6% 4rem;
+}
+
+.label {
+  margin-bottom: 0.75rem;
+  color: #4E5155;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 1.25rem;
+}
+
+.stabilo {
+  background: #22C55E;
+  padding: 0 0.625rem;
+  border-radius: 10px;
+}
+
+.hero-deskripsi {
+  font-size: 1.125rem;
+  max-width: 30rem;
+  margin-bottom: 2rem;
+  color: #2A3344;
+}
+
+.hero-aksi {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-kartu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Kartu status (Streak & Level) */
+
+.kartu-status {
+  padding: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-streak {
+  background: #15803D;
+}
+
+.kartu-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.375rem;
+}
+
+.kartu-kecil {
+  font-size: 0.875rem;
+  color: #2A3344;
+}
+
+.kartu-streak .kartu-kecil {
+  color: #0B1220;
+}
+
+.info-jatah {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.minggu {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.hari {
+  flex: 1;
+  padding: 0.375rem 0;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.hari.nyala {
+  background: #0B1220;
+  color: #22C55E;
+}
+
+.baris-antara {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar-xp {
+  height: 1.125rem;
+  margin: 0.625rem 0;
+  background: #E3E6EB;
+  border: 1px solid #E3E7EE;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.isi-xp {
+  width: 0%;
+  height: 100%;
+  background: #15803D;
+  transition: width 0.4s ease;
+}

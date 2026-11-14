@@ -1,0 +1,343 @@
+/* ==========================================================================
+   FULL SCREEN WORKOUT & KATALOG MODE (GERAK FULL SCREEN EXPERIENCE)
+   ========================================================================== */
+
+/* 1. Hilangkan navbar & elemen latar belakang saat mode Full Screen aktif */
+
+body.workout-fullscreen-aktif {
+  overflow: hidden !important;
+}
+
+body.workout-fullscreen-aktif .navbar,
+body.workout-fullscreen-aktif .gerak-ai-widget,
+body.workout-fullscreen-aktif .skip-link {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 2. Gaya Dasar Dialog Full Screen (100vw x 100dvh, Menutupi Seluruh Layar) */
+
+dialog.modal-dialog.modal-workout.is-fullscreen,
+dialog.modal-dialog.modal-workout-katalog.is-fullscreen,
+dialog.modal-dialog.modal-workout:fullscreen,
+dialog.modal-dialog.modal-workout-katalog:fullscreen,
+dialog.modal-dialog.modal-workout:-webkit-full-screen,
+dialog.modal-dialog.modal-workout-katalog:-webkit-full-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none;
+  background: var(--warna-latar, #F4F6F9) !important;
+  color: var(--warna-deep-purple, #0B1220) !important;
+  overflow: hidden !important;
+  z-index: 100000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  animation: workoutFullscreenMasuk 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+dialog.modal-dialog.modal-workout.is-fullscreen::backdrop,
+dialog.modal-dialog.modal-workout-katalog.is-fullscreen::backdrop {
+  background: var(--warna-latar, #F4F6F9) !important;
+}
+
+@keyframes workoutFullscreenMasuk {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 3. Tombol Keluar (X) yang Selalu Terlihat di Pojok Kanan Atas */
+
+dialog.modal-workout.is-fullscreen .tutup-modal,
+dialog.modal-workout-katalog.is-fullscreen .tutup-modal,
+dialog.modal-workout:fullscreen .tutup-modal,
+dialog.modal-workout-katalog:fullscreen .tutup-modal,
+dialog.modal-workout:-webkit-full-screen .tutup-modal,
+dialog.modal-workout-katalog:-webkit-full-screen .tutup-modal {
+  position: fixed !important;
+  top: 1.25rem !important;
+  right: 1.5rem !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  background: #FFFFFF !important;
+  color: var(--warna-deep-purple, #0B1220) !important;
+  border: 1px solid #E3E7EE !important;
+  border-radius: 20px !important;
+  font-size: 1.35rem !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 100200 !important;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease !important;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+dialog.modal-workout.is-fullscreen .tutup-modal:hover,
+dialog.modal-workout-katalog.is-fullscreen .tutup-modal:hover {
+  background: var(--warna-aqua, #22C55E) !important;
+  color: var(--warna-deep-purple, #0B1220) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: none;
+}
+
+dialog.modal-workout.is-fullscreen .tutup-modal:active,
+dialog.modal-workout-katalog.is-fullscreen .tutup-modal:active {
+  transform: scale(0.96) translateY(2px) !important;
+  box-shadow: none;
+}
+
+/* 4. Badge Program Latihan di Header Full Screen */
+
+.badge-program-sesi {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--warna-sky, #4ADE80);
+  color: var(--warna-deep-purple, #0B1220);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  box-shadow: none;
+  margin-bottom: 0.5rem;
+}
+
+/* 5. Tata Letak Desktop (Layar Lebar >= 1024px) */
+
+@media (min-width: 1024px) {
+  /* Tampilan Sesi Latihan Full Screen (2 Kolom Seimbang: Kontrol Kiri, Gerakan Kanan) */
+
+  dialog.modal-workout.is-fullscreen .modal-isi {
+    display: grid !important;
+    grid-template-columns: 420px 1fr !important;
+    grid-template-rows: auto auto auto 1fr !important;
+    grid-template-areas: "header list"
+      "progress list"
+      "timer list"
+      "aksi list" !important;
+    column-gap: 2.5rem !important;
+    row-gap: 1.25rem !important;
+    max-width: 1400px !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100dvh !important;
+    margin: 0 auto !important;
+    padding: 3rem 3rem 2.5rem !important;
+    box-sizing: border-box !important;
+    overflow-y: hidden !important;
+  }
+
+  dialog.modal-workout.is-fullscreen .sesi-header {
+    grid-area: header;
+    margin-bottom: 0 !important;
+  }
+
+  dialog.modal-workout.is-fullscreen .wadah-progress-sesi {
+    grid-area: progress;
+    margin-bottom: 0 !important;
+  }
+
+  dialog.modal-workout.is-fullscreen .box-rest-timer {
+    grid-area: timer;
+    margin-bottom: 0 !important;
+  }
+
+  dialog.modal-workout.is-fullscreen .hero-aksi {
+    grid-area: aksi;
+    margin-top: 0 !important;
+    align-self: end !important;
+  }
+
+  dialog.modal-workout.is-fullscreen .daftar-gerakan-sesi {
+    grid-area: list;
+    height: 100% !important;
+    max-height: calc(100dvh - 6rem) !important;
+    overflow-y: auto !important;
+    padding-right: 0.85rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Tampilan Katalog Latihan & Video Full Screen */
+
+  dialog.modal-workout-katalog.is-fullscreen .modal-isi {
+    max-width: 1400px !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 auto !important;
+    padding: 3rem 3rem 3rem !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: hidden !important;
+  }
+
+  dialog.modal-workout-katalog.is-fullscreen .katalog-header {
+    flex-shrink: 0 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  dialog.modal-workout-katalog.is-fullscreen .filter-katalog {
+    flex-shrink: 0 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  dialog.modal-workout-katalog.is-fullscreen .katalog-list {
+    flex: 1 !important;
+    max-height: calc(100dvh - 13.5rem) !important;
+    overflow-y: auto !important;
+    padding-right: 0.85rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.25rem !important;
+  }
+
+  /* Kartu Katalog Detail di Desktop: Video di Kiri, Deskripsi & Langkah di Kanan */
+
+  dialog.modal-workout-katalog.is-fullscreen .kartu-katalog-detail {
+    display: grid !important;
+    grid-template-columns: 480px 1fr !important;
+    grid-template-areas: "header header"
+      "video content" !important;
+    column-gap: 2rem !important;
+    row-gap: 1.25rem !important;
+    padding: 2rem !important;
+  }
+
+  dialog.modal-workout-katalog.is-fullscreen .katalog-kartu-header {
+    grid-area: header;
+  }
+
+  dialog.modal-workout-katalog.is-fullscreen .video-animasi-player {
+    grid-area: video;
+    position: sticky;
+    top: 1rem;
+    height: fit-content;
+  }
+
+  dialog.modal-workout-katalog.is-fullscreen .katalog-kolom-konten {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}
+
+/* 6. Tata Letak Mobile & Tablet (Layar < 1024px) */
+
+@media (max-width: 1023px) {
+  dialog.modal-workout.is-fullscreen .modal-isi,
+  dialog.modal-workout-katalog.is-fullscreen .modal-isi {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    max-height: 100dvh !important;
+    margin: 0 !important;
+    padding: 2.5rem 1.25rem 3.5rem !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+  }
+
+  dialog.modal-workout.is-fullscreen .tutup-modal,
+  dialog.modal-workout-katalog.is-fullscreen .tutup-modal {
+    top: 1rem !important;
+    right: 1rem !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  dialog.modal-workout.is-fullscreen .daftar-gerakan-sesi,
+  dialog.modal-workout-katalog.is-fullscreen .katalog-list {
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+}
+
+/* 7. Penyesuaian Mode Gelap (Dark Mode) */
+
+body.gelap dialog.modal-workout.is-fullscreen,
+body.gelap dialog.modal-workout-katalog.is-fullscreen {
+  background: #17181d !important;
+  color: #F7F7F8 !important;
+}
+
+body.gelap dialog.modal-workout.is-fullscreen::backdrop,
+body.gelap dialog.modal-workout-katalog.is-fullscreen::backdrop {
+  background: #17181d !important;
+}
+
+body.gelap dialog.modal-workout.is-fullscreen .tutup-modal,
+body.gelap dialog.modal-workout-katalog.is-fullscreen .tutup-modal {
+  background: #162033 !important;
+  color: #F7F7F8 !important;
+  border-color: #F7F7F8 !important;
+  box-shadow: none;
+}
+
+body.gelap dialog.modal-workout.is-fullscreen .tutup-modal:hover,
+body.gelap dialog.modal-workout-katalog.is-fullscreen .tutup-modal:hover {
+  background: var(--warna-aqua, #22C55E) !important;
+  color: var(--warna-deep-purple, #111111) !important;
+  border-color: #F7F7F8 !important;
+}
+
+body.gelap .badge-program-sesi {
+  background: var(--warna-sky, #4ADE80);
+  color: var(--warna-deep-purple, #111111);
+  border-color: #F7F7F8;
+  box-shadow: none;
+}
+
+/* 8. Penyesuaian Mode Kontras Tinggi */
+
+body.kontras dialog.modal-workout.is-fullscreen,
+body.kontras dialog.modal-workout-katalog.is-fullscreen {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body.kontras dialog.modal-workout.is-fullscreen .tutup-modal,
+body.kontras dialog.modal-workout-katalog.is-fullscreen .tutup-modal {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 3.5px solid #ffffff !important;
+  box-shadow: 4px 4px 0 #ffffff !important;
+}
+
+/* 9. Penyesuaian Aksesibilitas Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  dialog.modal-dialog.modal-workout.is-fullscreen,
+  dialog.modal-dialog.modal-workout-katalog.is-fullscreen {
+    animation: none !important;
+  }
+}

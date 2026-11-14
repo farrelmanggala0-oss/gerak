@@ -1,0 +1,1079 @@
+/* =========================================
+   MODE GELAP (body.gelap)
+   ========================================= */
+
+body.gelap {
+  color: #F4F4F5;
+}
+
+body.gelap a:focus-visible,
+body.gelap button:focus-visible,
+body.gelap input:focus-visible,
+body.gelap select:focus-visible,
+body.gelap textarea:focus-visible,
+body.gelap summary:focus-visible {
+  outline: 3px solid #22C55E;
+}
+
+body.gelap .navbar {
+  background: #121317;
+  border-bottom: 2px solid #3A4A68;
+}
+
+body.gelap .tombol-ikon,
+body.gelap .tombol-kecil,
+body.gelap .chip {
+  background: #121A2B;
+  color: #F4F4F5;
+  border-color: #3A4A68;
+}
+
+body.gelap .chip.aktif,
+body.gelap .chip[aria-pressed="true"] {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .menu a:hover,
+body.gelap .menu a[aria-current="page"] {
+  border-bottom-color: #22C55E;
+}
+
+body.gelap .hero-deskripsi,
+body.gelap .sub-judul,
+body.gelap .label,
+body.gelap .kartu-kecil,
+body.gelap .kawan-streak,
+body.gelap .kawan-bio,
+body.gelap .badge-deskripsi,
+body.gelap .modul p {
+  color: #C4C4CA;
+}
+
+body.gelap .stabilo {
+  color: #111111;
+}
+
+body.gelap .kartu-status,
+body.gelap .badge,
+body.gelap .kartu-kawan,
+body.gelap .form-gizi,
+body.gelap .kartu-jurnal,
+body.gelap .riwayat-jurnal,
+body.gelap .modul,
+body.gelap .state-kosong,
+body.gelap .seksi-sedang-aktif,
+body.gelap .kartu-olahraga-bareng,
+body.gelap .kotak-kendali-lokasi,
+body.gelap .baris-filter-sekitar,
+body.gelap dialog.modal-dialog {
+  background: #121A2B;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .subnav-kawan {
+  background: #121A2B;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .subnav-kawan-btn {
+  color: #F4F4F5;
+}
+
+body.gelap .subnav-kawan-btn:hover:not(.aktif) {
+  background: #2b2e38;
+}
+
+body.gelap .subnav-kawan-btn.aktif {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .item-user-aktif {
+  background: #252831;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+}
+
+body.gelap .item-user-sendiri {
+  background: #1e3321;
+}
+
+body.gelap .teks-transparansi-online,
+body.gelap .olahraga-user-aktif,
+body.gelap .nama-penyelenggara-bareng {
+  color: #C4C4CA;
+}
+
+body.gelap .btn-lihat-semua-aktif {
+  color: #F4F4F5;
+  border-color: #1E2A40;
+}
+
+body.gelap .btn-lihat-semua-aktif:hover {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .detail-jadwal-lokasi,
+body.gelap .baris-kawan-aktif,
+body.gelap .state-perlu-lokasi,
+body.gelap .kawan-bio-modal {
+  background: #252831;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+}
+
+body.gelap .baris-kawan-aktif.baris-saya {
+  background: #1e3321;
+}
+
+body.gelap .select-acuan-lokasi,
+body.gelap .select-olahraga-sekitar {
+  background: #252831;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+}
+
+body.gelap .chip-radius {
+  background: #252831;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+}
+
+body.gelap .chip-radius.aktif {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .banner-demo {
+  background: #1f2a3a;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+}
+
+body.gelap .badge.terkunci {
+  background: #15171c;
+}
+
+body.gelap .badge.terkunci .badge-status {
+  color: #C4C4CA;
+}
+
+body.gelap .kartu-streak {
+  background: #15803D;
+  color: #111111;
+}
+
+body.gelap .kartu-streak .kartu-kecil {
+  color: #111111;
+}
+
+body.gelap .judul-sapaan-member {
+  color: #F4F4F5;
+}
+
+body.gelap .badge-member-salam {
+  background: #121A2B;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+}
+
+body.gelap .kotak-motivasi-member {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .member-sub-sapaan {
+  color: #d1d5db;
+}
+
+body.gelap .micro-stat-item {
+  background: #2a2c34;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .kartu-level-aesthetic {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .xp-counter-tag {
+  color: #F4F4F5;
+}
+
+body.gelap .nama-level-aesthetic {
+  color: #F4F4F5;
+}
+
+body.gelap .kartu-ayo-mulai {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .badge-label-ayo-mulai {
+  background: #121317;
+  color: #22C55E;
+  border-color: #1E2A40;
+}
+
+body.gelap .deskripsi-ayo-mulai {
+  color: #9ca3af;
+}
+
+body.gelap .item-metrik-berat {
+  background: #162033;
+  border-color: #1E2A40;
+}
+
+body.gelap .label-metrik-kecil {
+  color: #9ca3af;
+}
+
+body.gelap .nilai-metrik-berat {
+  color: #F4F4F5;
+}
+
+body.gelap .banner-ekuivalen-energi {
+  background: #362f14;
+  border-color: #715814;
+}
+
+body.gelap .teks-ekuivalen-utama {
+  color: #fde047;
+}
+
+body.gelap .teks-ekuivalen-sub {
+  color: #fef08a;
+}
+
+body.gelap .sumber-item {
+  background: #162033;
+  border-color: #1E2A40;
+}
+
+body.gelap .sumber-nama {
+  color: #9ca3af;
+}
+
+body.gelap .sumber-nilai {
+  color: #F4F4F5;
+}
+
+body.gelap .info-kunci-field {
+  background: #431407;
+  color: #86EFAC;
+  border-color: #15803D;
+}
+
+body.gelap .pesan-bantu-field {
+  color: #9ca3af;
+}
+
+body.gelap .status-checkin-badge {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .kartu-akses-member {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .kartu-akses-member h4 {
+  color: #F4F4F5;
+}
+
+body.gelap .deskripsi-akses {
+  color: #9ca3af;
+}
+
+body.gelap .tombol-aksi-kawan {
+  background: #121A2B;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+}
+
+body.gelap .kartu-dekorasi-gerak {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .judul-dekorasi-gerak {
+  color: #F4F4F5;
+}
+
+body.gelap .sub-dekorasi-gerak {
+  color: #9ca3af;
+}
+
+body.gelap .chip-ritme-sehat {
+  color: #a1a1aa;
+}
+
+body.gelap .pill-mini-item {
+  background: #2a2c34;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .watermark-huruf-g {
+  color: #ffffff;
+  opacity: 0.035;
+}
+
+body.gelap .siluet-tubuh {
+  fill: #F4F4F5;
+}
+
+body.gelap .siluet-garis {
+  stroke: #F4F4F5;
+}
+
+body.gelap .bar-xp {
+  background: #2a2c33;
+  border-color: #1E2A40;
+}
+
+body.gelap input,
+body.gelap select,
+body.gelap textarea,
+body.gelap .label-mood {
+  background: #26282f;
+  color: #F4F4F5;
+  border-color: #6e7380;
+}
+
+body.gelap .tag {
+  background: #2a2c33;
+  color: #F4F4F5;
+}
+
+body.gelap .tag-inklusif {
+  background: #1b3815;
+  color: #a4f598;
+}
+
+body.gelap .avatar {
+  border-color: #F4F4F5;
+}
+
+body.gelap .opsi-target span {
+  border-color: #6e7380;
+}
+
+body.gelap .opsi-target input:checked + span {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .tombol-lapor,
+body.gelap .tombol-blokir {
+  color: #C4C4CA;
+  border-color: #6e7380;
+}
+
+body.gelap .verifikasi {
+  color: #22C55E;
+}
+
+body.gelap .modul[open] {
+  background: #121A2B;
+  border-color: #4ADE80;
+}
+
+body.gelap .modul[open] p {
+  color: #F4F4F5;
+}
+
+body.gelap .item-jurnal {
+  border-bottom-color: #34363d;
+}
+
+body.gelap .footer {
+  background: #0a0b0d;
+}
+
+body.gelap .hasil-gizi .kartu-kecil,
+body.gelap .kartu-pilar p {
+  color: #111111;
+}
+
+body.gelap .kotak-workout-terkunci {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+  box-shadow: none;
+}
+
+body.gelap .badge-terkunci-pill {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .lingkaran-ikon-kunci {
+  background: #162033;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .langkah-buka-kunci {
+  background: #162033;
+  border-color: #1E2A40;
+}
+
+body.gelap .langkah-item {
+  color: #F4F4F5;
+}
+
+body.gelap .deskripsi-kunci,
+body.gelap .tips-workout-box p {
+  color: #C4C4CA;
+}
+
+body.gelap .workout-header-card {
+  background: #121A2B;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .workout-header-card::before {
+  background: #22C55E;
+}
+
+body.gelap .judul-program,
+body.gelap .slider-info .label-sub,
+body.gelap .nama-latihan-slide,
+body.gelap .tips-workout-box h4 {
+  color: #F4F4F5;
+}
+
+body.gelap .fokus-program {
+  color: #C7CBD1;
+}
+
+body.gelap .badge-target-workout {
+  background: #22C55E;
+  color: #111111;
+  border-color: #22C55E;
+}
+
+body.gelap .program-meta-chips .meta-chip {
+  background: #162033;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .tombol-ubah-target {
+  background: #162033;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .tips-workout-box {
+  background: #121A2B;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .tips-header-bar {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+body.gelap .tips-header-bar h4,
+body.gelap .tips-judul {
+  color: #F4F4F5;
+}
+
+body.gelap .badge-tips-kategori {
+  background: #22C55E;
+  color: #111111;
+  border-color: #22C55E;
+  box-shadow: none;
+}
+
+body.gelap .tips-nav-kontrol {
+  background: #162033;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .tombol-panah-tips {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .tombol-panah-tips:hover {
+  background: #22C55E;
+  color: #111111;
+  border-color: #22C55E;
+}
+
+body.gelap .tips-counter {
+  color: #22C55E;
+}
+
+body.gelap .tombol-mulai-workout-hasil {
+  background: #22C55E;
+  color: #111111;
+  border-color: #22C55E;
+}
+
+body.gelap .tombol-mulai-workout-hasil:hover {
+  background: #d8ff85;
+}
+
+body.gelap .tombol-nav-slider {
+  background: #121A2B;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .tombol-nav-slider:hover:not(:disabled) {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .kartu-slide-workout {
+  background: #121A2B;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .kartu-slide-foto-wrap {
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .tag-hari {
+  background: #22C55E;
+  color: #111111;
+  border-color: #22C55E;
+}
+
+body.gelap .durasi-pill {
+  background: #162033;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .label-gerakan-kunci {
+  color: #C7CBD1;
+}
+
+body.gelap .sub-gerakan-count {
+  background: #343740;
+  color: #22C55E;
+}
+
+body.gelap .pill-gerakan {
+  background: #162033;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+  box-shadow: none;
+}
+
+body.gelap .pill-gerakan:hover {
+  background: #343740;
+  color: #22C55E;
+}
+
+body.gelap .btn-detail-dari-kartu {
+  background: #162033;
+  color: #F4F4F5;
+  border-color: #1E2A40;
+  box-shadow: none;
+}
+
+body.gelap .slider-dot {
+  background: #162033;
+  border-color: #1E2A40;
+}
+
+body.gelap .slider-dot.aktif {
+  background: #22C55E;
+  border-color: #22C55E;
+  box-shadow: none;
+}
+
+body.gelap .wadah-progress-sesi,
+body.gelap .box-otot-gerakan {
+  background: #162033;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .item-gerakan-sesi,
+body.gelap .kartu-katalog-detail {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+  box-shadow: none;
+}
+
+body.gelap .box-rest-timer {
+  background: #1F242C;
+  border-color: #1E2A40;
+  color: #ffe270;
+}
+
+body.gelap .chip-parameter,
+body.gelap .chip-otot-sekunder {
+  background: #2c2f38;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .deskripsi-mini-gerakan,
+body.gelap .deskripsi-gerakan-katalog,
+body.gelap .daftar-langkah-list {
+  color: #C4C4CA;
+}
+
+body.gelap .box-kesalahan-umum {
+  background: #1D222A;
+  border-color: #15803D;
+  color: #BBF7D0;
+}
+
+body.gelap .daftar-kesalahan-list {
+  color: #86EFAC;
+}
+
+body.gelap .btn-centang-gerakan {
+  background: #162033;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .btn-centang-gerakan.selesai {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .tombol-masuk-daftar {
+  background: #22C55E;
+  color: #111111;
+  border-color: #22C55E;
+}
+
+body.gelap .user-profile-nav {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+  box-shadow: none;
+}
+
+body.gelap .nav-user-nama {
+  color: #F4F4F5;
+}
+
+body.gelap .tombol-keluar-nav {
+  background: #2a2d36;
+  border-color: #1E2A40;
+  color: #ff7676;
+}
+
+body.gelap .nav-poin-rank-chip {
+  background: #2a2d36;
+  border-color: #3A4A68;
+  color: #F4F4F5;
+}
+
+body.gelap .nav-poin-rank-chip:hover {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .kotak-kawan-terkunci {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+  box-shadow: none;
+}
+
+body.gelap .kotak-kawan-terkunci h3 {
+  color: #F4F4F5;
+}
+
+body.gelap .deskripsi-kunci {
+  color: #C4C4CA;
+}
+
+body.gelap .kartu-poin-utama,
+body.gelap .wrap-leaderboard {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+  box-shadow: none;
+}
+
+body.gelap .badge-rank-ikon-wrap,
+body.gelap .kotak-total-poin,
+body.gelap .kolom-poin-progres,
+body.gelap .rank-item,
+body.gelap .tabel-leaderboard-wadah,
+body.gelap .pilar-podium,
+body.gelap .catatan-leaderboard-nyata {
+  background: #162033;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+  box-shadow: none;
+}
+
+body.gelap .nama-rank-aktif,
+body.gelap .angka-poin-raksasa,
+body.gelap .judul-target-rank,
+body.gelap .header-galeri-rank h3,
+body.gelap .rank-item-nama,
+body.gelap .judul-leaderboard-box h3,
+body.gelap .podium-nama-user,
+body.gelap .nama-pengguna-tabel,
+body.gelap .nama-tabel-rank,
+body.gelap .tabel-leaderboard td {
+  color: #F4F4F5;
+}
+
+body.gelap .deskripsi-rank-aktif,
+body.gelap .label-progres-mini,
+body.gelap .label-poin-sub,
+body.gelap .petunjuk-dapat-poin,
+body.gelap .rank-item-keterangan,
+body.gelap .rank-item-rentang,
+body.gelap .sub-tabel-tier,
+body.gelap .catatan-leaderboard-nyata p,
+body.gelap .banner-posisi-isi p {
+  color: #C4C4CA;
+}
+
+body.gelap .pill-sesi,
+body.gelap .rank-item-tier-chip,
+body.gelap .rank-item-ikon-box,
+body.gelap .filter-periode-leaderboard,
+body.gelap .pill-poin-tabel,
+body.gelap .badge-peringkat-tabel.p-lain {
+  background: #121A2B;
+  border-color: #1E2A40;
+  color: #F4F4F5;
+}
+
+body.gelap .chip-leaderboard {
+  color: #F4F4F5;
+}
+
+body.gelap .chip-leaderboard.aktif {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .bar-progres-rank-bg {
+  background: #121317;
+  border-color: #1E2A40;
+}
+
+body.gelap .tabel-leaderboard th {
+  background: #121317;
+  color: #22C55E;
+  border-color: #1E2A40;
+}
+
+body.gelap .tabel-leaderboard td {
+  border-bottom-color: #383b44;
+}
+
+body.gelap .tabel-leaderboard tr.baris-user-aktif {
+  background: #2c3820;
+}
+
+body.gelap .banner-posisi-user.juara-satu {
+  background: #1E232B;
+  border-color: #ffb703;
+}
+
+body.gelap .banner-posisi-user.sedang-mengejar {
+  background: #1a2538;
+  border-color: #5ce1e6;
+}
+
+body.gelap .pilar-podium.pilar-emas .podium-balok {
+  background: #665200;
+  color: #ffffff;
+}
+
+body.gelap .pilar-podium.pilar-perak .podium-balok {
+  background: #3d4350;
+  color: #ffffff;
+}
+
+body.gelap .pilar-podium.pilar-perunggu .podium-balok {
+  background: #5c351f;
+  color: #ffffff;
+}
+
+/* =========================================
+   MODE KONTRAS TINGGI (body.kontras)
+   ========================================= */
+
+body.kontras {
+  background: #000000;
+  color: #ffffff;
+}
+
+body.kontras * {
+  box-shadow: none !important;
+}
+
+body.kontras a:focus-visible,
+body.kontras button:focus-visible,
+body.kontras input:focus-visible,
+body.kontras select:focus-visible,
+body.kontras textarea:focus-visible,
+body.kontras summary:focus-visible {
+  outline: 4px solid #ffe600;
+  outline-offset: 4px;
+}
+
+body.kontras .navbar,
+body.kontras .footer {
+  background: #000000;
+  border-bottom: 3px solid #ffffff;
+}
+
+body.kontras .kartu-status,
+body.kontras .kartu-pilar,
+body.kontras .badge,
+body.kontras .kartu-kawan,
+body.kontras .form-gizi,
+body.kontras .hasil-gizi,
+body.kontras .kartu-jurnal,
+body.kontras .riwayat-jurnal,
+body.kontras .prompt-ai,
+body.kontras .kotak-aman,
+body.kontras .modul,
+body.kontras dialog.modal-dialog,
+body.kontras .makro-item,
+body.kontras .state-kosong,
+body.kontras .banner-demo,
+body.kontras .kotak-workout-terkunci,
+body.kontras .workout-header-card,
+body.kontras .tips-workout-box,
+body.kontras .tombol-mulai-workout-hasil,
+body.kontras .kartu-slide-workout,
+body.kontras .kartu-slide-foto-wrap,
+body.kontras .kartu-slide-visual,
+body.kontras .wadah-progress-sesi,
+body.kontras .item-gerakan-sesi,
+body.kontras .box-rest-timer,
+body.kontras .kartu-katalog-detail,
+body.kontras .katalog-foto-thumb,
+body.kontras .mini-thumb-gerakan,
+body.kontras .video-animasi-player,
+body.kontras .box-otot-gerakan,
+body.kontras .box-kesalahan-umum {
+  background: #000000;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+}
+
+body.kontras .tombol-nav-slider,
+body.kontras .btn-centang-gerakan.selesai,
+body.kontras .chip-rekomendasi,
+body.kontras .chip-otot-primer {
+  background: #ffe600;
+  color: #000000;
+  border: 3px solid #ffffff;
+}
+
+body.kontras .slider-dot.aktif {
+  background: #ffe600;
+  border-color: #ffffff;
+}
+
+body.kontras .btn-detail-dari-kartu {
+  color: #ffe600;
+}
+
+body.kontras .badge-tips-kategori,
+body.kontras .tombol-panah-tips:hover {
+  background: #ffe600;
+  color: #000000;
+  border: 2px solid #ffffff;
+}
+
+body.kontras .tips-nav-kontrol,
+body.kontras .tombol-panah-tips {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+body.kontras .tips-counter {
+  color: #ffe600;
+}
+
+body.kontras .badge-target-workout {
+  background: #ffe600;
+  color: #000000;
+  border: 3px solid #ffffff;
+}
+
+body.kontras p,
+body.kontras .kartu-kecil,
+body.kontras .label,
+body.kontras .sub-judul,
+body.kontras .hero-deskripsi,
+body.kontras .kawan-streak,
+body.kontras .kawan-bio,
+body.kontras .badge-deskripsi,
+body.kontras .kartu-pilar p,
+body.kontras .modul p,
+body.kontras .hasil-gizi .kartu-kecil,
+body.kontras .kartu-streak .kartu-kecil,
+body.kontras .info-privasi {
+  color: #ffffff;
+}
+
+body.kontras .stabilo,
+body.kontras .logo-dot {
+  background: #ffe600;
+  color: #000000;
+}
+
+body.kontras .tombol,
+body.kontras .tombol-ikon,
+body.kontras .tombol-kecil,
+body.kontras .chip,
+body.kontras .tombol-lapor,
+body.kontras .tombol-blokir,
+body.kontras .tutup-modal {
+  background: #ffe600;
+  color: #000000;
+  border: 3px solid #ffffff;
+}
+
+body.kontras .chip.aktif,
+body.kontras .chip[aria-pressed="true"],
+body.kontras .opsi-target input:checked + span,
+body.kontras .hari.nyala,
+body.kontras .label-mood.dipilih {
+  background: #ffffff;
+  color: #000000;
+}
+
+body.kontras input,
+body.kontras select,
+body.kontras textarea,
+body.kontras .label-mood,
+body.kontras .hari,
+body.kontras .tag {
+  background: #000000;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+}
+
+body.kontras .opsi-target span {
+  border: 3px solid #ffffff;
+}
+
+body.kontras .isi-xp {
+  background: #ffe600;
+}
+
+body.kontras .bar-xp {
+  background: #000000;
+  border: 3px solid #ffffff;
+}
+
+body.kontras .verifikasi {
+  color: #ffe600;
+}
+
+body.kontras .status-terbuka {
+  color: #ffe600;
+}
+
+body.kontras .status-terkunci {
+  color: #ffffff;
+}
+
+body.kontras .tombol-masuk-daftar {
+  background: #ffff00;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: none;
+}
+
+body.kontras .user-profile-nav {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: none;
+}
+
+body.kontras .kotak-kawan-terkunci {
+  background: #ffffff;
+  color: #000000;
+  border: 3px solid #000000;
+  box-shadow: none;
+}
+
+body.kontras .kartu-poin-utama,
+body.kontras .wrap-leaderboard,
+body.kontras .rank-item,
+body.kontras .tabel-leaderboard-wadah,
+body.kontras .pilar-podium {
+  background: #ffffff;
+  color: #000000;
+  border: 3px solid #000000;
+  box-shadow: none;
+}
+
+body.kontras .chip-leaderboard.aktif {
+  background: #000000;
+  color: #ffff00;
+}
+
+body.kontras .tabel-leaderboard th {
+  background: #000000;
+  color: #ffff00;
+}
+
+body.kontras .kartu-dekorasi-gerak {
+  background: #000000;
+  border: 3px solid #ffffff;
+  box-shadow: none !important;
+}
+
+body.kontras .judul-dekorasi-gerak,
+body.kontras .sub-dekorasi-gerak,
+body.kontras .pill-mini-item {
+  color: #ffffff;
+}
+
+body.kontras .siluet-tubuh {
+  fill: #ffffff;
+}
+
+body.kontras .siluet-garis {
+  stroke: #ffffff;
+}
+
+body.kontras .watermark-huruf-g {
+  display: none;
+}

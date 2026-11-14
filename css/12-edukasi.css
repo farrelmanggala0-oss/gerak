@@ -1,0 +1,2656 @@
+/* =========================================
+   GERAK - INTERACTIVE HEALTH LEARNING CENTER STYLES
+   ========================================= */
+
+/* 1. Hub Wrapper & Header */
+
+/* 2. Grid Widget: Fakta Harian & Daily Challenge */
+
+.kartu-fakta-harian,
+.kartu-daily-challenge {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-fakta-harian:hover,
+.kartu-daily-challenge:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+.fakta-header,
+.challenge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag-topik,
+.tanggal-challenge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #5B6475;
+}
+
+.teks-fakta {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--warna-deep-purple, #0B1220);
+  font-style: normal;
+}
+
+.penjelasan-fakta {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #2A3344;
+}
+
+.fakta-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  border-top: 1px solid #E3E7EE;
+}
+
+.sumber-wrap {
+  font-size: 0.8rem;
+  color: #5B6475;
+}
+
+.link-sumber {
+  color: var(--warna-electric-violet, #15803D);
+  font-weight: 700;
+  text-decoration: underline;
+  margin-left: 0.25rem;
+}
+
+.link-sumber:hover {
+  color: var(--warna-sky, #4ADE80);
+}
+
+.tombol-mini {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 1px solid #E3E7EE;
+  background: var(--warna-aqua, #22C55E);
+  color: var(--warna-deep-purple, #0B1220);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tombol-mini:hover {
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+.tombol-mini:active {
+  transform: scale(0.96);
+}
+
+/* Daily Challenge */
+
+.soal-challenge {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+.opsi-challenge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  width: 100%;
+}
+
+.opsi-challenge-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 1.25rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.opsi-challenge-item:hover {
+  transform: translateX(4px);
+  border-color: var(--warna-electric-violet, #15803D);
+  box-shadow: none;
+}
+
+/* OVERRIDE GLOBAL INPUT WIDTH 100% FOR RADIO INPUTS */
+
+.opsi-challenge-item input[type="radio"],
+.radio-challenge-input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px solid #E3E7EE !important;
+  border-radius: 50% !important;
+  background: #FFFFFF !important;
+  cursor: pointer;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.opsi-challenge-item input[type="radio"]::before,
+.radio-challenge-input::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.15s ease-in-out;
+  background: var(--warna-electric-violet, #15803D);
+}
+
+.opsi-challenge-item input[type="radio"]:checked::before,
+.radio-challenge-input:checked::before {
+  transform: scale(1);
+}
+
+.opsi-challenge-item input[type="radio"]:checked,
+.radio-challenge-input:checked {
+  border-color: var(--warna-electric-violet, #15803D) !important;
+}
+
+.opsi-challenge-item:has(input[type="radio"]:checked),
+.opsi-challenge-item.terpilih {
+  background: rgba(34, 197, 94, 0.12) !important;
+  border-color: var(--warna-aqua-green, #22C55E) !important;
+  box-shadow: none;
+}
+
+.indikator-huruf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 138, 76, 0.15);
+  border: 1px solid #E3E7EE;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--warna-deep-purple, #0B1220);
+  flex-shrink: 0;
+  flex-grow: 0;
+  transition: all 0.2s ease;
+}
+
+.opsi-challenge-item input[type="radio"]:checked + .indikator-huruf,
+.opsi-challenge-item.terpilih .indikator-huruf {
+  background: var(--warna-aqua-green, #22C55E);
+  color: var(--warna-deep-purple, #0B1220);
+  border-color: #E3E7EE;
+}
+
+.teks-opsi {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--warna-deep-purple, #0B1220);
+  flex: 1 1 auto;
+  line-height: 1.5;
+  word-break: normal;
+  text-align: left;
+}
+
+.challenge-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+  border-top: 1px solid #E3E7EE;
+}
+
+.info-sumber {
+  font-size: 0.78rem;
+  color: #5B6475;
+}
+
+.kartu-daily-challenge.terjawab {
+  background: #f0fdf4;
+  border-color: var(--warna-aqua, #22C55E);
+}
+
+.feedback-terjawab {
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.status-jawaban {
+  margin-bottom: 0.5rem;
+}
+
+.penjelasan-ilmiah {
+  margin-bottom: 0.5rem;
+  color: #2A3344;
+}
+
+.sumber-challenge {
+  font-size: 0.8rem;
+  color: #5B6475;
+}
+
+/* 3. Learning Progress Dashboard */
+
+/* Badges Section */
+
+/* 4. Mini Games Hub */
+
+/* 5. Katalog 20 Materi Pembelajaran */
+
+.kotak-cari-materi {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 0.65rem 1rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.ikon-cari-materi {
+  font-size: 1.1rem;
+}
+
+.kotak-cari-materi input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--warna-deep-purple, #0B1220);
+  background: transparent;
+}
+
+.pill-filter-kategori {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  background: #FFFFFF;
+  color: var(--warna-deep-purple, #0B1220);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.pill-filter-kategori:hover {
+  background: #EEF1F5;
+  transform: translateY(-1px);
+}
+
+.pill-filter-kategori.aktif {
+  background: var(--warna-deep-purple, #0B1220);
+  color: var(--warna-aqua, #22C55E);
+}
+
+.grid-materi-edukasi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.kartu-materi-edukasi {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-materi-edukasi:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+.kartu-materi-edukasi.status-selesai {
+  border-color: #059669;
+}
+
+.kartu-materi-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.estimasi-baca {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #5B6475;
+}
+
+.btn-favorit-materi {
+  background: transparent;
+  border: none;
+  font-size: 1.35rem;
+  cursor: pointer;
+  color: #8A93A5;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-favorit-materi:hover,
+.btn-favorit-materi.aktif {
+  color: #f59e0b;
+  transform: scale(1.15);
+}
+
+.kartu-materi-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nomor-materi {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--warna-electric-violet, #15803D);
+}
+
+.judul-materi {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.ringkasan-materi {
+  font-size: 0.88rem;
+  color: #5B6475;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.kartu-materi-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #E3E7EE;
+}
+
+.status-materi-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+.tag-status.selesai {
+  color: #059669;
+  font-weight: 700;
+}
+
+.tag-status.belum {
+  color: #8A93A5;
+  font-weight: 600;
+}
+
+.tag-quiz-skor {
+  background: #f0fdf4;
+  color: #047857;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.materi-aksi-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tombol-baca-materi {
+  flex: 1;
+  background: var(--warna-deep-purple, #0B1220);
+  color: #ffffff;
+}
+
+.tombol-quiz-materi {
+  flex: 1;
+  background: var(--warna-aqua, #22C55E);
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+/* 6. Modal Reader Materi & Quiz */
+
+.modal-isi-lebar {
+  max-width: 850px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-edukasi-header {
+  border-bottom: 2px solid #E3E7EE;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.modal-edukasi-header h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.25rem;
+}
+
+.kotak-tujuan-belajar {
+  background: #f0fdf4;
+  border-left: 4px solid var(--warna-aqua, #22C55E);
+  padding: 1rem;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 1.25rem;
+}
+
+.kotak-tujuan-belajar h5 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #065f46;
+  margin-bottom: 0.35rem;
+}
+
+.kotak-tujuan-belajar ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  color: #047857;
+  line-height: 1.45;
+}
+
+.kotak-sorotan {
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 0.75rem 0;
+}
+
+.kotak-sorotan.contoh-aplikasi {
+  background: #eff6ff;
+  border-left: 4px solid var(--warna-sky, #4ADE80);
+}
+
+.kotak-sorotan.fakta-menarik {
+  background: #f5f3ff;
+  border-left: 4px solid var(--warna-electric-violet, #15803D);
+}
+
+.kotak-sorotan.kesimpulan {
+  background: #fefce8;
+  border-left: 4px solid #eab308;
+}
+
+.kotak-sorotan h5 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+
+.kotak-sorotan.contoh-aplikasi h5 {
+  color: #1e40af;
+}
+
+.kotak-sorotan.fakta-menarik h5 {
+  color: #5b21b6;
+}
+
+.kotak-sorotan.kesimpulan h5 {
+  color: #854d0e;
+}
+
+.kotak-referensi-ilmiah {
+  background: #FFFFFF;
+  border: 1.5px solid #CDD4DE;
+  border-radius: 18px;
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.judul-referensi {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.5rem;
+}
+
+.detail-sumber {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #2A3344;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.link-jurnal-asli {
+  color: var(--warna-electric-violet, #15803D);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.label-bantuan-ai {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #86198f;
+}
+
+/* 7. Form Quiz Pemahaman */
+
+/* 8. Mini Games Specific Layouts */
+
+.modal-isi-game {
+  max-width: 780px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #E3E7EE;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Game 1: Piringku */
+
+.papan-piring-visual {
+  width: 100%;
+  max-width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 1px solid #E3E7EE;
+  margin: 1.5rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.sektor-piring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  border: 2px dashed #CDD4DE;
+  transition: all 0.3s ease;
+}
+
+.sektor-sayur {
+  background: #f0fdf4;
+}
+
+.sektor-buah {
+  background: #fff1f2;
+}
+
+.sektor-pokok {
+  background: #fefce8;
+}
+
+.sektor-lauk {
+  background: #eff6ff;
+}
+
+.sektor-piring.terisi {
+  border-style: solid;
+  border-color: #E3E7EE;
+}
+
+.label-sektor {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #5B6475;
+  margin-bottom: 0.25rem;
+}
+
+.isi-sektor {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+.slot-kosong {
+  font-size: 0.8rem;
+  color: #8A93A5;
+  font-style: normal;
+}
+
+.grid-rak-makanan {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.item-rak-makanan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.65rem;
+  background: #FFFFFF;
+  border: 1.5px solid #CDD4DE;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.item-rak-makanan:hover {
+  border-color: var(--warna-aqua, #22C55E);
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.item-rak-makanan.dipakai {
+  background: var(--warna-deep-purple, #0B1220);
+  color: #ffffff;
+  border-color: #E3E7EE;
+}
+
+.emoji-rak {
+  font-size: 1.5rem;
+}
+
+.nama-rak {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.kalori-rak {
+  font-size: 0.72rem;
+  color: #5B6475;
+}
+
+.item-rak-makanan.dipakai .kalori-rak {
+  color: #CDD4DE;
+}
+
+/* Game 2 & 3: Tebak & Mitos */
+
+.header-ronde-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ronde-tag {
+  font-size: 0.82rem;
+  font-weight: 800;
+  background: #e0e7ff;
+  color: #4338ca;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+}
+
+.skor-sementara {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+.kartu-makanan-tanya,
+.kartu-pernyataan-mitos {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.makanan-ikon-besar {
+  font-size: 3rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.nama-makanan-tanya {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+.pilihan-tebak-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.btn-opsi-tebak {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #CDD4DE;
+  border-radius: 10px;
+  background: #FFFFFF;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.btn-opsi-tebak:hover:not(:disabled) {
+  border-color: var(--warna-sky, #4ADE80);
+  background: #f0fdf4;
+}
+
+.btn-opsi-tebak.jawaban-benar {
+  background: #d1fae5;
+  border-color: #059669;
+  font-weight: 700;
+}
+
+.btn-opsi-tebak.jawaban-salah {
+  background: #fee2e2;
+  border-color: #dc2626;
+}
+
+.tombol-dua-pilihan {
+  display: flex;
+  gap: 1rem;
+}
+
+.tombol-pilih-mf {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  border-radius: 18px;
+  border: 1px solid #E3E7EE;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tombol-mitos {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.tombol-fakta {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.tombol-pilih-mf:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.tombol-pilih-mf.terbukti-benar {
+  box-shadow: none;
+  border-width: 3px;
+}
+
+/* Game 4: Food Detective */
+
+.split-detective-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 1.5rem;
+}
+
+.nutrition-facts-box {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.nf-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.nf-divider-thick {
+  height: 8px;
+  background: #000;
+  margin: 0.5rem 0;
+}
+
+.nf-divider-medium {
+  height: 4px;
+  background: #000;
+  margin: 0.5rem 0;
+}
+
+.panel-tanya-detective {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item-tanya-fd {
+  background: #FFFFFF;
+  border: 1.5px solid #E3E7EE;
+  border-radius: 10px;
+  padding: 0.85rem;
+}
+
+.item-tanya-fd.fd-benar {
+  background: #f0fdf4;
+  border-color: #059669;
+}
+
+.item-tanya-fd.fd-salah {
+  background: #fef2f2;
+  border-color: #dc2626;
+}
+
+.pilihan-fd-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.btn-opsi-fd {
+  padding: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid #CDD4DE;
+  border-radius: 6px;
+  background: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-opsi-fd.pilihan-kunci-fd {
+  background: #d1fae5;
+  border-color: #059669;
+  font-weight: 700;
+}
+
+.btn-opsi-fd.pilihan-salah-fd {
+  background: #fee2e2;
+  border-color: #dc2626;
+}
+
+/* Game 5: Fitness Stepper */
+
+.stepper-stages {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #E3E7EE;
+  color: #5B6475;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.step-dot.aktif {
+  background: var(--warna-electric-violet, #15803D);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.step-dot.tuntas {
+  background: var(--warna-aqua, #22C55E);
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+.kartu-skenario-fitness {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.opsi-fitness-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.btn-opsi-fitness {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #CDD4DE;
+  border-radius: 10px;
+  background: #FFFFFF;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.btn-opsi-fitness:hover:not(:disabled) {
+  background: #EEF1F5;
+  border-color: var(--warna-electric-violet, #15803D);
+}
+
+.btn-opsi-fitness.jawaban-benar {
+  background: #d1fae5;
+  border-color: #059669;
+  font-weight: 700;
+}
+
+.btn-opsi-fitness.jawaban-salah {
+  background: #fee2e2;
+  border-color: #dc2626;
+}
+
+/* 9. Dark Mode & High Contrast Compatibility */
+
+body.gelap .kartu-fakta-harian,
+body.gelap .kartu-daily-challenge,
+body.gelap .kartu-materi-edukasi,
+body.gelap .nutrition-facts-box {
+  background: #1f2029;
+  color: #F7F7F8;
+  border-color: #F7F7F8;
+}
+
+body.gelap .judul-materi,
+body.gelap .soal-challenge,
+body.gelap .teks-fakta {
+  color: #F7F7F8;
+}
+
+body.gelap .opsi-challenge-item,
+body.gelap .btn-opsi-tebak,
+body.gelap .btn-opsi-fitness,
+body.gelap .item-rak-makanan {
+  background: #2a2b36;
+  color: #F7F7F8;
+  border-color: #4b5563;
+}
+
+body.gelap .teks-opsi,
+body.gelap .penjelasan-fakta,
+body.gelap .penjelasan-ilmiah {
+  color: #d1d5db;
+}
+
+body.kontras .kartu-fakta-harian,
+body.kontras .kartu-daily-challenge,
+body.kontras .kartu-materi-edukasi {
+  border-width: 3.5px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* 10. Responsive Design */
+
+@media (max-width: 768px) {
+  .split-detective-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .papan-piring-visual {
+    width: 280px;
+    height: 280px;
+  }
+
+  .materi-aksi-buttons {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   REORGANISASI EDUKASI GERAK — STEP-BY-STEP LEARNING EXPERIENCE
+   Palette: Aqua Green (#F26B21), Sky Blue (#FF8A4C), Electric Violet (#D9480F), Deep Purple (#111111)
+   ========================================================================== */
+
+/* 1. Sticky Internal Edukasi Navigation */
+
+.edukasi-navigation-sticky {
+  position: sticky;
+  top: 72px;
+  z-index: 30;
+  background: #F4F6F9;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.85rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #E3E7EE;
+  box-shadow: none;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+body.gelap .edukasi-navigation-sticky {
+  background: rgba(17, 17, 17, 0.95);
+  border-bottom-color: rgba(34, 197, 94, 0.4);
+  box-shadow: none;
+}
+
+body.kontras .edukasi-navigation-sticky {
+  background: #000000;
+  border-bottom: 3px solid #ffff00;
+}
+
+.edukasi-nav-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding: 0.25rem 0.5rem;
+  scrollbar-width: thin;
+}
+
+.edukasi-nav-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.edukasi-nav-tabs::-webkit-scrollbar-thumb {
+  background: var(--warna-electric-violet, #15803D);
+  border-radius: 4px;
+}
+
+.tab-edukasi-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--warna-deep-purple, #0B1220);
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 9999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.tab-edukasi-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--warna-electric-violet, #15803D);
+  box-shadow: none;
+}
+
+.tab-edukasi-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: none;
+}
+
+.tab-edukasi-btn.aktif {
+  background: linear-gradient(135deg, #0B1220 0%, #15803D 100%);
+  color: #ffffff;
+  border-color: #E3E7EE;
+  box-shadow: none;
+}
+
+body.gelap .tab-edukasi-btn {
+  background: #0D1424;
+  color: #F7F7F8;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+body.gelap .tab-edukasi-btn:hover {
+  border-color: #4ADE80;
+  box-shadow: none;
+}
+
+body.gelap .tab-edukasi-btn.aktif {
+  background: linear-gradient(135deg, #15803D 0%, #4ADE80 100%);
+  color: #111111;
+  border-color: #22C55E;
+  box-shadow: none;
+  font-weight: 800;
+}
+
+/* 2. Panel Tab Edukasi */
+
+@keyframes edukasiFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header-panel-edukasi {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 0.5rem;
+}
+
+.header-panel-edukasi h3 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.5rem;
+}
+
+body.gelap .header-panel-edukasi h3 {
+  color: #F7F7F8;
+}
+
+/* 3. Hero & Ringkasan Components */
+
+.hero-edukasi-ringkasan {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(145deg, rgba(255, 138, 76, 0.08) 0%, rgba(34, 197, 94, 0.12) 100%);
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+}
+
+body.gelap .hero-edukasi-ringkasan {
+  background: linear-gradient(145deg, rgba(17, 17, 17, 0.9) 0%, rgba(34, 197, 94, 0.25) 100%);
+  border-color: rgba(34, 197, 94, 0.6);
+  box-shadow: none;
+}
+
+.hero-edukasi-ringkasan h3 {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--warna-deep-purple, #0B1220);
+  margin: 0.75rem 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+body.gelap .hero-edukasi-ringkasan h3 {
+  color: #22C55E;
+}
+
+.hero-edukasi-deskripsi {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2A3344;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+body.gelap .hero-edukasi-deskripsi {
+  color: #d1d5db;
+}
+
+/* 4. Grid Metrik Cepat & Progres Lengkap */
+
+.grid-metrik-cepat,
+.grid-metrik-progres-lengkap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.kartu-metrik-mini,
+.kartu-stat-progres {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-metrik-mini:hover,
+.kartu-stat-progres:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+body.gelap .kartu-metrik-mini,
+body.gelap .kartu-stat-progres {
+  background: #0D1424;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.ikon-mini-bar {
+  font-size: 2.2rem;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 138, 76, 0.15);
+  border-radius: 18px;
+  border: 1px solid #E3E7EE;
+  flex-shrink: 0;
+}
+
+body.gelap .ikon-mini-bar {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.info-mini-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.angka-mini-bar {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--warna-deep-purple, #0B1220);
+  line-height: 1.1;
+}
+
+body.gelap .angka-mini-bar {
+  color: #22C55E;
+}
+
+.label-mini-bar {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #5B6475;
+  margin-top: 0.25rem;
+}
+
+body.gelap .label-mini-bar {
+  color: #9ca3af;
+}
+
+/* 5. Kartu Lanjutkan Belajar */
+
+.kartu-lanjutkan-box {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(34, 197, 94, 0.12) 100%);
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kartu-lanjutkan-box:hover {
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+body.gelap .kartu-lanjutkan-box {
+  background: linear-gradient(135deg, #0D1424 0%, rgba(34, 197, 94, 0.15) 100%);
+  border-color: rgba(34, 197, 94, 0.6);
+  box-shadow: none;
+}
+
+/* 6. Grid Kategori Ringkasan */
+
+.grid-kategori-ringkasan {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.kartu-kategori-ringkasan {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.35rem 1.5rem;
+  justify-content: flex-start;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-kategori-ringkasan:hover {
+  transform: translateY(-4px);
+  box-shadow: none;
+  border-color: var(--warna-electric-violet, #15803D);
+}
+
+body.gelap .kartu-kategori-ringkasan {
+  background: #0D1424;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.ikon-kat-besar {
+  font-size: 2.5rem;
+  width: 62px;
+  height: 62px;
+  min-width: 62px;
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid #E3E7EE;
+  flex-shrink: 0;
+}
+
+body.gelap .ikon-kat-besar {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.info-kat {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.25rem;
+}
+
+.info-kat h4 {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin: 0;
+  line-height: 1.25;
+}
+
+body.gelap .info-kat h4 {
+  color: #F7F7F8;
+}
+
+.info-kat p {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--warna-electric-violet, #15803D);
+  background: rgba(34, 197, 94, 0.12);
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  margin: 0.15rem 0;
+  display: inline-block;
+  line-height: 1.3;
+}
+
+body.gelap .info-kat p {
+  color: #4ADE80;
+  background: rgba(255, 138, 76, 0.2);
+}
+
+.sub-kat-desc {
+  font-size: 0.86rem;
+  color: #5B6475;
+  line-height: 1.45;
+  display: block;
+}
+
+body.gelap .sub-kat-desc {
+  color: #d1d5db;
+}
+
+.panah-kat {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  background: #EEF1F5;
+  border: 1px solid #E3E7EE;
+  padding: 0.45rem 0.85rem;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.kartu-kategori-ringkasan:hover .panah-kat {
+  background: var(--warna-aqua-green, #22C55E);
+  border-color: #E3E7EE;
+  transform: translateX(3px);
+}
+
+body.gelap .panah-kat {
+  background: #1e132c;
+  color: #F7F7F8;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+body.gelap .kartu-kategori-ringkasan:hover .panah-kat {
+  background: var(--warna-aqua-green, #22C55E);
+  color: #111111;
+}
+
+/* 7. Grid Games Ringkasan */
+
+.grid-games-ringkasan {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.kartu-game-ringkasan {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-game-ringkasan:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+  border-color: var(--warna-aqua-green, #22C55E);
+}
+
+body.gelap .kartu-game-ringkasan {
+  background: #0D1424;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.kartu-game-ringkasan .tombol {
+  width: 100%;
+}
+
+.ikon-game-mini {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.info-game-mini h5 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.35rem;
+}
+
+body.gelap .info-game-mini h5 {
+  color: #F7F7F8;
+}
+
+.info-game-mini p {
+  font-size: 0.8rem;
+  color: #5B6475;
+  line-height: 1.35;
+}
+
+body.gelap .info-game-mini p {
+  color: #9ca3af;
+}
+
+/* 8. Fondasi Kesehatan Card (Preserved original content) */
+
+.fondasi-kesehatan-card {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+body.gelap .fondasi-kesehatan-card {
+  background: #111111;
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: none;
+}
+
+.fondasi-kesehatan-card h4 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.75rem;
+}
+
+body.gelap .fondasi-kesehatan-card h4 {
+  color: #22C55E;
+}
+
+/* 9. Toolbar Katalog Semua Materi */
+
+.toolbar-katalog-lengkap {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+body.gelap .toolbar-katalog-lengkap {
+  background: #0D1424;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.baris-atas-toolbar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.baris-filter-kategori {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.baris-filter-sekunder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(17, 17, 17, 0.2);
+}
+
+body.gelap .baris-filter-sekunder {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.filter-group-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.label-mini-filter {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5B6475;
+}
+
+body.gelap .label-mini-filter {
+  color: #9ca3af;
+}
+
+.select-mini-filter,
+.select-sort-edukasi {
+  padding: 0.45rem 0.85rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 10px;
+  background: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--warna-deep-purple, #0B1220);
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+body.gelap .select-mini-filter,
+body.gelap .select-sort-edukasi {
+  background: #1e132c;
+  color: #F7F7F8;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 10. Step-by-Step Reader Stepper & Dialog */
+
+.stepper-materi-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem 0.75rem;
+  background: rgba(34, 197, 94, 0.06);
+  border-bottom: 1px solid #E3E7EE;
+  position: relative;
+  overflow-x: auto;
+}
+
+body.gelap .stepper-materi-bar {
+  background: rgba(17, 17, 17, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.step-dot-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.step-dot-btn:hover {
+  transform: translateY(-2px);
+}
+
+.step-line {
+  flex: 1;
+  height: 3px;
+  background: #CDD4DE;
+  margin: 0 0.5rem 1rem;
+}
+
+body.gelap .step-line {
+  background: #4b5563;
+}
+
+.step-card-view {
+  padding: 1.75rem 2rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  line-height: 1.65;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+body.gelap .step-card-view {
+  color: #e5e7eb;
+}
+
+.step-card-view h4 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin: 1.25rem 0 0.65rem;
+}
+
+body.gelap .step-card-view h4 {
+  color: #22C55E;
+}
+
+.modal-materi-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #FFFFFF;
+  border-top: 1px solid #E3E7EE;
+}
+
+body.gelap .modal-materi-nav-bar {
+  background: #1a1127;
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.indikator-step-teks {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  padding: 0.35rem 0.85rem;
+  background: rgba(34, 197, 94, 0.12);
+  border-radius: 9999px;
+}
+
+body.gelap .indikator-step-teks {
+  color: #4ADE80;
+  background: rgba(255, 138, 76, 0.15);
+}
+
+/* 11. Dedicated Quiz Hub & Single Question Player */
+
+.grid-hub-quiz {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.kartu-quiz-hub {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-quiz-hub:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+body.gelap .kartu-quiz-hub {
+  background: #0D1424;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.kartu-quiz-hub h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+body.gelap .kartu-quiz-hub h4 {
+  color: #F7F7F8;
+}
+
+/* Single Question Player Modal */
+
+.modal-quiz-player {
+  max-width: 720px;
+  width: 92vw;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  background: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+body.gelap .modal-quiz-player {
+  background: #111111;
+  border-color: rgba(34, 197, 94, 0.6);
+  box-shadow: none;
+}
+
+.bar-progress-quiz-track {
+  width: 100%;
+  height: 8px;
+  background: #E3E7EE;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin: 0.75rem 0 1.25rem;
+  border: 1px solid #E3E7EE;
+}
+
+body.gelap .bar-progress-quiz-track {
+  background: #374151;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.bar-progress-quiz-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4ADE80 0%, #22C55E 100%);
+  transition: width 0.3s ease;
+}
+
+.soal-card-single {
+  background: rgba(34, 197, 94, 0.05);
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+body.gelap .soal-card-single {
+  background: rgba(26, 26, 29, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.soal-card-single h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  line-height: 1.45;
+  margin: 0;
+}
+
+body.gelap .soal-card-single h4 {
+  color: #F7F7F8;
+}
+
+.btn-opsi-quiz-single {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 1.25rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  background: #FFFFFF;
+  color: var(--warna-deep-purple, #0B1220);
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.btn-opsi-quiz-single:hover:not(:disabled) {
+  transform: translateX(4px);
+  border-color: var(--warna-electric-violet, #15803D);
+  box-shadow: none;
+}
+
+body.gelap .btn-opsi-quiz-single {
+  background: #0D1424;
+  color: #F7F7F8;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.huruf-opsi-quiz {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #E3E7EE;
+  background: rgba(255, 138, 76, 0.15);
+  color: var(--warna-deep-purple, #0B1220);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body.gelap .huruf-opsi-quiz {
+  background: rgba(34, 197, 94, 0.25);
+  color: #F7F7F8;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.area-feedback-quiz {
+  background: #FFFFFF;
+  border: 1px dashed #CDD4DE;
+  border-radius: 18px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  animation: feedbackSlide 0.25s ease-out;
+}
+
+body.gelap .area-feedback-quiz {
+  background: #1a1127;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes feedbackSlide {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hasil-quiz-player-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+/* 12. Dedicated Mini Games Hub */
+
+.grid-arena-mini-games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.kartu-arena-game {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-arena-game:hover {
+  transform: translateY(-4px);
+  box-shadow: none;
+  border-color: var(--warna-aqua-green, #22C55E);
+}
+
+body.gelap .kartu-arena-game {
+  background: #0D1424;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.arena-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arena-icon {
+  font-size: 3rem;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid #E3E7EE;
+  flex-shrink: 0;
+}
+
+body.gelap .arena-icon {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.arena-judul h4 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.25rem;
+}
+
+body.gelap .arena-judul h4 {
+  color: #F7F7F8;
+}
+
+.arena-desc {
+  font-size: 0.95rem;
+  color: #5B6475;
+  line-height: 1.5;
+}
+
+body.gelap .arena-desc {
+  color: #d1d5db;
+}
+
+.btn-mainkan-game-arena {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* 13. Dedicated Progres Belajar View */
+
+.nav-sub-progres {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.btn-sub-progres {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 20px;
+  border: 1px solid #E3E7EE;
+  background: #FFFFFF;
+  color: var(--warna-deep-purple, #0B1220);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.btn-sub-progres:hover {
+  transform: translateY(-2px);
+  border-color: var(--warna-electric-violet, #15803D);
+}
+
+.btn-sub-progres.aktif {
+  background: var(--warna-deep-purple, #0B1220);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+body.gelap .btn-sub-progres {
+  background: #0D1424;
+  color: #F7F7F8;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+body.gelap .btn-sub-progres.aktif {
+  background: var(--warna-electric-violet, #15803D);
+  color: #ffffff;
+}
+
+.sub-view-materi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.item-sub-materi-row {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+body.gelap .item-sub-materi-row {
+  background: #0D1424;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.tabel-riwayat-quiz-wrap {
+  overflow-x: auto;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+body.gelap .tabel-riwayat-quiz-wrap {
+  background: #0D1424;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.tabel-riwayat-quiz {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.tabel-riwayat-quiz th,
+.tabel-riwayat-quiz td {
+  padding: 0.85rem 1.15rem;
+  border-bottom: 1px solid #E3E7EE;
+}
+
+body.gelap .tabel-riwayat-quiz th,
+body.gelap .tabel-riwayat-quiz td {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.tabel-riwayat-quiz th {
+  background: rgba(34, 197, 94, 0.08);
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+}
+
+body.gelap .tabel-riwayat-quiz th {
+  background: rgba(17, 17, 17, 0.8);
+  color: #4ADE80;
+}
+
+.grid-game-stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.grid-materi-favorit {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.kartu-fav-mini {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+body.gelap .kartu-fav-mini {
+  background: #0D1424;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+/* 14. Responsive adjustments for Edukasi */
+
+@media (max-width: 768px) {
+  .edukasi-navigation-sticky {
+    top: 60px;
+    padding: 0.6rem 0;
+  }
+
+  .edukasi-nav-tabs {
+    justify-content: flex-start;
+  }
+
+  .stepper-materi-bar {
+    padding: 1rem;
+  }
+
+  .kartu-lanjutkan-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal-materi-nav-bar {
+    padding: 0.85rem 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* Additional UI & Component Classes for Edukasi Experience */
+
+.blok-ringkasan-seksi {
+  margin-top: 1rem;
+}
+
+.judul-blok-ringkasan {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.35rem;
+}
+
+body.gelap .judul-blok-ringkasan {
+  color: #F7F7F8;
+}
+
+.baris-antara-ringkasan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.link-ke-tab-lain {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--warna-electric-violet, #15803D);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.link-ke-tab-lain:hover {
+  color: var(--warna-sky-blue, #4ADE80);
+  text-decoration: underline;
+}
+
+/* Lanjutkan Belajar Inner Elements */
+
+.lanjutkan-kiri {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.lanjutkan-ikon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid #E3E7EE;
+  flex-shrink: 0;
+}
+
+body.gelap .lanjutkan-ikon {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.lanjutkan-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--warna-deep-purple, #0B1220);
+  background: var(--warna-aqua-green, #22C55E);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+.lanjutkan-judul {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin: 0.2rem 0;
+}
+
+body.gelap .lanjutkan-judul {
+  color: #F7F7F8;
+}
+
+.lanjutkan-sub {
+  font-size: 0.88rem;
+  color: #5B6475;
+  margin: 0;
+}
+
+body.gelap .lanjutkan-sub {
+  color: #d1d5db;
+}
+
+.lanjutkan-waktu {
+  color: var(--warna-electric-violet, #15803D);
+  font-weight: 700;
+}
+
+body.gelap .lanjutkan-waktu {
+  color: #4ADE80;
+}
+
+/* Quiz Hub Card Elements */
+
+.quiz-hub-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.quiz-hub-nomor {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #5B6475;
+  background: #EEF1F5;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+body.gelap .quiz-hub-nomor {
+  background: #1e132c;
+  color: #9ca3af;
+}
+
+.quiz-status-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid #E3E7EE;
+}
+
+.quiz-status-badge.selesai {
+  background: rgba(34, 197, 94, 0.25);
+  color: #065f46;
+  border-color: #059669;
+}
+
+body.gelap .quiz-status-badge.selesai {
+  background: rgba(34, 197, 94, 0.3);
+  color: #22C55E;
+  border-color: #22C55E;
+}
+
+.quiz-status-badge.belum {
+  background: #EEF1F5;
+  color: #5B6475;
+  border-color: #CDD4DE;
+}
+
+body.gelap .quiz-status-badge.belum {
+  background: #0D1424;
+  color: #9ca3af;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.quiz-hub-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.quiz-hub-icon {
+  font-size: 2.2rem;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 138, 76, 0.12);
+  border-radius: 18px;
+  border: 1px solid #E3E7EE;
+  flex-shrink: 0;
+}
+
+body.gelap .quiz-hub-icon {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.quiz-hub-judul {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.25rem;
+  line-height: 1.35;
+}
+
+body.gelap .quiz-hub-judul {
+  color: #F7F7F8;
+}
+
+.quiz-hub-sub {
+  font-size: 0.85rem;
+  color: #5B6475;
+  margin: 0;
+}
+
+body.gelap .quiz-hub-sub {
+  color: #9ca3af;
+}
+
+.quiz-hub-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #E3E7EE;
+}
+
+body.gelap .quiz-hub-footer {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-mulai-quiz-hub {
+  padding: 0.55rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Single Question Player Inner Elements */
+
+.baris-info-soal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.soal-step-counter {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  background: rgba(255, 138, 76, 0.15);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+body.gelap .soal-step-counter {
+  color: #4ADE80;
+  background: rgba(255, 138, 76, 0.25);
+}
+
+.pilihan-quiz-single-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.teks-opsi-quiz {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.pembahasan-ilmiah-teks {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #2A3344;
+}
+
+body.gelap .pembahasan-ilmiah-teks {
+  color: #d1d5db;
+}
+
+.kasus-next-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* Hasil Akhir Quiz Player Card */
+
+.skor-gauge-raksasa {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--warna-deep-purple, #0B1220);
+  line-height: 1;
+  margin: 0.5rem 0;
+}
+
+body.gelap .skor-gauge-raksasa {
+  color: #22C55E;
+}
+
+.skor-detail-teks {
+  font-size: 1.05rem;
+  color: #5B6475;
+  margin-bottom: 1.5rem;
+}
+
+body.gelap .skor-detail-teks {
+  color: #d1d5db;
+}
+
+.hasil-action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Step Reader Inner Elements */
+
+.pane-modal-edukasi-step {
+  padding: 0.5rem;
+}
+
+.estimasi-baca-modal {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--warna-electric-violet, #15803D);
+  background: rgba(34, 197, 94, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+body.gelap .estimasi-baca-modal {
+  color: #4ADE80;
+  background: rgba(255, 138, 76, 0.15);
+}
+
+.area-tombol-quiz-step {
+  margin-top: 1.75rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(255, 138, 76, 0.1) 0%, rgba(34, 197, 94, 0.15) 100%);
+  border: 1px dashed #CDD4DE;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+body.gelap .area-tombol-quiz-step {
+  background: rgba(17, 17, 17, 0.8);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-group-ai-modal {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+/* Progres Belajar Sub-tab Elements */
+
+.daftar-sub-materi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kolom-sub-materi {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-buka-langsung {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.btn-buka-fav {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.fav-info h5 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.2rem;
+}
+
+body.gelap .fav-info h5 {
+  color: #F7F7F8;
+}
+
+.fav-info p {
+  font-size: 0.82rem;
+  color: #5B6475;
+  margin: 0;
+}
+
+body.gelap .fav-info p {
+  color: #9ca3af;
+}
+
+.fav-icon {
+  font-size: 2.2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(251, 191, 36, 0.15);
+  border: 1px solid #E3E7EE;
+  flex-shrink: 0;
+}
+
+/* Empty states */
+
+.empty-state-materi {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: #FFFFFF;
+  border: 2px dashed #CDD4DE;
+  border-radius: 18px;
+  grid-column: 1 / -1;
+}
+
+body.gelap .empty-state-materi {
+  background: #1e132c;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.empty-state-materi .ikon-kosong {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.empty-state-materi h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--warna-deep-purple, #0B1220);
+  margin-bottom: 0.35rem;
+}
+
+body.gelap .empty-state-materi h4 {
+  color: #F7F7F8;
+}
+
+.empty-state-materi p {
+  font-size: 0.95rem;
+  color: #5B6475;
+}
+
+body.gelap .empty-state-materi p {
+  color: #9ca3af;
+}
+
+/* Category badge accents */

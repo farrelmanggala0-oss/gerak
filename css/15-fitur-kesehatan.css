@@ -1,0 +1,891 @@
+/* =====================================================================
+   FITUR BARU: VIDEO SIMULASI GERAKAN
+   ===================================================================== */
+
+.video-simulasi {
+  margin-top: 12px;
+  padding: 14px;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+}
+
+.video-simulasi-layar {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #F4F6F9;
+  border: 1px solid #E3E7EE;
+  aspect-ratio: 16 / 9;
+}
+
+.video-simulasi-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-simulasi-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #0B1220;
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.video-simulasi-label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22C55E;
+}
+
+/* cadangan animasi SVG kalau video gagal dimuat */
+
+.video-simulasi-cadangan {
+  height: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.video-simulasi-kontrol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btn-putar-simulasi,
+.btn-kecepatan-simulasi {
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid #DCE1E9;
+  background: #FFFFFF;
+  color: #0B1220;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.btn-putar-simulasi {
+  background: #0B1220;
+  border-color: #0B1220;
+  color: #FFFFFF;
+}
+
+.btn-putar-simulasi:hover {
+  background: #1E2A40;
+}
+
+.btn-kecepatan-simulasi:hover {
+  border-color: #0B1220;
+}
+
+.btn-kecepatan-simulasi[aria-pressed="true"] {
+  background: #ECFDF3;
+  border-color: #22C55E;
+  color: #15803D;
+}
+
+.kecepatan-simulasi {
+  display: flex;
+  gap: 4px;
+}
+
+.fase-simulasi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fase-simulasi li {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #EEF1F5;
+  color: #5B6475;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* fase yang sedang tampil di video */
+
+.fase-simulasi li.aktif {
+  background: #22C55E;
+  color: #0B1220;
+}
+
+.video-simulasi-panduan {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.video-simulasi-panduan h6 {
+  margin: 0 0 6px;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5B6475;
+}
+
+.video-simulasi-panduan ol,
+.video-simulasi-panduan ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #2A3344;
+}
+
+.versi-ringan-simulasi {
+  padding: 12px;
+  border-radius: 14px;
+  background: #ECFDF3;
+  border: 1px solid #BBF7D0;
+}
+
+.versi-ringan-simulasi h6 {
+  color: #15803D;
+}
+
+.versi-ringan-simulasi p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #14532D;
+}
+
+.video-simulasi-catatan {
+  margin: 12px 0 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #5B6475;
+}
+
+@media (min-width: 900px) {
+  .video-simulasi-panduan {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* =====================================================================
+   FITUR BARU: LAPOR KELUHAN DI SESI LATIHAN
+   ===================================================================== */
+
+.baris-aksi-gerakan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.baris-aksi-gerakan .btn-toggle-anim-inline {
+  margin: 0;
+}
+
+.btn-lapor-keluhan {
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid #F3C9C4;
+  background: #FFF5F4;
+  color: #B42318;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.btn-lapor-keluhan:hover {
+  background: #FDECEA;
+  border-color: #B42318;
+}
+
+.chip-peringatan-keluhan {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #FDE68A;
+  background: #FFFBEB;
+  color: #92400E;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.chip-peringatan-keluhan:hover {
+  border-color: #D97706;
+}
+
+.chip-peringatan-keluhan[hidden] {
+  display: none;
+}
+
+/* ---------- dialog lapor keluhan & medical checkup ---------- */
+
+dialog.dialog-kesehatan {
+  width: min(560px, calc(100vw - 24px));
+  max-height: calc(100vh - 32px);
+  padding: 28px;
+  overflow-y: auto;
+}
+
+.form-kesehatan {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-kesehatan[hidden],
+.hasil-lapor-kesehatan[hidden] {
+  display: none;
+}
+
+.form-kesehatan h3,
+.hasil-lapor-kesehatan h3 {
+  margin: 4px 0 0;
+}
+
+.sub-kesehatan {
+  margin: 0;
+  color: #5B6475;
+  font-size: 0.92rem;
+}
+
+.form-kesehatan label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.form-kesehatan label small {
+  font-weight: 500;
+  color: #8A93A5;
+}
+
+.grup-pilihan-kesehatan {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.grup-pilihan-kesehatan legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.grup-pilihan-kesehatan legend small {
+  font-weight: 500;
+  color: #5B6475;
+}
+
+.chip-pilihan-kesehatan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* chip pilihan: radio asli tetap ada (bisa dipakai keyboard & pembaca layar), cuma disembunyikan */
+
+.form-kesehatan .chip-radio-kesehatan {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid #DCE1E9;
+  background: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.chip-radio-kesehatan input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+
+.chip-radio-kesehatan:hover {
+  border-color: #0B1220;
+}
+
+.chip-radio-kesehatan:has(input:checked) {
+  background: #0B1220;
+  border-color: #0B1220;
+  color: #FFFFFF;
+}
+
+.chip-radio-kesehatan:has(input:focus-visible) {
+  outline: 3px solid #22C55E;
+  outline-offset: 2px;
+}
+
+.chip-radio-kesehatan.chip-bahaya {
+  color: #B42318;
+  border-color: #F3C9C4;
+}
+
+.chip-radio-kesehatan.chip-bahaya:has(input:checked) {
+  background: #B42318;
+  border-color: #B42318;
+  color: #FFFFFF;
+}
+
+.baris-isian-kesehatan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.baris-isian-kesehatan.empat {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.form-kesehatan input[type="range"] {
+  accent-color: #22C55E;
+}
+
+.form-kesehatan output {
+  font-family: "Sora", Arial, sans-serif;
+  color: #15803D;
+}
+
+.pesan-error-kesehatan {
+  margin: 0;
+  min-height: 1em;
+  color: #B42318;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pesan-error-kesehatan:empty {
+  min-height: 0;
+}
+
+/* hasil setelah lapor */
+
+.hasil-lapor-kesehatan {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hasil-lapor-kesehatan h3:focus {
+  outline: none;
+}
+
+.hasil-lapor-kesehatan h4 {
+  margin: 4px 0 0;
+  font-size: 1rem;
+}
+
+.kotak-tanda-bahaya,
+.kotak-tanda-aman {
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.kotak-tanda-bahaya {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-left: 4px solid #DC2626;
+  color: #7F1D1D;
+  font-weight: 600;
+}
+
+.kotak-tanda-aman {
+  background: #ECFDF3;
+  border: 1px solid #BBF7D0;
+  color: #14532D;
+}
+
+.daftar-saran-kesehatan,
+.daftar-peringatan-kesehatan {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.daftar-saran-kesehatan li,
+.daftar-peringatan-kesehatan li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.daftar-saran-kesehatan li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ECFDF3;
+  color: #15803D;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 18px;
+  text-align: center;
+}
+
+.daftar-peringatan-kesehatan li::before {
+  content: "!";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #DC2626;
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 18px;
+  text-align: center;
+}
+
+.aksi-hasil-lapor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* =====================================================================
+   FITUR BARU: RIWAYAT KESEHATAN (MEDICAL CHECKUP & KELUHAN)
+   ===================================================================== */
+
+.seksi-riwayat-kesehatan {
+  margin-top: 48px;
+  padding: 32px;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 28px;
+}
+
+.kepala-riwayat-kesehatan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kepala-riwayat-kesehatan h3 {
+  margin: 10px 0 6px;
+  font-family: "Sora", Arial, sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.kepala-riwayat-kesehatan p {
+  margin: 0;
+  max-width: 40rem;
+  color: #5B6475;
+  line-height: 1.6;
+}
+
+.ringkasan-kesehatan {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.stat-kesehatan {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #F4F6F9;
+}
+
+.stat-kesehatan b {
+  font-family: "Sora", Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0B1220;
+}
+
+.stat-kesehatan span {
+  font-size: 0.8rem;
+  color: #5B6475;
+}
+
+/* kartu analisis: kartu unggulan navy, sama seperti streak & target kalori */
+
+.kartu-analisis-kesehatan {
+  margin-top: 16px;
+  padding: 24px;
+  border-radius: 24px;
+  background: #0B1220;
+  background-image: radial-gradient(circle at 100% 0%, rgba(34, 197, 94, 0.28), rgba(34, 197, 94, 0) 55%);
+  color: #EEF2F8;
+}
+
+.kepala-analisis-kesehatan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.kepala-analisis-kesehatan h4 {
+  margin: 0;
+  font-family: "Sora", Arial, sans-serif;
+  font-size: 1.15rem;
+  color: #FFFFFF;
+}
+
+.info-kirim-ai,
+.disclaimer-kesehatan,
+.sumber-analisis {
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #A8B3C7;
+}
+
+.sumber-analisis {
+  margin: 0 0 10px;
+  color: #86EFAC;
+  font-weight: 600;
+}
+
+#isiAnalisisKesehatan {
+  margin-top: 16px;
+}
+
+#isiAnalisisKesehatan[aria-busy="true"] {
+  opacity: 0.5;
+}
+
+.kartu-analisis-kesehatan .daftar-saran-kesehatan li,
+.kartu-analisis-kesehatan .daftar-peringatan-kesehatan li,
+.kartu-analisis-kesehatan .isi-balasan-ai {
+  color: #EEF2F8;
+}
+
+.kartu-analisis-kesehatan .daftar-saran-kesehatan li::before {
+  background: rgba(34, 197, 94, 0.2);
+  color: #86EFAC;
+}
+
+.kartu-analisis-kesehatan .daftar-peringatan-kesehatan {
+  margin-bottom: 12px;
+}
+
+.kartu-analisis-kesehatan .daftar-peringatan-kesehatan li {
+  color: #FECACA;
+}
+
+.isi-balasan-ai p,
+.isi-balasan-ai li {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.grid-daftar-kesehatan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.grid-daftar-kesehatan h4 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.daftar-kesehatan {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item-kesehatan {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid #E3E7EE;
+  background: #FFFFFF;
+}
+
+.item-kesehatan.item-bahaya {
+  border-left: 4px solid #DC2626;
+}
+
+.isi-item-kesehatan {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.isi-item-kesehatan b {
+  font-size: 0.92rem;
+}
+
+.isi-item-kesehatan p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #5B6475;
+  overflow-wrap: anywhere;
+}
+
+.tanggal-kesehatan {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #8A93A5;
+}
+
+.item-bahaya .tanggal-kesehatan {
+  color: #B42318;
+}
+
+.tombol-hapus-kesehatan {
+  flex-shrink: 0;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid #E3E7EE;
+  background: transparent;
+  color: #5B6475;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tombol-hapus-kesehatan:hover {
+  border-color: #B42318;
+  color: #B42318;
+}
+
+.kosong-kesehatan {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed #CDD4DE;
+  color: #5B6475;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+/* ---------- mode gelap ---------- */
+
+body.gelap .video-simulasi,
+body.gelap .seksi-riwayat-kesehatan,
+body.gelap .item-kesehatan {
+  background: #121A2B;
+  border-color: #24314A;
+}
+
+body.gelap .video-simulasi-layar {
+  border-color: #24314A;
+}
+
+body.gelap .stat-kesehatan,
+body.gelap .fase-simulasi li {
+  background: #18233A;
+  color: #C3CAD6;
+}
+
+body.gelap .stat-kesehatan b,
+body.gelap .isi-item-kesehatan b {
+  color: #FFFFFF;
+}
+
+body.gelap .video-simulasi-panduan ol,
+body.gelap .video-simulasi-panduan ul,
+body.gelap .kepala-riwayat-kesehatan p,
+body.gelap .isi-item-kesehatan p,
+body.gelap .sub-kesehatan,
+body.gelap .grup-pilihan-kesehatan legend small,
+body.gelap .video-simulasi-catatan {
+  color: #C3CAD6;
+}
+
+body.gelap .btn-kecepatan-simulasi,
+body.gelap .chip-radio-kesehatan,
+body.gelap .tombol-hapus-kesehatan {
+  background: #121A2B;
+  border-color: #2A3852;
+  color: #EEF2F8;
+}
+
+body.gelap .btn-putar-simulasi {
+  background: #EEF2F8;
+  border-color: #EEF2F8;
+  color: #0B1220;
+}
+
+body.gelap .chip-radio-kesehatan:has(input:checked) {
+  background: #22C55E;
+  border-color: #22C55E;
+  color: #0B1220;
+}
+
+body.gelap .versi-ringan-simulasi {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+body.gelap .versi-ringan-simulasi p {
+  color: #BBF7D0;
+}
+
+body.gelap .kartu-analisis-kesehatan {
+  border: 1px solid #24314A;
+}
+
+/* ---------- mode kontras tinggi ---------- */
+
+body.kontras .video-simulasi,
+body.kontras .seksi-riwayat-kesehatan,
+body.kontras .item-kesehatan,
+body.kontras .kartu-analisis-kesehatan,
+body.kontras .stat-kesehatan,
+body.kontras .versi-ringan-simulasi {
+  background: #000000;
+  background-image: none;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+}
+
+body.kontras .chip-radio-kesehatan:has(input:checked),
+body.kontras .fase-simulasi li.aktif,
+body.kontras .btn-kecepatan-simulasi[aria-pressed="true"] {
+  background: #FFFF00;
+  color: #000000;
+}
+
+/* ---------- HP ---------- */
+
+@media (max-width: 680px) {
+  .seksi-riwayat-kesehatan {
+    margin-top: 32px;
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .kepala-riwayat-kesehatan .tombol {
+    width: 100%;
+  }
+
+  .ringkasan-kesehatan {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-daftar-kesehatan,
+  .baris-isian-kesehatan {
+    grid-template-columns: 1fr;
+  }
+
+  .baris-isian-kesehatan.empat {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kartu-analisis-kesehatan {
+    padding: 20px;
+  }
+
+  .kepala-analisis-kesehatan .tombol {
+    width: 100%;
+  }
+
+  dialog.dialog-kesehatan {
+    padding: 22px 18px;
+  }
+
+  /* baris gerakan di sesi: foto + nama sejajar, video & tombol selebar kartu */
+
+  .item-gerakan-sesi {
+    flex-wrap: wrap;
+  }
+
+  .item-gerakan-sesi-inner {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    column-gap: 12px;
+  }
+
+  .item-gerakan-sesi-inner .mini-thumb-gerakan {
+    width: 56px;
+    height: 56px;
+    grid-row: span 2;
+  }
+
+  .item-gerakan-sesi-inner .info-gerakan-sesi {
+    display: contents;
+  }
+
+  .info-gerakan-sesi > * {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .info-gerakan-sesi > .deskripsi-mini-gerakan,
+  .info-gerakan-sesi > .chip-peringatan-keluhan,
+  .info-gerakan-sesi > .baris-aksi-gerakan,
+  .info-gerakan-sesi > .inline-video-wadah {
+    grid-column: 1 / -1;
+  }
+
+  .item-gerakan-sesi .btn-centang-gerakan {
+    width: 100%;
+  }
+}

@@ -1,0 +1,1622 @@
+/* ========== GIZI ========== */
+
+.gizi-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-gizi {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.fieldset-target {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pesan-info-gizi {
+  padding: 0.75rem 1rem;
+  background: #fff0d6;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #8c4e00;
+}
+
+.form-gizi label,
+.modal-dialog label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.pesan-error-inline {
+  font-size: 0.8125rem;
+  color: #c90000;
+  font-weight: 600;
+  min-height: 1rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #FFFFFF;
+  color: #0B1220;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.baris-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.pilih-target {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem;
+  margin-top: 0.375rem;
+}
+
+.opsi-target input {
+  display: none;
+}
+
+.opsi-target span {
+  display: block;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.opsi-target input:checked + span {
+  background: #0B1220;
+  color: #22C55E;
+}
+
+.opsi-target input:disabled + span {
+  opacity: 0.45;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+.hasil-gizi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.75rem;
+  background: #22C55E;
+  color: #0B1220;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.hasil-gizi .kartu-kecil {
+  color: #0B1220;
+}
+
+.bmi-label {
+  font-weight: 700;
+}
+
+.angka-kalori {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.angka-kalori small {
+  font-size: 1.125rem;
+}
+
+.makro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem;
+}
+
+.makro-item {
+  padding: 0.875rem;
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.makro-angka {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.disclaimer-medis {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-top: 1px dashed #CDD4DE;
+  padding-top: 0.625rem;
+}
+
+/* ========== WORK OUT ========== */
+
+.nav-terkunci {
+  opacity: 0.85;
+}
+
+.tombol-mulai-workout-hasil {
+  background: #0B1220;
+  color: #22C55E;
+  border: 1px solid #E3E7EE;
+  font-size: 1.0625rem;
+  padding: 0.875rem 1.25rem;
+  cursor: pointer;
+  box-shadow: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.tombol-mulai-workout-hasil:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: none;
+  background: #252830;
+}
+
+.kotak-workout-terkunci {
+  padding: 3.5rem 2rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 48rem;
+  margin: 1.5rem auto 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.lingkaran-ikon-kunci {
+  margin-top: 0.25rem;
+}
+
+.kotak-workout-terkunci h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0B1220;
+  margin: 0;
+}
+
+.langkah-buka-kunci {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.625rem;
+  background: #F4F6F9;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 0.75rem 1.25rem;
+  margin: 0.25rem 0;
+}
+
+.langkah-item {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #0B1220;
+}
+
+.langkah-arrow {
+  color: #888;
+  font-weight: 800;
+}
+
+.tombol-buka-gizi {
+  padding: 0.875rem 1.75rem;
+  font-size: 1.0625rem;
+  font-weight: 800;
+  margin-top: 0.25rem;
+}
+
+/* Header Program Workout (Harmonis dengan Palet GERAK) */
+
+.workout-header-card {
+  padding: 2rem;
+  background: #FFFFFF;
+  color: #0B1220;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  margin-bottom: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.workout-header-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #22C55E;
+}
+
+.badge-target-workout {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 0.875rem;
+  background: #22C55E;
+  color: #0B1220;
+  padding: 0.4rem 1rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.tombol-ubah-target {
+  background: #FFFFFF;
+  color: #0B1220;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 10px;
+  padding: 0.4rem 0.875rem;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.tombol-ubah-target:hover {
+  background: #F4F6F9;
+  transform: translate(-1px, -1px);
+  box-shadow: none;
+}
+
+.judul-program {
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0.25rem 0 0;
+  color: #0B1220;
+}
+
+.fokus-program {
+  font-size: 1rem;
+  color: #373a44;
+  line-height: 1.6;
+  max-width: 52rem;
+  margin: 0;
+}
+
+.program-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 0.25rem;
+}
+
+.meta-chip {
+  background: #F4F6F9;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #0B1220;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.workout-aksi-utama {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Slider / Carousel Workout */
+
+.slider-workout-wrapper {
+  margin-bottom: 2rem;
+}
+
+.slider-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.slider-info .label-sub {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.teks-kecil-muted {
+  font-size: 0.875rem;
+  color: #55555c;
+  margin-top: 0.125rem;
+}
+
+.slider-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.tombol-nav-slider {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  background: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.tombol-nav-slider:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: none;
+  background: #22C55E;
+}
+
+.tombol-nav-slider:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+.tombol-nav-slider:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.indikator-slider-angka {
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  background: #0B1220;
+  color: #22C55E;
+  border: 1px solid #E3E7EE;
+  border-radius: 10px;
+  padding: 0.5rem 0.875rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.slider-workout-viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  touch-action: pan-y;
+  outline: none;
+}
+
+.slider-workout-viewport:focus-visible {
+  outline: 3px solid #15803D;
+}
+
+.slider-workout-track {
+  display: flex;
+  transition: transform 0.38s cubic-bezier(0.2, 0.9, 0.3, 1);
+  will-change: transform;
+}
+
+.kartu-slide-workout {
+  flex: 0 0 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-slide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+@media (min-width: 860px) {
+  .kartu-slide-grid {
+    grid-template-columns: 420px 1fr;
+    gap: 2rem;
+  }
+}
+
+.slide-col-visual {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.kartu-slide-foto-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  max-height: 340px;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: none;
+  background: #0B1220;
+}
+
+@media (max-width: 859px) {
+  .kartu-slide-foto-wrap {
+    height: 220px;
+    min-height: 200px;
+  }
+}
+
+.foto-workout-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.kartu-slide-workout:hover .foto-workout-slide {
+  transform: scale(1.04);
+}
+
+.overlay-foto-badge-group {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  z-index: 2;
+}
+
+.overlay-pill-badge {
+  background: rgba(17, 17, 17, 0.9);
+  backdrop-filter: blur(6px);
+  color: #22C55E;
+  border: 1.5px solid #22C55E;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.625rem;
+  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.overlay-pill-badge.tag-jenis-foto {
+  color: #15803D;
+  border-color: #15803D;
+}
+
+.overlay-pill-badge.tag-durasi-foto {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Thumbnail Foto & Header Katalog Gerakan */
+
+.katalog-header-bar {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.katalog-foto-thumb {
+  width: 110px;
+  height: 90px;
+  border-radius: 18px;
+  border: 1px solid #E3E7EE;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: none;
+  background: #0B1220;
+}
+
+.katalog-foto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.katalog-info-utama {
+  flex: 1;
+}
+
+/* Sesi Latihan Mini Thumb & Inline Video */
+
+.item-gerakan-sesi-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.mini-thumb-gerakan {
+  width: 68px;
+  height: 68px;
+  border-radius: 10px;
+  border: 1px solid #E3E7EE;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: none;
+  background: #0B1220;
+}
+
+.btn-toggle-anim-inline {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
+  transition: all 0.2s;
+}
+
+.btn-toggle-anim-inline:hover {
+  background: #22C55E;
+}
+
+.inline-video-wadah {
+  margin-top: 0.875rem;
+  width: 100%;
+}
+
+/* Sisi Kanan: Konten Kartu Slide */
+
+.slide-col-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.kartu-slide-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header-sesi-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kartu-slide-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.baris-kiri-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tag-hari {
+  font-weight: 800;
+  background: #0B1220;
+  color: #22C55E;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.8125rem;
+}
+
+.tag-jenis {
+  background: #15803D;
+  color: #0B1220;
+  font-weight: 800;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.8125rem;
+}
+
+.durasi-pill {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  background: #ECEEF2;
+  border: 1px solid #E3E7EE;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+}
+
+.nama-latihan-slide {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0B1220;
+  line-height: 1.3;
+  margin: 0.25rem 0 0;
+}
+
+/* Rangkaian Gerakan Modern (Chips/Pills) */
+
+.box-gerakan-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.baris-label-gerakan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.label-gerakan-kunci {
+  font-weight: 800;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #373a44;
+}
+
+.sub-gerakan-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #555;
+  background: #DDE1E7;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+}
+
+.grid-gerakan-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill-gerakan {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 10px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0B1220;
+  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.pill-gerakan:hover {
+  background: #22C55E;
+  transform: translate(-1px, -1px);
+}
+
+.pill-icon {
+  font-size: 1rem;
+}
+
+/* Footer Kartu Slide */
+
+.kartu-slide-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.btn-mulai-dari-kartu {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  font-weight: 800;
+}
+
+.btn-detail-dari-kartu {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid #E3E7EE;
+  background: #FFFFFF;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.25s ease, background 0.25s ease;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.slider-dot.aktif {
+  width: 32px;
+  background: #22C55E;
+  box-shadow: none;
+}
+
+.tips-workout-box {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: none;
+  margin-top: 1.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.tips-workout-box.sedang-geser {
+  cursor: grabbing;
+}
+
+.tips-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 0.875rem;
+  margin-bottom: 0.875rem;
+  border-bottom: 2px dashed rgba(17, 17, 17, 0.18);
+}
+
+.tips-header-judul {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.tips-header-bar h4 {
+  font-weight: 800;
+  font-size: 1.0625rem;
+  color: #0B1220;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-tips-kategori {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.625rem;
+  background: #22C55E;
+  color: #0B1220;
+  border: 1px solid #E3E7EE;
+  border-radius: 999px;
+  box-shadow: none;
+  letter-spacing: 0.02em;
+}
+
+.tips-nav-kontrol {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  padding: 0.35rem 0.625rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.tombol-panah-tips {
+  background: #F4F6F9;
+  border: 1px solid #E3E7EE;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0B1220;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
+  user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  z-index: 6;
+}
+
+.tombol-panah-tips:hover {
+  background: #22C55E;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.tombol-panah-tips:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.tips-counter {
+  font-family: "Plus Jakarta Sans", monospace, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #0B1220;
+  padding: 0 0.5rem;
+  min-width: 64px;
+  text-align: center;
+  user-select: none;
+}
+
+.tips-konten-area {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  cursor: default;
+}
+
+@keyframes tipsGantiFade {
+  0% {
+    opacity: 0.3;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tips-konten-area.animasi-ganti {
+  animation: tipsGantiFade 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.tips-judul {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: #0B1220;
+  margin: 0 0 0.4rem;
+}
+
+.tips-workout-box p {
+  font-size: 0.9375rem;
+  color: #373a44;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tips-swipe-hint {
+  margin-top: 0.875rem;
+  padding-top: 0.625rem;
+  border-top: 1px dashed rgba(17, 17, 17, 0.12);
+}
+
+/* ========== MODAL SESI LATIHAN (MULAI LATIHAN) ========== */
+
+dialog.modal-dialog.modal-workout {
+  max-width: 720px;
+  width: 94%;
+}
+
+.sesi-header {
+  margin-bottom: 1.25rem;
+}
+
+.sesi-header h3 {
+  font-size: 1.625rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.wadah-progress-sesi {
+  background: #F0F1F4;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.info-progress-teks {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-bg {
+  height: 14px;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.progress-bar-isi {
+  height: 100%;
+  background: #22C55E;
+  border-right: 1px solid #E3E7EE;
+  transition: width 0.3s ease;
+}
+
+.box-rest-timer {
+  background: #ffe270;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: none;
+}
+
+.label-timer {
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+
+.timer-angka {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: #0B1220;
+  color: #22C55E;
+  padding: 0.25rem 0.625rem;
+  border-radius: 8px;
+  border: 1px solid #E3E7EE;
+}
+
+.timer-angka.menipis {
+  background: #ff5c5c;
+  color: #ffffff;
+  animation: pulseTimer 0.6s infinite alternate;
+}
+
+@keyframes pulseTimer {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.baris-timer-kontrol {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.tombol-preset-group {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.chip-timer {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.chip-timer.aktif {
+  background: #0B1220;
+  color: #ffffff;
+}
+
+.tombol-aksi-timer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tombol-timer-main {
+  padding: 0.375rem 1rem;
+  background: #0B1220;
+  color: #22C55E;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tombol-timer-reset {
+  padding: 0.375rem 0.75rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.daftar-gerakan-sesi {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  max-height: 48vh;
+  overflow-y: auto;
+  padding-right: 0.375rem;
+  margin-bottom: 1.5rem;
+}
+
+.item-gerakan-sesi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1rem 1.125rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.info-gerakan-sesi {
+  flex: 1;
+}
+
+.baris-nama-gerakan {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.375rem;
+}
+
+.nomor-urutan {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #0B1220;
+  color: #22C55E;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.baris-parameter-gerakan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.375rem;
+}
+
+.chip-parameter {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: #EEF1F5;
+  border: 1px solid #E3E7EE;
+  border-radius: 6px;
+  padding: 0.125rem 0.5rem;
+}
+
+.deskripsi-mini-gerakan {
+  font-size: 0.8125rem;
+  color: #55555c;
+  line-height: 1.4;
+}
+
+.btn-centang-gerakan {
+  flex-shrink: 0;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  border: 1px solid #E3E7EE;
+  border-radius: 10px;
+  background: #ECEEF2;
+  color: #0B1220;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-centang-gerakan.selesai {
+  background: #22C55E;
+  box-shadow: none;
+}
+
+/* ========== MODAL KATALOG (LIHAT SEMUA LATIHAN) ========== */
+
+dialog.modal-dialog.modal-workout-katalog {
+  max-width: 860px;
+  width: 95%;
+}
+
+.katalog-header {
+  margin-bottom: 1.25rem;
+}
+
+.filter-katalog {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.katalog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.kartu-katalog-detail {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.judul-gerakan-katalog {
+  font-size: 1.375rem;
+  font-weight: 800;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.deskripsi-gerakan-katalog {
+  font-size: 0.9375rem;
+  color: #44444a;
+  line-height: 1.5;
+}
+
+.chip-rekomendasi {
+  font-size: 0.875rem;
+  font-weight: 700;
+  background: #22C55E;
+  border: 1px solid #E3E7EE;
+  border-radius: 8px;
+  padding: 0.25rem 0.625rem;
+}
+
+/* ========== VIDEO ANIMASI DEMONSTRASI GERAKAN ========== */
+
+.video-animasi-player {
+  --tempo-durasi: 4s;
+  background: #0B1220;
+  color: #ffffff;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes blinkRec {
+  from { opacity: 0.25; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+/* Stage Panggung Video */
+
+.video-stage-frame {
+  position: relative;
+  background: radial-gradient(circle at 50% 35%, #292d38 0%, #0B1220 100%);
+  border: 2px solid #373a44;
+  border-radius: 18px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-svg-stage {
+  width: 100%;
+  height: 100%;
+  max-width: 380px;
+  display: block;
+}
+
+/* Floating Play/Pause Center Button on Stage */
+
+/* Floating Tempo HUD Overlays */
+
+/* Sinkronisasi Animasi HUD dengan Status Pemutaran */
+
+@keyframes hudFase1 {
+  0%, 45% { background: #ffe270; color: #0B1220; border-color: #ffe270; transform: scale(1.05); }
+  50%, 100% { background: rgba(17, 17, 17, 0.88); color: #A1A1AA; border-color: #525661; transform: scale(1); }
+}
+
+@keyframes hudFase2 {
+  0%, 45% { background: rgba(17, 17, 17, 0.88); color: #A1A1AA; border-color: #525661; transform: scale(1); }
+  50%, 70% { background: #15803D; color: #0B1220; border-color: #15803D; transform: scale(1.05); }
+  75%, 100% { background: rgba(17, 17, 17, 0.88); color: #A1A1AA; border-color: #525661; transform: scale(1); }
+}
+
+@keyframes hudFase3 {
+  0%, 70% { background: rgba(17, 17, 17, 0.88); color: #A1A1AA; border-color: #525661; transform: scale(1); }
+  75%, 98% { background: #22C55E; color: #0B1220; border-color: #22C55E; transform: scale(1.05); }
+  100% { background: rgba(17, 17, 17, 0.88); color: #A1A1AA; border-color: #525661; transform: scale(1); }
+}
+
+/* Timeline & Footer Bar */
+
+.video-animasi-player[data-sedang-putar="false"] .anim-rig-element {
+  animation-play-state: paused !important;
+}
+
+@keyframes timelineLoop {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* =========================================
+   KEYFRAME ANIMASI KARAKTER SVG ATLET
+   ========================================= */
+
+/* 1. Push-up Rig */
+
+.anim-pushup-body {
+  transform-origin: 250px 145px;
+  animation: keyframePushup var(--tempo-durasi) ease-in-out infinite;
+}
+
+.anim-pushup-arm {
+  transform-origin: 90px 105px;
+  animation: keyframePushupArm var(--tempo-durasi) ease-in-out infinite;
+}
+
+.anim-pushup-glow {
+  animation: keyframePushupGlow var(--tempo-durasi) ease-in-out infinite;
+}
+
+@keyframes keyframePushup {
+  0%, 100% { transform: rotate(0deg); }
+  45%, 60% { transform: rotate(13deg); }
+  85% { transform: rotate(-2deg); }
+}
+
+@keyframes keyframePushupArm {
+  0%, 100% { transform: scaleY(1); }
+  45%, 60% { transform: scaleY(0.55); }
+  85% { transform: scaleY(1.04); }
+}
+
+@keyframes keyframePushupGlow {
+  0%, 40% { opacity: 0.15; transform: scale(0.9); }
+  75%, 90% { opacity: 0.95; transform: scale(1.25); }
+  100% { opacity: 0.15; transform: scale(0.9); }
+}
+
+/* 2. Squat Rig */
+
+.anim-squat-torso {
+  animation: keyframeSquatTorso var(--tempo-durasi) ease-in-out infinite;
+}
+
+.anim-squat-arms {
+  transform-origin: 160px 75px;
+  animation: keyframeSquatArms var(--tempo-durasi) ease-in-out infinite;
+}
+
+.anim-squat-glow {
+  animation: keyframeSquatGlow var(--tempo-durasi) ease-in-out infinite;
+}
+
+@keyframes keyframeSquatTorso {
+  0%, 100% { transform: translateY(0); }
+  45%, 60% { transform: translateY(34px); }
+  85% { transform: translateY(-2px); }
+}
+
+@keyframes keyframeSquatArms {
+  0%, 100% { transform: rotate(0deg); }
+  45%, 60% { transform: rotate(-30deg); }
+  85% { transform: rotate(0deg); }
+}
+
+@keyframes keyframeSquatGlow {
+  0%, 35% { opacity: 0.2; transform: scale(0.9); }
+  70%, 90% { opacity: 0.95; transform: scale(1.25); }
+  100% { opacity: 0.2; transform: scale(0.9); }
+}
+
+/* 3. Plank Rig */
+
+.anim-plank-figure {
+  animation: keyframePlankBreath 3s ease-in-out infinite alternate;
+}
+
+.anim-plank-core-aura {
+  animation: keyframePlankCore 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes keyframePlankBreath {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
+
+@keyframes keyframePlankCore {
+  0% { opacity: 0.3; transform: scale(0.85); stroke: #ffe270; }
+  100% { opacity: 1; transform: scale(1.2); stroke: #22C55E; }
+}
+
+/* 4. Cardio / Runner Rig */
+
+.anim-runner-body {
+  animation: keyframeRunnerBounce 0.55s ease-in-out infinite alternate;
+}
+
+.anim-runner-leg-front {
+  transform-origin: 160px 95px;
+  animation: keyframeRunLeg1 0.7s ease-in-out infinite alternate;
+}
+
+.anim-runner-leg-back {
+  transform-origin: 160px 95px;
+  animation: keyframeRunLeg2 0.7s ease-in-out infinite alternate;
+}
+
+.anim-runner-arm-front {
+  transform-origin: 155px 70px;
+  animation: keyframeRunArm1 0.7s ease-in-out infinite alternate;
+}
+
+.anim-runner-arm-back {
+  transform-origin: 155px 70px;
+  animation: keyframeRunArm2 0.7s ease-in-out infinite alternate;
+}
+
+.anim-speed-line-1 {
+  animation: keyframeSpeedLine 0.7s linear infinite;
+}
+
+.anim-speed-line-2 {
+  animation: keyframeSpeedLine 0.85s linear infinite 0.25s;
+}
+
+@keyframes keyframeRunnerBounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+@keyframes keyframeRunLeg1 {
+  0% { transform: rotate(-35deg); }
+  100% { transform: rotate(40deg); }
+}
+
+@keyframes keyframeRunLeg2 {
+  0% { transform: rotate(40deg); }
+  100% { transform: rotate(-35deg); }
+}
+
+@keyframes keyframeRunArm1 {
+  0% { transform: rotate(45deg); }
+  100% { transform: rotate(-40deg); }
+}
+
+@keyframes keyframeRunArm2 {
+  0% { transform: rotate(-40deg); }
+  100% { transform: rotate(45deg); }
+}
+
+@keyframes keyframeSpeedLine {
+  0% { transform: translateX(35px); opacity: 0; }
+  50% { opacity: 0.9; }
+  100% { transform: translateX(-50px); opacity: 0; }
+}
+
+/* 5. Lunge Rig */
+
+.anim-lunge-torso {
+  animation: keyframeLungeTorso var(--tempo-durasi) ease-in-out infinite;
+}
+
+@keyframes keyframeLungeTorso {
+  0%, 100% { transform: translateY(0); }
+  45%, 60% { transform: translateY(30px); }
+  85% { transform: translateY(-2px); }
+}
+
+/* 6. Bicep Curl / Pull Rig */
+
+.anim-curl-forearm {
+  transform-origin: 150px 90px;
+  animation: keyframeCurlArm var(--tempo-durasi) ease-in-out infinite;
+}
+
+.anim-curl-bicep-glow {
+  animation: keyframeCurlGlow var(--tempo-durasi) ease-in-out infinite;
+}
+
+@keyframes keyframeCurlArm {
+  0%, 100% { transform: rotate(0deg); }
+  45%, 65% { transform: rotate(-100deg); }
+  85% { transform: rotate(-10deg); }
+}
+
+@keyframes keyframeCurlGlow {
+  0%, 35% { opacity: 0.15; transform: scale(0.9); }
+  50%, 70% { opacity: 1; transform: scale(1.35); }
+  100% { opacity: 0.15; transform: scale(0.9); }
+}
+
+/* 7. Recovery / Stretch Rig */
+
+.anim-recovery-torso {
+  transform-origin: 160px 145px;
+  animation: keyframeRecoveryWave 3.5s ease-in-out infinite alternate;
+}
+
+.anim-recovery-aura {
+  animation: keyframeRecoveryAura 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes keyframeRecoveryWave {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(6deg); }
+}
+
+@keyframes keyframeRecoveryAura {
+  0% { opacity: 0.25; transform: scale(0.85); stroke: #15803D; }
+  100% { opacity: 0.95; transform: scale(1.25); stroke: #22C55E; }
+}
+
+/* 8. Glute Bridge Rig */
+
+.anim-bridge-hips {
+  transform-origin: 225px 145px;
+  animation: keyframeBridgeHips var(--tempo-durasi) ease-in-out infinite;
+}
+
+@keyframes keyframeBridgeHips {
+  0%, 100% { transform: translateY(0); }
+  45%, 65% { transform: translateY(-26px); }
+  85% { transform: translateY(0); }
+}
+
+.sub-judul-detail {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.daftar-langkah-list {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #333338;
+}
+
+.box-otot-gerakan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 18px;
+  padding: 0.875rem 1rem;
+}
+
+.item-otot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.label-otot {
+  font-weight: 700;
+}
+
+.chip-otot-primer {
+  background: #0B1220;
+  color: #22C55E;
+  font-weight: 700;
+  padding: 0.125rem 0.5rem;
+  border-radius: 6px;
+}
+
+.chip-otot-sekunder {
+  background: #DBDFE5;
+  color: #0B1220;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 6px;
+}
+
+.box-kesalahan-umum {
+  background: #fff4e5;
+  border: 2px solid #15803D;
+  border-radius: 18px;
+  padding: 1rem 1.25rem;
+}
+
+.judul-kesalahan {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #15803D;
+  margin-bottom: 0.5rem;
+}
+
+.daftar-kesalahan-list {
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  color: #4a2c00;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  line-height: 1.4;
+}

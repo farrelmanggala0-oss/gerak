@@ -1,0 +1,963 @@
+/* =========================================
+   PREFERS-REDUCED-MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transform: none !important;
+  }
+}
+
+/* =========================================
+   RESPONSIF (TABLET & HP)
+   ========================================= */
+
+@media (max-width: 960px) {
+  .hero,
+  .gizi-wrap,
+  .jurnal-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 3.25rem;
+  }
+
+  .pilar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-kawan,
+  .grid-olahraga-bareng {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kartu-poin-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .podium-top3 {
+    gap: 0.5rem;
+    padding: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .nav-auth-container {
+    margin-right: 0.35rem;
+  }
+
+  .tombol-masuk-daftar {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8125rem;
+  }
+
+  .user-profile-nav {
+    padding: 0.2rem 0.4rem;
+    gap: 0.35rem;
+  }
+
+  .nav-user-nama {
+    max-width: 80px;
+    font-size: 0.8125rem;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: #F4F6F9;
+    border-bottom: 1px solid #E3E7EE;
+  }
+
+  .menu.buka {
+    display: flex;
+  }
+
+  .menu a {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #D5DAE2;
+  }
+
+  body.gelap .menu {
+    background: #121317;
+  }
+
+  body.kontras .menu {
+    background: #000000;
+  }
+
+  .tombol-menu {
+    display: inline-flex;
+  }
+
+  .hero {
+    padding: 3rem 1rem 2.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.625rem;
+  }
+
+  .bagian {
+    padding: 3rem 1rem;
+  }
+
+  .pilar {
+    padding: 0 1rem 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .judul-bagian h2 {
+    font-size: 2rem;
+  }
+
+  .grid-kawan,
+  .grid-olahraga-bareng,
+  .daftar-modul,
+  .baris-input {
+    grid-template-columns: 1fr;
+  }
+
+  .kolom-poin-profil {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .baris-tier-pill {
+    justify-content: center;
+  }
+
+  .kotak-total-poin {
+    margin: 0.5rem auto 0;
+  }
+
+  .podium-top3 {
+    grid-template-columns: 1fr;
+  }
+
+  .pilar-podium {
+    min-height: auto !important;
+    width: 100%;
+  }
+
+  .cell-pengguna-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .angka-kalori {
+    font-size: 3rem;
+  }
+}
+
+/* ===================================================
+   ONE PAGE = ONE SCREEN (1 HALAMAN = 1 LAYAR / NO SCROLL)
+   Desktop & Laptop Viewport Optimization (100vh / 100dvh)
+   =================================================== */
+
+@media (min-width: 1024px) {
+  /* Navbar kompak */
+
+  .navbar {
+    height: 64px;
+    min-height: 64px;
+    padding: 0.65rem 4%;
+    box-sizing: border-box;
+  }
+
+  /* Beranda Scrolling Mandiri Responsif */
+
+  #beranda.seksi-beranda-utama {
+    min-height: calc(100vh - 64px);
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
+    padding: 1.25rem 4% 3rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.75rem;
+  }
+
+  .beranda-member-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 0.65rem;
+    box-sizing: border-box;
+    min-height: 0;
+  }
+
+  /* Hero Member: Baris Atas (~58% tinggi viewport) */
+
+  .hero.hero-member {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 1.25rem;
+    padding: 0;
+    align-items: stretch;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .hero-teks.hero-teks-member {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 0;
+  }
+
+  .baris-pill-salam {
+    margin-bottom: 0.35rem;
+    gap: 0.5rem;
+  }
+
+  .badge-member-salam,
+  .badge-energi-hari-ini {
+    padding: 0.25rem 0.65rem;
+    font-size: 0.75rem;
+  }
+
+  .judul-sapaan-member {
+    font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+    line-height: 1.15;
+    margin: 0.15rem 0 0.35rem;
+  }
+
+  .kotak-motivasi-member {
+    padding: 0.45rem 0.75rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .member-sub-sapaan {
+    font-size: clamp(0.75rem, 0.95vw, 0.85rem);
+    line-height: 1.35;
+    margin: 0 0 0.35rem;
+  }
+
+  .micro-stats-member {
+    font-size: 0.72rem;
+    gap: 0.4rem;
+  }
+
+  .hero-aksi.hero-aksi-member {
+    display: flex;
+    gap: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tombol-aksi-checkin,
+  .tombol-aksi-kawan {
+    padding: 0.45rem 0.95rem;
+    font-size: 0.825rem;
+    border-radius: 18px;
+  }
+
+  /* Kartu Dekorasi Gerak: Compact & Proporsional */
+
+  .kartu-dekorasi-gerak {
+    padding: 0.65rem 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    flex: 0 0 auto;
+    margin-top: auto;
+  }
+
+  .judul-dekorasi-gerak {
+    font-size: 0.875rem;
+    margin: 0.15rem 0;
+  }
+
+  .sub-dekorasi-gerak {
+    font-size: 0.725rem;
+    line-height: 1.3;
+    margin: 0 0 0.35rem;
+  }
+
+  .baris-tag-dekorasi {
+    gap: 0.35rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .tag-dekorasi-chip,
+  .chip-ritme-sehat {
+    font-size: 0.625rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .pilar-mini-row {
+    gap: 0.35rem;
+  }
+
+  .pill-mini-item {
+    font-size: 0.625rem;
+    padding: 0.12rem 0.4rem;
+  }
+
+  .wadah-svg-gerak {
+    flex-shrink: 0;
+  }
+
+  .svg-siluet-gerak {
+    width: 140px;
+    height: 75px;
+  }
+
+  /* Kolom Kanan: Status Member & AYO MULAI */
+
+  .hero-kartu.hero-kartu-member {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.55rem;
+    min-height: 0;
+  }
+
+  /* Sub-row Status: Streak dan Level berdampingan */
+
+  .grid-status-atas-member {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+
+  .kartu-streak-aesthetic,
+  .kartu-level-aesthetic {
+    padding: 0.6rem 0.75rem;
+    margin: 0;
+    border-radius: 18px;
+    box-shadow: none;
+  }
+
+  .badge-label-streak,
+  .badge-level-chip {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .angka-besar-streak {
+    font-size: 1.45rem;
+    line-height: 1.1;
+    margin: 0.2rem 0;
+  }
+
+  .lingkaran-api-streak {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+
+  .konten-streak-aesthetic {
+    gap: 0.5rem;
+    margin: 0.25rem 0;
+  }
+
+  .minggu-aesthetic {
+    gap: 0.25rem;
+    margin: 0.35rem 0;
+  }
+
+  .wadah-info-jatah {
+    font-size: 0.68rem;
+    margin-top: 0.25rem;
+  }
+
+  .bar-xp-aesthetic {
+    height: 10px;
+    margin: 0.35rem 0;
+  }
+
+  .nama-level-aesthetic {
+    font-size: 0.8rem;
+  }
+
+  .tag-motivasi-xp {
+    font-size: 0.65rem;
+    padding: 0.12rem 0.45rem;
+  }
+
+  /* Kartu AYO MULAI: Compact & Proporsional */
+
+  .kartu-ayo-mulai {
+    padding: 0.65rem 0.85rem;
+    margin: 0;
+    border-radius: 18px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .badge-label-ayo-mulai,
+  .chip-target-aktif {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .deskripsi-ayo-mulai {
+    font-size: 0.72rem;
+    line-height: 1.3;
+    margin: 0.25rem 0 0.35rem;
+  }
+
+  .grid-metrik-berat {
+    gap: 0.35rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .item-metrik-berat {
+    padding: 0.3rem 0.25rem;
+    border-radius: 10px;
+  }
+
+  .label-metrik-kecil {
+    font-size: 0.6rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .nilai-metrik-berat {
+    font-size: 0.95rem;
+  }
+
+  .banner-ekuivalen-energi {
+    padding: 0.35rem 0.55rem;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+    border-radius: 10px;
+  }
+
+  .ikon-ekuivalen {
+    font-size: 1.15rem;
+  }
+
+  .teks-ekuivalen-utama {
+    font-size: 0.78rem;
+    margin: 0 0 0.15rem;
+  }
+
+  .teks-ekuivalen-sub {
+    font-size: 0.68rem;
+    line-height: 1.25;
+  }
+
+  .ringkasan-tiga-sumber {
+    gap: 0.35rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .sumber-item {
+    padding: 0.25rem 0.35rem;
+    gap: 0.3rem;
+    border-radius: 8px;
+  }
+
+  .sumber-ikon {
+    font-size: 0.95rem;
+  }
+
+  .sumber-nama {
+    font-size: 0.58rem;
+  }
+
+  .sumber-nilai {
+    font-size: 0.68rem;
+  }
+
+  .tombol-aksi-ayo-mulai {
+    padding: 0.45rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+
+  /* Panel Bawah Beranda: Baris Bawah (~38-40% tinggi) */
+
+  .panel-bawah-beranda {
+    flex: 0 0 auto;
+    border-top: 2px dashed #CDD4DE;
+    padding-top: 0.5rem;
+  }
+
+  .header-panel-bawah-beranda {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .tab-switcher-beranda {
+    display: inline-flex;
+    gap: 0.4rem;
+    background: #EEF1F5;
+    padding: 0.25rem;
+    border: 1px solid #E3E7EE;
+    border-radius: 999px;
+    box-shadow: none;
+  }
+
+  .tab-btn-beranda {
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #5B6475;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .tab-btn-beranda.tab-beranda-aktif {
+    background: #0B1220;
+    color: #22C55E;
+    box-shadow: none;
+  }
+
+  .status-checkin-badge {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.78rem;
+    box-shadow: none;
+  }
+
+  /* Grid 4 Kartu: Siap Melakukan & 4 Pilar */
+
+  .grid-akses-cepat-member,
+  .pilar.pilar-beranda-tab {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .kartu-akses-member {
+    padding: 0.65rem 0.75rem;
+    border-radius: 18px;
+    box-shadow: none;
+    gap: 0.25rem;
+    min-height: 95px;
+    justify-content: space-between;
+  }
+
+  .header-akses-member {
+    margin-bottom: 0.15rem;
+  }
+
+  .ikon-akses {
+    font-size: 1.35rem;
+  }
+
+  .badge-status-akses {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .kartu-akses-member h4 {
+    font-size: 0.875rem;
+    margin: 0.15rem 0 0;
+  }
+
+  .deskripsi-akses {
+    font-size: 0.72rem;
+    line-height: 1.3;
+    color: #5B6475;
+    margin: 0;
+  }
+
+  /* 4 Pilar Cards dalam Tab */
+
+  .pilar-beranda-tab .kartu-pilar {
+    padding: 0.65rem 0.75rem;
+    border-radius: 18px;
+    box-shadow: none;
+    min-height: 95px;
+  }
+
+  .pilar-beranda-tab .kartu-pilar .huruf {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .pilar-beranda-tab .kartu-pilar h3 {
+    font-size: 0.875rem;
+    margin: 0.15rem 0;
+  }
+
+  .pilar-beranda-tab .kartu-pilar p {
+    font-size: 0.72rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  /* =========================================
+     HALAMAN GIZI SCROLLING MANDIRI
+     ========================================= */
+
+  #gizi.bagian {
+    min-height: calc(100vh - 64px);
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
+    padding: 1.5rem 6% 3.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  #gizi .judul-bagian {
+    margin-bottom: clamp(0.4rem, 1.2vh, 0.85rem);
+  }
+
+  #gizi .judul-bagian h2 {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    line-height: 1.15;
+    margin: 0.15rem 0;
+  }
+
+  #gizi .sub-judul {
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+    margin: 0;
+  }
+
+  #gizi .gizi-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(1rem, 2vw, 1.75rem);
+    align-items: start;
+  }
+
+  #gizi .form-gizi {
+    padding: clamp(0.75rem, 1.5vh, 1.25rem);
+    gap: clamp(0.35rem, 0.8vh, 0.65rem);
+    border-radius: 18px;
+    box-shadow: none;
+  }
+
+  #gizi .fieldset-target {
+    padding: 0.35rem 0.65rem 0.5rem;
+    margin: 0;
+  }
+
+  #gizi .opsi-target {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  #gizi .baris-input {
+    gap: 0.65rem;
+  }
+
+  #gizi .baris-input label {
+    font-size: 0.78rem;
+  }
+
+  #gizi .baris-input input,
+  #gizi .baris-input select {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+  }
+
+  #gizi button[type="submit"] {
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 18px;
+  }
+
+  #gizi .hasil-gizi {
+    padding: clamp(0.75rem, 1.5vh, 1.25rem);
+    border-radius: 18px;
+    box-shadow: none;
+  }
+
+  #gizi .angka-kalori {
+    font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+    margin: 0.15rem 0;
+  }
+
+  #gizi .makro {
+    margin: 0.5rem 0;
+    gap: 0.5rem;
+  }
+
+  #gizi .makro-item {
+    padding: 0.45rem 0.25rem;
+  }
+
+  #gizi .makro-angka {
+    font-size: 1.2rem;
+  }
+
+  #gizi #saranGizi,
+  #gizi .disclaimer-medis {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    margin: 0.25rem 0;
+  }
+
+  #gizi .tombol-mulai-workout-hasil {
+    margin-top: 0.65rem !important;
+    padding: 0.55rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Penyesuaian Proporsional Laptop (Tinggi layar <= 800px) */
+
+@media (min-width: 1024px) and (max-height: 800px) {
+  #beranda.seksi-beranda-utama {
+    padding: 0.45rem 3%;
+  }
+
+  .beranda-member-wrap {
+    gap: 0.4rem;
+  }
+
+  .judul-sapaan-member {
+    font-size: 1.45rem;
+    margin: 0.1rem 0 0.25rem;
+  }
+
+  .kotak-motivasi-member {
+    padding: 0.35rem 0.6rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .member-sub-sapaan {
+    font-size: 0.75rem;
+    line-height: 1.3;
+    margin: 0 0 0.25rem;
+  }
+
+  .micro-stats-member {
+    font-size: 0.68rem;
+  }
+
+  .hero-aksi.hero-aksi-member {
+    margin-bottom: 0.35rem;
+  }
+
+  .tombol-aksi-checkin,
+  .tombol-aksi-kawan {
+    padding: 0.38rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .kartu-dekorasi-gerak {
+    padding: 0.45rem 0.75rem;
+  }
+
+  .svg-siluet-gerak {
+    width: 120px;
+    height: 60px;
+  }
+
+  .kartu-streak-aesthetic,
+  .kartu-level-aesthetic {
+    padding: 0.45rem 0.65rem;
+  }
+
+  .angka-besar-streak {
+    font-size: 1.25rem;
+  }
+
+  .kartu-ayo-mulai {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .nilai-metrik-berat {
+    font-size: 0.85rem;
+  }
+
+  .banner-ekuivalen-energi {
+    padding: 0.25rem 0.45rem;
+  }
+
+  .panel-bawah-beranda {
+    padding-top: 0.35rem;
+  }
+
+  .tab-btn-beranda {
+    padding: 0.25rem 0.65rem;
+    font-size: 0.72rem;
+  }
+
+  .kartu-akses-member,
+  .pilar-beranda-tab .kartu-pilar {
+    padding: 0.5rem 0.65rem;
+    min-height: 80px;
+  }
+
+  .kartu-akses-member h4,
+  .pilar-beranda-tab .kartu-pilar h3 {
+    font-size: 0.8rem;
+  }
+
+  .deskripsi-akses,
+  .pilar-beranda-tab .kartu-pilar p {
+    font-size: 0.68rem;
+  }
+}
+
+/* Mode Gelap & Kontras untuk Tab Switcher */
+
+body.gelap .tab-switcher-beranda {
+  background: #121A2B;
+  border-color: #1E2A40;
+}
+
+body.gelap .tab-btn-beranda {
+  color: #9ca3af;
+}
+
+body.gelap .tab-btn-beranda.tab-beranda-aktif {
+  background: #22C55E;
+  color: #111111;
+}
+
+body.gelap .panel-bawah-beranda {
+  border-top-color: #374151;
+}
+
+body.kontras .tab-switcher-beranda {
+  background: #000000;
+  border: 2px solid #ffffff;
+}
+
+body.kontras .tab-btn-beranda {
+  color: #ffffff;
+}
+
+body.kontras .tab-btn-beranda.tab-beranda-aktif {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ===================================================
+   BAGIAN INFORMASI TAMBAHAN TIAP HALAMAN (SCROLLING)
+   =================================================== */
+
+.seksi-konten-tambahan {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px dashed #CDD4DE;
+  width: 100%;
+}
+
+.seksi-konten-tambahan .header-seksi-tambahan {
+  margin-bottom: 1.25rem;
+}
+
+.seksi-konten-tambahan .header-seksi-tambahan h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0.2rem 0;
+  color: #0B1220;
+}
+
+.seksi-konten-tambahan .header-seksi-tambahan p {
+  color: #555;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.grid-kartu-informasi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.kartu-info-estetik {
+  background: #FFFFFF;
+  border: 1px solid #E3E7EE;
+  border-radius: 20px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 16px rgba(11, 18, 32, 0.05);
+}
+
+.kartu-info-estetik .top-badge-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.kartu-info-estetik .ikon-besar {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.kartu-info-estetik .badge-mini {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid #E3E7EE;
+}
+
+.badge-mini.aksen-hijau {
+  background: #22C55E;
+  color: #0B1220;
+}
+
+.badge-mini.aksen-oranye {
+  background: #15803D;
+  color: #ffffff;
+}
+
+.badge-mini.aksen-ungu {
+  background: #15803D;
+  color: #0B1220;
+}
+
+.badge-mini.aksen-biru {
+  background: #4ADE80;
+  color: #0B1220;
+}
+
+.kartu-info-estetik h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin: 0;
+  color: #0B1220;
+}
+
+.kartu-info-estetik p {
+  font-size: 0.825rem;
+  line-height: 1.45;
+  color: #444;
+  margin: 0;
+}
+
+.kartu-info-estetik ul {
+  margin: 0.35rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.8rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.kartu-info-estetik ul li {
+  margin-bottom: 0.25rem;
+}

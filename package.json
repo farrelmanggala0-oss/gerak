@@ -1,0 +1,19 @@
+{
+  "name": "gerak",
+  "version": "1.0.0",
+  "description": "Platform kesehatan inklusif Gen Z: Gizi, Energi, Raga, Kawan (LOGICODIX 2026)",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "start": "node server.js",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "inclusive-health",
+    "gen-z",
+    "accessibility",
+    "logicodix2026"
+  ],
+  "author": "",
+  "license": "MIT"
+}
